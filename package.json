@@ -1,0 +1,50 @@
+{
+  "name": "bannermaker",
+  "version": "1.0.0",
+  "description": "블로그하는 사람들은 대부분 배너를 만든다. 블로그 배너를 조금 더 쉽게 만들 수 있는 어플리케이션이다!",
+  "main": "index.js",
+  "dependencies": {
+    "@emotion/css": "^11.1.3",
+    "@reduxjs/toolkit": "^1.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@testing-library/jest-dom": "^5.11.8",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.19",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "given2": "^2.1.7",
+    "jest": "^26.6.3",
+    "jest-plugin-context": "^2.9.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "tr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Rocket-TR/BannerMaker/issues"
+  },
+  "homepage": "https://github.com/Team-Rocket-TR/BannerMaker#readme"
+}
