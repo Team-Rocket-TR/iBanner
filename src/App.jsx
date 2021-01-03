@@ -1,9 +1,6 @@
 import React from 'react';
+import BannerBackground from './bannerBackground';
 
-export default function App() {
-  return (
-    <div>
-      <p>Hello, BannerMaker!</p>
-    </div>
-  );
-}
+const App = () => <BannerBackground />;
+
+export default App;
