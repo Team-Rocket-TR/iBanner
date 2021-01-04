@@ -20,14 +20,13 @@ const BannerImage = styled.div`
     }
 `;
 
-const bannerPreview = () => (
+const BannerPreview = () => (
   <BannerImage>
     <div className="bannerFont">
       <p>Text</p>
     </div>
-
   </BannerImage>
 
 );
 
-export default bannerPreview;
+export default BannerPreview;

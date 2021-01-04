@@ -1,6 +1,12 @@
 import React from 'react';
-import BannerBackground from './bannerBackground';
+import ColorpickerIcon from './ColorpickerIcon';
+import BannerPreview from './BannerPreview';
 
-const App = () => <BannerBackground />;
+const App = () => (
+  <>
+    <BannerPreview />
+    <ColorpickerIcon />
+  </>
+);
 
 export default App;
