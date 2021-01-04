@@ -8,7 +8,8 @@ const Topic = ({ topic, onChange }) => {
 
   return (
     <>
-      <label htmlFor="input-topic">topic: </label>
+      <label htmlFor="input-topic">topic</label>
+      <br />
       <input
         type="text"
         name="topic"
@@ -17,8 +18,6 @@ const Topic = ({ topic, onChange }) => {
       />
       <br />
       <label>
-        topic:
-        {' '}
         {topic || '배너의 제목을 입력해주세요!'}
       </label>
     </>
