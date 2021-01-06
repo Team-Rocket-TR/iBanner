@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import BackgroundColorpicker from './BackgroundColorpicker';
 
 const BannerPaintingBtn = styled.div`
   display: -webkit-flex;
@@ -8,30 +7,13 @@ const BannerPaintingBtn = styled.div`
   padding-top: 1rem;
 `;
 
-const ColorpickerIcon = ({ bannerBackgroundColor, colorpickerHandler }) => {
-  const [colorpicker, setColorpicker] = useState(false);
-
-  // banner painting 버튼 클릭했을 때 핸들러
-  const handleBannerColor = () => {
-    setColorpicker(!colorpicker);
-  };
-
-  const handleColorChange = (colors, event) => {
-    colorpickerHandler({ ...colors, event });
-  };
-
-  return (
-    <BannerPaintingBtn>
-      <button type="button" onClick={() => handleBannerColor()}>banner Painting</button>
-      {colorpicker && (
-        <BackgroundColorpicker
-          color={bannerBackgroundColor}
-          onChangeComplete={handleColorChange}
-          onChange={handleColorChange}
-        />
-      )}
-    </BannerPaintingBtn>
-  );
-};
+const ColorpickerIcon = ({ onClick }) => (
+  <BannerPaintingBtn>
+    <button type="button" onClick={() => onClick('pink')}>pink</button>
+    <button type="button" onClick={() => onClick('blue')}>blue</button>
+    <button type="button" onClick={() => onClick('red')}>red</button>
+    <button type="button" onClick={() => onClick('black')}>black</button>
+  </BannerPaintingBtn>
+);
 
 export default ColorpickerIcon;

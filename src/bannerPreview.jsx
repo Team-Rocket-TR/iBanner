@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BannerImage = styled.div`
-    background: skyblue;
+// background: skyblue;
+const BannerImage = styled.div` 
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -12,7 +12,6 @@ const BannerImage = styled.div`
     align-items: center;
     
     .bannerFont {
-        height: 90%;
         font-size: 1.5rem;
         display: flex;
         align-items: center;
@@ -20,13 +19,19 @@ const BannerImage = styled.div`
     }
 `;
 
-const BannerPreview = () => (
-  <BannerImage>
-    <div className="bannerFont">
-      <p>Text</p>
-    </div>
-  </BannerImage>
+const BannerPreview = ({ color }) => {
+  const divStyle = {
+    color: 'white',
+    background: color,
+  };
 
-);
+  return (
+    <BannerImage sytle={divStyle}>
+      <div className="bannerFont">
+        <p>Text</p>
+      </div>
+    </BannerImage>
+  );
+};
 
 export default BannerPreview;

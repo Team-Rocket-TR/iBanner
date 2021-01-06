@@ -1,13 +1,10 @@
 import React from 'react';
-
-import ColorpickerIcon from './ColorpickerIcon';
-import BannerPreview from './BannerPreview';
+import BannerContainer from './BannerContainer';
 import TopicContainer from './TopicContainer';
 
 const App = () => (
   <>
-    <BannerPreview />
-    <ColorpickerIcon />
+    <BannerContainer />
     <TopicContainer />
   </>
 );
