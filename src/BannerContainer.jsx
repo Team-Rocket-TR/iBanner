@@ -4,7 +4,7 @@ import BannerPreview from './BannerPreview';
 import ColorpickerIcon from './ColorpickerIcon';
 
 const BannerContainer = () => {
-  const [color, setColor] = useState('black');
+  const [color, setColor] = useState('gray');
 
   const handleClick = (selectedColor) => {
     setColor(selectedColor);

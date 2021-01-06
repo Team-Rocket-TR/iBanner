@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // background: skyblue;
 const BannerImage = styled.div` 
+    display: flex;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -13,7 +14,6 @@ const BannerImage = styled.div`
     
     .bannerFont {
         font-size: 1.5rem;
-        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -26,7 +26,7 @@ const BannerPreview = ({ color }) => {
   };
 
   return (
-    <BannerImage sytle={divStyle}>
+    <BannerImage style={divStyle}>
       <div className="bannerFont">
         <p>Text</p>
       </div>
