@@ -1,14 +1,15 @@
 import React from 'react';
-import BannerPreview from './bannerPreview';
-import BannerBackground from './bannerBackground';
+
+import ColorpickerIcon from './ColorpickerIcon';
+import BannerPreview from './BannerPreview';
 import TopicContainer from './TopicContainer';
 
 const App = () => (
   <>
-    <h2>BannerMaker</h2>
     <BannerPreview />
-    <BannerBackground />
+    <ColorpickerIcon />
     <TopicContainer />
   </>
 );
+
 export default App;
