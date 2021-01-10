@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import BannerPreview from './BannerPreview';
+import { useDispatch } from 'react-redux';
+
+import { setColor } from './slice';
+
 import ColorpickerIcon from './ColorpickerIcon';
 
 const BannerContainer = () => {
-  const [color, setColor] = useState('gray');
+  const dispatch = useDispatch();
 
   const handleClick = (selectedColor) => {
-    setColor(selectedColor);
+    dispatch(setColor(selectedColor));
   };
 
   return (
     <>
-      <BannerPreview color={color} />
       <ColorpickerIcon onClick={handleClick} />
     </>
   );

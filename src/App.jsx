@@ -1,12 +1,8 @@
 import React from 'react';
-import BannerContainer from './BannerContainer';
-import TopicContainer from './TopicContainer';
+import BannerMaker from './BannerMaker';
 
 const App = () => (
-  <>
-    <BannerContainer />
-    <TopicContainer />
-  </>
+  <BannerMaker />
 );
 
 export default App;

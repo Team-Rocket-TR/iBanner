@@ -5,13 +5,9 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  function renderApp() {
-    return render(<App />);
-  }
-
   it('renders app title', () => {
-    const { container } = renderApp();
+    const { container } = render(<App />);
 
-    expect(container).toHaveTextContent('BannerMaker');
+    expect(container).toHaveTextContent('Banner Maker');
   });
 });

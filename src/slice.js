@@ -1,15 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
+  color: 'gray',
   topic: '',
 };
 
 const { actions, reducer } = createSlice({
-  name: 'application',
+  name: 'app',
   initialState: {
     ...initialState,
   },
   reducers: {
+    setColor(state, { payload: color }) {
+      return {
+        ...state,
+        color,
+      };
+    },
     setTopic(state, { payload: topic }) {
       return {
         ...state,
@@ -20,6 +27,7 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
+  setColor,
   setTopic,
 } = actions;
 
