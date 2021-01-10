@@ -19,7 +19,7 @@ const BannerImage = styled.div`
     }
 `;
 
-const BannerPreview = ({ color }) => {
+const Preview = ({ color, topic }) => {
   const divStyle = {
     color: 'white',
     background: color,
@@ -28,10 +28,10 @@ const BannerPreview = ({ color }) => {
   return (
     <BannerImage style={divStyle}>
       <div className="bannerFont">
-        <p>Text</p>
+        <p>{topic || '배너의 제목을 입력해주세요!'}</p>
       </div>
     </BannerImage>
   );
 };
 
-export default BannerPreview;
+export default Preview;

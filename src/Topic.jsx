@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Topic = ({ topic, onChange }) => {
+const Topic = ({ onChange }) => {
   function handleChange(event) {
     const { target } = event;
     onChange({ value: target.value });
@@ -16,10 +16,6 @@ const Topic = ({ topic, onChange }) => {
         id="input-topic"
         onChange={handleChange}
       />
-      <br />
-      <label>
-        {topic || '배너의 제목을 입력해주세요!'}
-      </label>
     </>
   );
 };

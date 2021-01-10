@@ -1,7 +1,6 @@
 import React from 'react';
 import PreviewContainer from './PreviewContainer';
 import SettingContainer from './SettingContainer';
-import TopicContainer from './TopicContainer';
 
 const BannerMaker = () => (
   <>
@@ -11,7 +10,7 @@ const BannerMaker = () => (
     {/* 설정 */}
     <SettingContainer />
     {/* 다운로드 */}
-    <TopicContainer />
+
   </>
 );
 

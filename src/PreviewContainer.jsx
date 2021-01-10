@@ -2,15 +2,17 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import BannerPreview from './BannerPreview';
+import Preview from './Preview';
 
 const PreviewContainer = () => {
   const color = useSelector((state) => state.color);
+  const topic = useSelector((state) => state.topic);
 
   return (
-    <>
-      <BannerPreview color={color} />
-    </>
+    <Preview
+      color={color}
+      topic={topic}
+    />
   );
 };
 
