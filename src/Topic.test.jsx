@@ -2,48 +2,43 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import Topic from './Topic';
+import Content from './Content';
 
-describe('Topic component', () => {
+describe('Content component', () => {
   const handleChange = jest.fn();
 
-  function renderTopic(topic = '') {
+  function renderTopic() {
     return render((
-      <Topic
-        topic={topic}
-        onChange={handleChange}
-      />
+      <Content onChange={handleChange} />
     ));
   }
 
-  context('with topic', () => {
-    it('renders topic text', () => {
-      const topic = '아무거나 적자';
-
-      const { container } = renderTopic(topic);
-
-      expect(container).toHaveTextContent(topic);
-    });
-  });
-
-  context('without topic', () => {
-    it('renders message, recommend topic write', () => {
+  context('with content', () => {
+    it('renders content text', () => {
       const { container } = renderTopic();
 
-      expect(container).toHaveTextContent(/배너의 제목을 입력해주세요/);
+      expect(container).not.toBeNull();
     });
   });
 
-  it("renders input entered banner's topic", () => {
-    const { getByLabelText } = renderTopic();
+  context('without content', () => {
+    it('renders message, recommend content write', () => {
+      const { container } = renderTopic();
 
-    expect(getByLabelText('topic')).not.toBeNull();
+      expect(container).toHaveTextContent(/제목을 입력해주세요/);
+    });
   });
 
-  it('listens topic change event', () => {
+  it("renders input entered banner's content", () => {
     const { getByLabelText } = renderTopic();
 
-    const target = getByLabelText('topic');
+    expect(getByLabelText('content')).not.toBeNull();
+  });
+
+  it('listens content change event', () => {
+    const { getByLabelText } = renderTopic();
+
+    const target = getByLabelText('content');
 
     expect(target).not.toBeNull();
 

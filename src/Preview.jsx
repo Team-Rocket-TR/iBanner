@@ -1,39 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
-
-// background: skyblue;
-const BannerImage = styled.div` 
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    
-    justify-content: center;
-    align-items: center;
-    
-    .bannerFont {
-        font-size: 1.5rem;
-        align-items: center;
-        justify-content: center;
-    }
-`;
+import React, { useRef, useEffect } from 'react';
 
 const Preview = ({
-  color, topic, width, height,
+  width,
+  height,
+  color,
+  content,
 }) => {
-  const divStyle = {
-    color: 'white',
-    background: color,
-    width: `${width}px`,
-    height: `${height}px`,
+  const canvasRef = useRef(null);
+
+  const draw = (ctx) => {
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.font = '1.5rem Arial';
+    ctx.fillStyle = '#fff';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+    ctx.fillText(content || '제목을 입력해주세요!', width / 2, height / 2);
   };
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const banner = canvas.getContext('2d');
+    draw(banner);
+  }, [draw]);
+
   return (
-    <BannerImage style={divStyle}>
-      <div className="bannerFont">
-        <p>{topic || '배너의 제목을 입력해주세요!'}</p>
-      </div>
-    </BannerImage>
+    <canvas
+      ref={canvasRef}
+      width={width}
+      height={height}
+    />
   );
 };
 

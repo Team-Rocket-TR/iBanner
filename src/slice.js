@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   color: 'gray',
-  topic: '',
+  content: '',
   width: '500',
   height: '500',
 };
@@ -19,10 +19,10 @@ const { actions, reducer } = createSlice({
         color,
       };
     },
-    setTopic(state, { payload: topic }) {
+    setContent(state, { payload: content }) {
       return {
         ...state,
-        topic,
+        content,
       };
     },
     setWidth(state, { payload: width }) {
@@ -41,7 +41,7 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
-  setColor, setTopic, setWidth, setHeight,
+  setColor, setContent, setWidth, setHeight,
 } = actions;
 
 export default reducer;
