@@ -7,8 +7,7 @@ const BannerImage = styled.div`
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    width: 500px;
-    height: 500px;
+    
     justify-content: center;
     align-items: center;
     
@@ -19,10 +18,14 @@ const BannerImage = styled.div`
     }
 `;
 
-const Preview = ({ color, topic }) => {
+const Preview = ({
+  color, topic, selectedWidth, selectedHeight,
+}) => {
   const divStyle = {
     color: 'white',
     background: color,
+    width: selectedWidth,
+    height: selectedHeight,
   };
 
   return (

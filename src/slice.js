@@ -1,12 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
-  color: "gray",
-  topic: "",
+  color: 'gray',
+  topic: '',
+  width: '500',
+  height: '500',
 };
 
 const { actions, reducer } = createSlice({
-  name: "app",
+  name: 'app',
   initialState: {
     ...initialState,
   },
@@ -23,9 +25,23 @@ const { actions, reducer } = createSlice({
         topic,
       };
     },
+    setWidth(state, { payload: width }) {
+      return {
+        ...state,
+        width,
+      };
+    },
+    setHeight(state, { payload: height }) {
+      return {
+        ...state,
+        height,
+      };
+    },
   },
 });
 
-export const { setColor, setTopic } = actions;
+export const {
+  setColor, setTopic, setWidth, setHeight,
+} = actions;
 
 export default reducer;
