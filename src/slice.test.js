@@ -1,6 +1,6 @@
 import reducer, {
   initialState,
-  setTopic,
+  setContent,
 } from './slice';
 
 describe('reducer', () => {
@@ -12,11 +12,11 @@ describe('reducer', () => {
     });
   });
 
-  describe('setTopic', () => {
+  describe('setContent', () => {
     it('changes topic', () => {
       const expectValue = '아무거나 적기';
 
-      const state = reducer(initialState, setTopic(expectValue));
+      const state = reducer(initialState, setContent(expectValue));
 
       expect(state.topic).toBe(expectValue);
     });

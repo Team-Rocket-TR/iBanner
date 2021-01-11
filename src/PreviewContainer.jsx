@@ -6,12 +6,12 @@ import Preview from './Preview';
 
 const PreviewContainer = () => {
   const color = useSelector((state) => state.color);
-  const topic = useSelector((state) => state.topic);
+  const content = useSelector((state) => state.content);
 
   return (
     <Preview
       color={color}
-      topic={topic}
+      content={content}
     />
   );
 };

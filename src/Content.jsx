@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Topic = ({ onChange }) => {
+const Content = ({ onChange }) => {
   function handleChange(event) {
     const { target } = event;
     onChange({ value: target.value });
@@ -8,16 +8,16 @@ const Topic = ({ onChange }) => {
 
   return (
     <>
-      <label htmlFor="input-topic">topic</label>
+      <label htmlFor="input-Content">Content</label>
       <br />
       <input
         type="text"
-        name="topic"
-        id="input-topic"
+        name="Content"
+        id="input-Content"
         onChange={handleChange}
       />
     </>
   );
 };
 
-export default Topic;
+export default Content;
