@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-  color: 'gray',
-  topic: '',
+  color: "gray",
+  topic: "",
 };
 
 const { actions, reducer } = createSlice({
-  name: 'app',
+  name: "app",
   initialState: {
     ...initialState,
   },
@@ -26,9 +26,6 @@ const { actions, reducer } = createSlice({
   },
 });
 
-export const {
-  setColor,
-  setTopic,
-} = actions;
+export const { setColor, setTopic } = actions;
 
 export default reducer;

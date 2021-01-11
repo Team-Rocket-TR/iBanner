@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setColor, setTopic } from './slice';
-
 import Topic from './Topic';
 import ColorpickerIcon from './ColorpickerIcon';
 
@@ -21,6 +20,9 @@ const BannerContainer = () => {
 
   return (
     <>
+      <input value={width} placeholder="Banner Width" />
+      <input value={height} placeholder="Banner Height" />
+      <input />
       <ColorpickerIcon onClick={handleClick} />
       <Topic
         topic={topic}
