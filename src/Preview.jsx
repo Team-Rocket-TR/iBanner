@@ -19,13 +19,13 @@ const BannerImage = styled.div`
 `;
 
 const Preview = ({
-  color, topic, selectedWidth, selectedHeight,
+  color, topic, width, height,
 }) => {
   const divStyle = {
     color: 'white',
     background: color,
-    width: selectedWidth,
-    height: selectedHeight,
+    width: `${width}px`,
+    height: `${height}px`,
   };
 
   return (

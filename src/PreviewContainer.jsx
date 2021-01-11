@@ -14,8 +14,8 @@ const PreviewContainer = () => {
     <Preview
       color={color}
       topic={topic}
-      selectedWidth={width}
-      selectedHeight={height}
+      width={width}
+      height={height}
     />
   );
 };
