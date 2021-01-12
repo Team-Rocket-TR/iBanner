@@ -13,12 +13,12 @@ describe('reducer', () => {
   });
 
   describe('setContent', () => {
-    it('changes topic', () => {
+    it('changes content', () => {
       const expectValue = '아무거나 적기';
 
       const state = reducer(initialState, setContent(expectValue));
 
-      expect(state.topic).toBe(expectValue);
+      expect(state.content).toBe(expectValue);
     });
   });
 });
