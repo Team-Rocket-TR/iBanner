@@ -7,7 +7,7 @@ import Content from './Content';
 describe('Content component', () => {
   const handleChange = jest.fn();
 
-  function renderTopic() {
+  function renderContent() {
     return render((
       <Content onChange={handleChange} />
     ));
@@ -15,7 +15,7 @@ describe('Content component', () => {
 
   context('with content', () => {
     it('renders content text', () => {
-      const { container } = renderTopic();
+      const { container } = renderContent();
 
       expect(container).not.toBeNull();
     });
@@ -23,22 +23,22 @@ describe('Content component', () => {
 
   context('without content', () => {
     it('renders message, recommend content write', () => {
-      const { container } = renderTopic();
+      const { getByPlaceholderText } = renderContent();
 
-      expect(container).toHaveTextContent(/제목을 입력해주세요/);
+      expect(getByPlaceholderText(/banner content/)).not.toBeNull();
     });
   });
 
   it("renders input entered banner's content", () => {
-    const { getByLabelText } = renderTopic();
+    const { getByLabelText } = renderContent();
 
-    expect(getByLabelText('content')).not.toBeNull();
+    expect(getByLabelText('Content')).not.toBeNull();
   });
 
   it('listens content change event', () => {
-    const { getByLabelText } = renderTopic();
+    const { getByLabelText } = renderContent();
 
-    const target = getByLabelText('content');
+    const target = getByLabelText('Content');
 
     expect(target).not.toBeNull();
 

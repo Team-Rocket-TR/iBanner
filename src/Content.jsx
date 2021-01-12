@@ -8,12 +8,13 @@ const Content = ({ onChange }) => {
 
   return (
     <>
-      <label htmlFor="input-Content">Content</label>
+      <label htmlFor="input-content">Content</label>
       <br />
       <input
         type="text"
-        name="Content"
-        id="input-Content"
+        name="content"
+        id="input-content"
+        placeholder="banner content"
         onChange={handleChange}
       />
     </>
