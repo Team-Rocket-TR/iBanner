@@ -1,6 +1,7 @@
 import reducer, {
   initialState,
   setContent,
+  setFontColor,
 } from './slice';
 
 describe('reducer', () => {
@@ -19,6 +20,16 @@ describe('reducer', () => {
       const state = reducer(initialState, setContent(expectValue));
 
       expect(state.content).toBe(expectValue);
+    });
+  });
+
+  describe('setFontColor', () => {
+    it('changes color of content', () => {
+      const expectValue = 'black';
+
+      const state = reducer(initialState, setFontColor(expectValue));
+
+      expect(state.contentColor).toBe(expectValue);
     });
   });
 });
