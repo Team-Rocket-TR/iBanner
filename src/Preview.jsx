@@ -5,6 +5,7 @@ const Preview = ({
   height,
   color,
   content,
+  fontColor,
 }) => {
   const canvasRef = useRef(null);
 
@@ -13,7 +14,7 @@ const Preview = ({
     ctx.fillRect(0, 0, width, height);
 
     ctx.font = '1.5rem Arial';
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = fontColor;
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     ctx.fillText(content || '제목을 입력해주세요!', width / 2, height / 2);

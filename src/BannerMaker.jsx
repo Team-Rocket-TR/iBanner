@@ -1,6 +1,7 @@
 import React from 'react';
 import PreviewContainer from './PreviewContainer';
-import SettingContainer from './SettingContainer';
+import BackgroundContainer from './BackgroundContainer';
+import ContentContainer from './ContentContainer';
 
 const BannerMaker = () => (
   <>
@@ -8,7 +9,8 @@ const BannerMaker = () => (
     {/* 미리보기 */}
     <PreviewContainer />
     {/* 설정 */}
-    <SettingContainer />
+    <BackgroundContainer />
+    <ContentContainer />
     {/* 다운로드 */}
 
   </>

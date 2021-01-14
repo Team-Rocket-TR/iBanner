@@ -5,17 +5,21 @@ import { useSelector } from 'react-redux';
 import Preview from './Preview';
 
 const PreviewContainer = () => {
-  const color = useSelector((state) => state.color);
-  const content = useSelector((state) => state.content);
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
+  const color = useSelector((state) => state.color);
+
+  const content = useSelector((state) => state.content);
+  const fontColor = useSelector((state) => state.fontColor);
+
   return (
     <Preview
-      color={color}
-      content={content}
       width={width}
       height={height}
+      color={color}
+      content={content}
+      fontColor={fontColor}
     />
   );
 };

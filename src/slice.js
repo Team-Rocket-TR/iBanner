@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   color: 'gray',
   content: '',
+  fontColor: 'white',
   width: '500',
   height: '500',
 };
@@ -13,18 +14,6 @@ const { actions, reducer } = createSlice({
     ...initialState,
   },
   reducers: {
-    setColor(state, { payload: color }) {
-      return {
-        ...state,
-        color,
-      };
-    },
-    setContent(state, { payload: content }) {
-      return {
-        ...state,
-        content,
-      };
-    },
     setWidth(state, { payload: width }) {
       return {
         ...state,
@@ -37,11 +26,33 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
+    setColor(state, { payload: color }) {
+      return {
+        ...state,
+        color,
+      };
+    },
+    setContent(state, { payload: content }) {
+      return {
+        ...state,
+        content,
+      };
+    },
+    setFontColor(state, { payload: fontColor }) {
+      return {
+        ...state,
+        fontColor,
+      };
+    },
   },
 });
 
 export const {
-  setColor, setContent, setWidth, setHeight,
+  setColor,
+  setContent,
+  setFontColor,
+  setWidth,
+  setHeight,
 } = actions;
 
 export default reducer;
