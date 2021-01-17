@@ -29,7 +29,7 @@ describe('reducer', () => {
 
       const state = reducer(initialState, setFontColor(expectValue));
 
-      expect(state.contentColor).toBe(expectValue);
+      expect(state.fontColor).toBe(expectValue);
     });
   });
 });
