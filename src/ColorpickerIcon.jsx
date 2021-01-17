@@ -13,7 +13,6 @@ const ColorpickerIcon = ({ onClick }) => (
     <button type="button" onClick={() => onClick('blue')}>blue</button>
     <button type="button" onClick={() => onClick('red')}>red</button>
     <button type="button" onClick={() => onClick('black')}>black</button>
-    <button type="button" onClick={() => onClick('selectedPickColor')}>Pick Color</button>
   </BannerPaintingBtn>
 
 );

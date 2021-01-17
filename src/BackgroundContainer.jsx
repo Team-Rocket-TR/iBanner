@@ -1,9 +1,8 @@
 import React from 'react';
-import { ChromePicker } from 'react-color';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  setColor,
+  setBackgroundColor,
   setWidth,
   setHeight,
 } from './slice';
@@ -17,7 +16,7 @@ const BackgroundContainer = () => {
 
   // Change banner background color
   const handleClick = (selectedColor) => {
-    dispatch(setColor(selectedColor));
+    dispatch(setBackgroundColor(selectedColor));
   };
 
   // Change banner width
