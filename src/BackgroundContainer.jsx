@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { ChromePicker } from 'react-color';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -20,10 +20,16 @@ const BackgroundContainer = () => {
   };
 
   const handleWidthChange = (e) => {
-    dispatch(setWidth(e.target.value));
+    const bannerWidth = /^[0-9\b]+$/;
+    if (e.target.value === '' || bannerWidth.test(e.target.value)) {
+      dispatch(setWidth(e.target.value));
+    }
   };
   const handleHeightChange = (e) => {
-    dispatch(setHeight(e.target.value));
+    const bannerHeigth = /^[0-9\b]+$/;
+    if (e.target.value === '' || bannerHeigth.test(e.target.value)) {
+      dispatch(setHeight(e.target.value));
+    }
   };
 
   return (
