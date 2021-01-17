@@ -15,16 +15,20 @@ const BackgroundContainer = () => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
+  // Change banner background color
   const handleClick = (selectedColor) => {
     dispatch(setColor(selectedColor));
   };
 
+  // Change banner width
   const handleWidthChange = (e) => {
     const bannerWidth = /^[0-9\b]+$/;
     if (e.target.value === '' || bannerWidth.test(e.target.value)) {
       dispatch(setWidth(e.target.value));
     }
   };
+
+  // Change banner heigth
   const handleHeightChange = (e) => {
     const bannerHeigth = /^[0-9\b]+$/;
     if (e.target.value === '' || bannerHeigth.test(e.target.value)) {
@@ -34,8 +38,8 @@ const BackgroundContainer = () => {
 
   return (
     <>
-      <input type="text" name="width" value={width} placeholder="Banner Width" onChange={handleWidthChange} />
-      <input type="text" name="height" value={height} placeholder="Banner Height" onChange={handleHeightChange} />
+      <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
+      <input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
       <ColorpickerIcon onClick={handleClick} />
     </>
   );
