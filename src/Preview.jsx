@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const Preview = ({
   width,
@@ -6,25 +6,25 @@ const Preview = ({
   color,
   content,
   fontColor,
+  onDraw,
 }) => {
   const canvasRef = useRef(null);
 
-  const draw = (ctx) => {
-    ctx.fillStyle = color;
-    ctx.fillRect(0, 0, width, height);
-
-    ctx.font = '1.5rem Arial';
-    ctx.fillStyle = fontColor;
-    ctx.textBaseline = 'middle';
-    ctx.textAlign = 'center';
-    ctx.fillText(content || '제목을 입력해주세요!', width / 2, height / 2);
-  };
-
   useEffect(() => {
     const canvas = canvasRef.current;
-    const banner = canvas.getContext('2d');
-    draw(banner);
-  }, [draw]);
+    const context = canvas.getContext('2d');
+
+    context.fillStyle = color;
+    context.fillRect(0, 0, width, height);
+
+    context.font = '1.5rem Arial';
+    context.fillStyle = fontColor;
+    context.textBaseline = 'middle';
+    context.textAlign = 'center';
+    context.fillText(content || '제목을 입력해주세요!', width / 2, height / 2);
+
+    onDraw(canvas);
+  });
 
   return (
     <canvas
