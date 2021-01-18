@@ -1,9 +1,8 @@
 import React from 'react';
-import { ChromePicker } from 'react-color';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  setColor,
+  setBackgroundColor,
   setWidth,
   setHeight,
 } from './slice';
@@ -12,12 +11,13 @@ import ColorpickerIcon from './ColorpickerIcon';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
+  const backgroundColor = useSelector((state) => state.color);
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
   // Change banner background color
-  const handleClick = (selectedColor) => {
-    dispatch(setColor(selectedColor));
+  const handleChangeComplete = (color) => {
+    dispatch(setBackgroundColor(color.hex));
   };
 
   // Change banner width
@@ -40,7 +40,7 @@ const BackgroundContainer = () => {
     <>
       <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
       <input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
-      <ColorpickerIcon onClick={handleClick} />
+      <ColorpickerIcon handleChangeComplete={handleChangeComplete} color={backgroundColor} />
     </>
   );
 };
