@@ -1,5 +1,8 @@
+import { createRef } from 'react';
+
 import reducer, {
   initialState,
+  setCanvasRef,
   setContent,
   setFontColor,
 } from './slice';
@@ -10,6 +13,16 @@ describe('reducer', () => {
       const state = reducer(undefined, { type: 'action' });
 
       expect(state).toEqual(initialState);
+    });
+  });
+
+  describe('setCanvasRef', () => {
+    it('changes content', () => {
+      const expectRef = createRef();
+
+      const state = reducer(initialState, setCanvasRef(expectRef));
+
+      expect(state.canvasRef).toBe(expectRef);
     });
   });
 

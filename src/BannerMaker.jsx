@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PreviewContainer from './PreviewContainer';
 import BackgroundContainer from './BackgroundContainer';
 import ContentContainer from './ContentContainer';
@@ -15,6 +16,7 @@ const BannerMaker = () => (
     {/* 다운로드 */}
     <ExportContainer />
   </>
+
 );
 
 export default BannerMaker;

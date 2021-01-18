@@ -1,14 +1,21 @@
 import React from 'react';
 
-import Download from './Download';
-import Clipboard from './Clipboard';
+import { useSelector } from 'react-redux';
 
-const ExportContainer = () => (
-  <>
-    <h2>Export Image</h2>
-    <Download />
-    <Clipboard />
-  </>
-);
+import Download from './Download';
+
+const ExportContainer = () => {
+  const canvasRef = useSelector((state) => state.canvasRef);
+
+  return (
+    <>
+      <h2>Export Image</h2>
+      <Download
+        imageURL={canvasRef}
+        filename="banner.png"
+      />
+    </>
+  );
+};
 
 export default ExportContainer;

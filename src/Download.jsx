@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Download = () => (
+const Download = ({ imageURL, filename }) => (
   <>
-    <a href="myImage.png" download="myImage.png" onClick="download_img(this);">
+    <a
+      href={imageURL}
+      download={filename}
+    >
       <button type="button">다운로드</button>
     </a>
   </>

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
+  canvasRef: null,
   color: 'gray',
   content: '',
   fontColor: 'white',
@@ -14,6 +15,12 @@ const { actions, reducer } = createSlice({
     ...initialState,
   },
   reducers: {
+    setCanvasRef(state, { payload: canvasRef }) {
+      return {
+        ...state,
+        canvasRef,
+      };
+    },
     setWidth(state, { payload: width }) {
       return {
         ...state,
@@ -48,6 +55,7 @@ const { actions, reducer } = createSlice({
 });
 
 export const {
+  setCanvasRef,
   setColor,
   setContent,
   setFontColor,
