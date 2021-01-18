@@ -8,7 +8,7 @@ const PreviewContainer = () => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  const color = useSelector((state) => state.color);
+  const color = useSelector((state) => state.backgroundColor);
 
   const content = useSelector((state) => state.content);
   const fontColor = useSelector((state) => state.fontColor);
