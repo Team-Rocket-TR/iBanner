@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
-  color: 'gray',
+  backgroundColor: 'gray',
   content: '',
   fontColor: 'white',
   width: '500',
@@ -26,10 +26,10 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
-    setBackgroundColor(state, { payload: color }) {
+    setBackgroundColor(state, { payload: backgroundColor }) {
       return {
         ...state,
-        color,
+        backgroundColor,
       };
     },
     setContent(state, { payload: content }) {

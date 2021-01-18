@@ -11,7 +11,7 @@ import ColorpickerIcon from './ColorpickerIcon';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
-  const backgroundColor = useSelector((state) => state.color);
+  const backgroundColor = useSelector((state) => state.backgroundColor);
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
