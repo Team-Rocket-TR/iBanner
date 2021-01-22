@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setContent, setFontColor } from './slice';
 
@@ -10,18 +10,20 @@ import ColorpickerIcon from './ColorpickerIcon';
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
+  const fontColor = useSelector((state) => state.fontColor);
+
   const handleChange = ({ value }) => {
     dispatch(setContent(value));
   };
 
-  const handleClick = (selectedColor) => {
-    dispatch(setFontColor(selectedColor));
+  const handleChangeColor = (color) => {
+    dispatch(setFontColor(color.hex));
   };
 
   return (
     <>
       <Content onChange={handleChange} />
-      <ColorpickerIcon onClick={handleClick} />
+      <ColorpickerIcon handleChangeComplete={handleChangeColor} color={fontColor} />
     </>
   );
 };
