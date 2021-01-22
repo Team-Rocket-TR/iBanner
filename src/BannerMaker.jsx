@@ -7,14 +7,21 @@ import ExportContainer from './ExportContainer';
 
 const BannerMaker = () => (
   <>
-    <h2>Banner Maker</h2>
-    {/* 미리보기 */}
-    <PreviewContainer />
-    {/* 설정 */}
-    <BackgroundContainer />
-    <ContentContainer />
-    {/* 다운로드 */}
-    <ExportContainer />
+    <header>
+      <h2>Banner Maker</h2>
+    </header>
+    <article id="mainArticle">
+      {/* 미리보기 */}
+      <PreviewContainer />
+    </article>
+    <nav id="mainNav">
+      {/* 설정 */}
+      <BackgroundContainer />
+      <ContentContainer />
+      {/* 다운로드 */}
+      <ExportContainer />
+    </nav>
+
   </>
 
 );
