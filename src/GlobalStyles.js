@@ -14,9 +14,20 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         background-color: #F9F9F9;
     }
-    header, footer, nav, article, section, aside {
+    h1 { font-weight: 600; font-size: 2em; }
+    h2 { font-weight: 500; font-size: 1.8em; }
+    h3 { font-weight: 500; font-size: 1.6em; }
+    h4 { font-weight: 400; font-size: 1.4em; }
+    h5 { font-weight: 400; font-size: 1.2em; }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    header, footer, nav, article {
         padding: 1.2em;
     }
+
     #app {
         display: grid;
         grid-template-areas:
@@ -45,18 +56,26 @@ const GlobalStyles = createGlobalStyle`
         background-color: #F0F0F0;
     }
     #mainNav {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
         color: #FFFFFF;
         background-color: #363636;
     }
-    a {
-        text-decoration: none;
-        color: inherit;
+    #mainNav section {
+        padding: 0;
     }
-    h1 { font-weight: 600; font-size: 2em; }
-    h2 { font-weight: 500; font-size: 1.8em; }
-    h3 { font-weight: 500; font-size: 1.6em; }
-    h4 { font-weight: 400; font-size: 1.4em; }
-    h5 { font-weight: 400; font-size: 1.2em; }
+    #mainNav a[download$=".png"] {
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+        border: 1px solid;
+    }
+    #mainNav a[download$=".png"]:hover {
+        color: #121212;
+        border-color: #121212;
+        background-color: #FFFFFF;
+    }
 
     @media all and (max-width: 768px) {
         #app { 

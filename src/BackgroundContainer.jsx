@@ -37,11 +37,12 @@ const BackgroundContainer = () => {
   };
 
   return (
-    <>
+    <div>
+      <h4>Background Color</h4>
       <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
       <input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
       <ColorpickerIcon handleChangeComplete={handleChangeComplete} color={backgroundColor} />
-    </>
+    </div>
   );
 };
 

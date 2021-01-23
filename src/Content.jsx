@@ -1,6 +1,12 @@
 import React from 'react';
 
 const Content = ({ onChange }) => {
+  const styles = {
+    label: {
+      display: 'none',
+    },
+  };
+
   function handleChange(event) {
     const { target } = event;
     onChange({ value: target.value });
@@ -8,8 +14,7 @@ const Content = ({ onChange }) => {
 
   return (
     <>
-      <label htmlFor="input-content">Content</label>
-      <br />
+      <label htmlFor="input-content" style={styles.label}>Content</label>
       <input
         type="text"
         name="content"

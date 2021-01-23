@@ -21,10 +21,11 @@ const ContentContainer = () => {
   };
 
   return (
-    <>
+    <div>
+      <h4>Text Color</h4>
       <Content onChange={handleChange} />
       <ColorpickerIcon handleChangeComplete={handleChangeColor} color={fontColor} />
-    </>
+    </div>
   );
 };
 

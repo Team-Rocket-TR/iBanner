@@ -8,13 +8,12 @@ const ExportContainer = () => {
   const canvasRef = useSelector((state) => state.canvasRef);
 
   return (
-    <>
-      <h2>Export Image</h2>
+    <section>
       <Download
         imageURL={canvasRef}
         filename="banner.png"
       />
-    </>
+    </section>
   );
 };
 

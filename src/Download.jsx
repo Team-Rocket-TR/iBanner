@@ -6,7 +6,7 @@ const Download = ({ imageURL, filename }) => (
       href={imageURL}
       download={filename}
     >
-      <button type="button">다운로드</button>
+      다운로드
     </a>
   </>
 );
