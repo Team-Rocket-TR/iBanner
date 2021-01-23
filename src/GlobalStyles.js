@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: boerder-box;
     }
+
     body {
         font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 14px;
@@ -14,15 +15,16 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         background-color: #F9F9F9;
     }
+
     h1 { font-weight: 600; font-size: 2em; }
     h2 { font-weight: 500; font-size: 1.8em; }
     h3 { font-weight: 500; font-size: 1.6em; }
     h4 { font-weight: 400; font-size: 1.4em; }
     h5 { font-weight: 400; font-size: 1.2em; }
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+    
+    a { text-decoration: none; color: inherit; }
+
+    hr { margin: 1.5em 0; }
 
     header, footer, nav, article {
         padding: 1.2em;
