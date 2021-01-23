@@ -9,5 +9,6 @@ describe('Download', () => {
     const { container } = render(<Download />);
 
     expect(container).not.toBeNull();
+    expect(container).toHaveTextContent(/Download/);
   });
 });

@@ -6,7 +6,7 @@ const Download = ({ imageURL, filename }) => (
       href={imageURL}
       download={filename}
     >
-      다운로드
+      Download
     </a>
   </>
 );

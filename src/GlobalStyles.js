@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
 
     hr { margin: 1.5em 0; }
 
-    header, footer, nav, article {
+    header, footer, article {
         padding: 1.2em;
     }
 
@@ -64,19 +64,22 @@ const GlobalStyles = createGlobalStyle`
         color: #FFFFFF;
         background-color: #363636;
     }
-    #mainNav section {
-        padding: 0;
+    #mainNav section:first-child {
+        padding: 1.2em;
+    }
+    #mainNav section:last-child {
+        position: sticky;
+        bottom: 0;
+        z-index: 9;
     }
     #mainNav a[download$=".png"] {
         display: flex;
         justify-content: center;
         padding: 1em;
-        border: 1px solid;
+        background-color: #00a788;
     }
     #mainNav a[download$=".png"]:hover {
-        color: #121212;
-        border-color: #121212;
-        background-color: #FFFFFF;
+        background-color: #009688;
     }
 
     @media all and (max-width: 768px) {
