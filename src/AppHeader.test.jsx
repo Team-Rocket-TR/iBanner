@@ -2,12 +2,13 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import App from './App';
+import AppHeader from './AppHeader';
 
-describe('App', () => {
+describe('AppHeader', () => {
   it('renders app title', () => {
-    const { container } = render(<App />);
+    const { container } = render(<AppHeader />);
 
     expect(container).toHaveTextContent(/Banner\+/);
+    expect(container).toHaveTextContent(/Settings/);
   });
 });

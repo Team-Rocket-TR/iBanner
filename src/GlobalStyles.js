@@ -14,6 +14,9 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         background-color: #F9F9F9;
     }
+    header, footer, nav, article, section, aside {
+        padding: 1.2em;
+    }
     #app {
         display: grid;
         grid-template-areas:
@@ -21,25 +24,40 @@ const GlobalStyles = createGlobalStyle`
             "article nav";
         grid-template-rows: 60px 1fr;
         grid-template-columns: 1fr 25%;
-        grid-row-gap: 10px;
-        grid-column-gap: 10px;
+        height: inherit;
     }
-    #app > header {
-        grid-area: header;
+    #app > header { grid-area: header; }
+    #app > article { grid-area: article; }
+    #app > nav { grid-area: nav; }
+
+    #mainHeader {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFFFFF;
     }
-    #app > footer {
-        grid-area: footer;
+    #mainArticle {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        background-color: #F0F0F0;
     }
-    #app > article { 
-        grid-area: article;      
-    }
-    #app > nav { 
-        grid-area: nav; 
+    #mainNav {
+        color: #FFFFFF;
+        background-color: #363636;
     }
     a {
         text-decoration: none;
         color: inherit;
     }
+    h1 { font-weight: 600; font-size: 2em; }
+    h2 { font-weight: 500; font-size: 1.8em; }
+    h3 { font-weight: 500; font-size: 1.6em; }
+    h4 { font-weight: 400; font-size: 1.4em; }
+    h5 { font-weight: 400; font-size: 1.2em; }
+
     @media all and (max-width: 768px) {
         #app { 
             grid-template-areas: 

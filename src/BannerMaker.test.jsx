@@ -8,6 +8,8 @@ describe('BannerMaker', () => {
   it('renders title', () => {
     const { container } = render(<BannerMaker />);
 
-    expect(container).toHaveTextContent('Banner Maker');
+    expect(container).toContainHTML('<header id="mainHeader">');
+    expect(container).toContainHTML('<article id="mainArticle">');
+    expect(container).toContainHTML('<nav id="mainNav">');
   });
 });
