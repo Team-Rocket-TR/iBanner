@@ -33,6 +33,13 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
+    setWidthHeight(state, { payload: { width, height } }) {
+      return {
+        ...state,
+        width,
+        height,
+      };
+    },
     setBackgroundColor(state, { payload: backgroundColor }) {
       return {
         ...state,
@@ -61,6 +68,7 @@ export const {
   setFontColor,
   setWidth,
   setHeight,
+  setWidthHeight,
 } = actions;
 
 export default reducer;

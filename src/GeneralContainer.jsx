@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   setWidth,
   setHeight,
+  setWidthHeight,
 } from './slice';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
+
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
@@ -28,7 +30,7 @@ const BackgroundContainer = () => {
   };
 
   const handleSizeChange = () => {
-    dispatch(setWidth(500), setHeight(500));
+    dispatch(setWidthHeight({ width: 500, height: 500 }));
   };
 
   return (
