@@ -15,6 +15,13 @@ const BackgroundContainer = () => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
+  const bannerRatios = [
+    ['1:1', width, width],
+    ['1:2', width, (width / 2)],
+    ['16:9', width, Math.floor(width * (16 / 9))],
+    ['3:4', width, Math.floor(width * (3 / 4))],
+  ];
+
   // Custom Change banner width
   const handleWidthChange = (e) => {
     const bannerWidth = /^[0-9\b]+$/;
@@ -31,6 +38,7 @@ const BackgroundContainer = () => {
     }
   };
 
+  // Change banner size (Resize by Ratio)
   const handleSizeChange = ({ w, h }) => {
     dispatch(setWidthHeight({ width: w, height: h }));
   };
@@ -38,12 +46,10 @@ const BackgroundContainer = () => {
   return (
     <div>
       <h4>Genernal</h4>
-      {[['1:1', 500, 500], ['4:3', 800, 600]].map((wh) => {
-        const [ratio, w, h] = wh;
+      {bannerRatios.map((props) => {
+        const [ratio, w, h] = props;
         return (
-          <BannerSizeButton width={w} height={h} onClick={handleSizeChange}>
-            {ratio}
-          </BannerSizeButton>
+          <BannerSizeButton width={w} height={h} ratio={ratio} onClick={handleSizeChange} />
         );
       })}
       <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
