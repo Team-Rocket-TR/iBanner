@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import BannerSizeButton from './BannerSizeButton';
+
 import {
   setWidth,
   setHeight,
@@ -36,11 +38,7 @@ const BackgroundContainer = () => {
   return (
     <div>
       <h4>Genernal</h4>
-      <button type="button" onClick={handleSizeChange}>1:1</button>
-      <button type="button">9:16</button>
-      <button type="button">16:9</button>
-      <button type="button">4:5</button>
-      <button type="button">5:4</button>
+      <BannerSizeButton onClick={handleSizeChange} widthRatio={width} heightRatio={height} />
       <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
       <input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </div>
