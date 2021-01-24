@@ -96,6 +96,17 @@ const GlobalStyles = createGlobalStyle`
             top: 100vh;
        }
     }
+
+    #BannerSizeButton {
+        color: white;
+        background: #636363;
+        margin: 5% 0% 5% 5%;
+        padding: .375rem .75rem;
+        border: 1px solid #313030;
+        border-radius: .25rem;
+        fontSize: 1rem;
+        lineHeight: 1.5;
+    }
 `;
 
 export default GlobalStyles;

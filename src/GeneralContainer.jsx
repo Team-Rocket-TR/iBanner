@@ -49,11 +49,19 @@ const BackgroundContainer = () => {
       {bannerRatios.map((props) => {
         const [ratio, w, h] = props;
         return (
-          <BannerSizeButton width={w} height={h} ratio={ratio} onClick={handleSizeChange} />
+          <BannerSizeButton
+            width={w}
+            height={h}
+            ratio={ratio}
+            onClick={handleSizeChange}
+          />
         );
       })}
-      <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
-      <input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
+      <br />
+      <label htmlFor="customSize">Custom SIze</label>
+      <br />
+      <input type="text" id="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
+      <input type="text" id="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </div>
   );
 };
