@@ -1,8 +1,8 @@
 import React from 'react';
 
-const BannerSizeButton = () => (
+const BannerSizeButton = (props, { width, height, onClick }) => (
   <>
-    <button type="button" onClick={handleSizeChange}>1:1</button>
+    <button type="button" onClick={() => onClick({ w: width, h: height })}>{props}</button>
   </>
 );
 

@@ -31,14 +31,21 @@ const BackgroundContainer = () => {
     }
   };
 
-  const handleSizeChange = () => {
-    dispatch(setWidthHeight({ width: 500, height: 500 }));
+  const handleSizeChange = ({ w, h }) => {
+    dispatch(setWidthHeight({ width: w, height: h }));
   };
 
   return (
     <div>
       <h4>Genernal</h4>
-      <BannerSizeButton onClick={handleSizeChange} widthRatio={width} heightRatio={height} />
+      {[['1:1', 500, 500], ['4:3', 800, 600]].map((wh) => {
+        const [ratio, w, h] = wh;
+        return (
+          <BannerSizeButton width={w} height={h} onClick={handleSizeChange}>
+            {ratio}
+          </BannerSizeButton>
+        );
+      })}
       <input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
       <input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </div>
