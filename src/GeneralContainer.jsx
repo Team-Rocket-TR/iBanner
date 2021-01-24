@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import BannerSizeButton from './BannerSizeButton';
 
 import {
@@ -17,9 +16,9 @@ const BackgroundContainer = () => {
 
   const bannerRatios = [
     ['1:1', width, width],
-    ['1:2', width, (width / 2)],
-    ['16:9', width, Math.floor(width * (16 / 9))],
-    ['3:4', width, Math.floor(width * (3 / 4))],
+    ['2:1', width, (width / 2)],
+    ['4:3', width, Math.floor(width * (3 / 4))],
+    ['16:9', width, Math.floor(width * (9 / 16))],
   ];
 
   // Custom Change banner width
@@ -45,7 +44,7 @@ const BackgroundContainer = () => {
 
   return (
     <div>
-      <h4>Genernal</h4>
+      <h4>General</h4>
       {bannerRatios.map((props) => {
         const [ratio, w, h] = props;
         return (
@@ -53,6 +52,7 @@ const BackgroundContainer = () => {
             width={w}
             height={h}
             ratio={ratio}
+            key={ratio}
             onClick={handleSizeChange}
           />
         );
@@ -60,8 +60,8 @@ const BackgroundContainer = () => {
       <br />
       <label htmlFor="customSize">Custom SIze</label>
       <br />
-      <input type="text" id="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
-      <input type="text" id="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
+      <input type="text" className="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
+      <input type="text" className="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </div>
   );
 };
