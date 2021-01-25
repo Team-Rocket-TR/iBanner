@@ -1,6 +1,12 @@
 import React from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
+
 import BannerSizeButton from './BannerSizeButton';
+
+import Card from './component/Card';
+import CardTitle from './component/CardTitle';
+import CardSubTitle from './component/CardSubTitle';
 
 import {
   setWidth,
@@ -43,8 +49,8 @@ const BackgroundContainer = () => {
   };
 
   return (
-    <div>
-      <h4>General</h4>
+    <Card>
+      <CardTitle>General</CardTitle>
       {bannerRatios.map((props) => {
         const [ratio, w, h] = props;
         return (
@@ -58,10 +64,10 @@ const BackgroundContainer = () => {
         );
       })}
       <br />
-      <p>Custom size</p>
+      <CardSubTitle>Custom size</CardSubTitle>
       <input type="text" className="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
       <input type="text" className="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
-    </div>
+    </Card>
   );
 };
 
