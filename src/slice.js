@@ -4,7 +4,7 @@ export const initialState = {
   backgroundColor: 'gray',
   canvasRef: null,
   content: '',
-  fontSize: '14',
+  fontSize: '24',
   fontColor: 'white',
   width: '500',
   height: '500',
