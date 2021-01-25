@@ -8,6 +8,9 @@ import Content from './Content';
 import FontSize from './FontSize';
 import ColorpickerIcon from './ColorpickerIcon';
 
+import Card from './component/Card';
+import CardTitle from './component/CardTitle';
+
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
@@ -27,12 +30,12 @@ const ContentContainer = () => {
   };
 
   return (
-    <div>
-      <h4>Text Color</h4>
+    <Card>
+      <CardTitle>Text Color</CardTitle>
       <Content onChange={handleTitleChange} />
       <FontSize fontSize={fontSize} onChange={handleFontSizeChange} />
       <ColorpickerIcon color={fontColor} handleChangeComplete={handleChangeColor} />
-    </div>
+    </Card>
   );
 };
 

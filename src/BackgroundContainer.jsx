@@ -5,6 +5,9 @@ import { setBackgroundColor } from './slice';
 
 import ColorpickerIcon from './ColorpickerIcon';
 
+import Card from './component/Card';
+import CardTitle from './component/CardTitle';
+
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
   const backgroundColor = useSelector((state) => state.backgroundColor);
@@ -15,10 +18,10 @@ const BackgroundContainer = () => {
   };
 
   return (
-    <div>
-      <h4>Background Color</h4>
+    <Card>
+      <CardTitle>Background Color</CardTitle>
       <ColorpickerIcon handleChangeComplete={handleChangeComplete} color={backgroundColor} />
-    </div>
+    </Card>
   );
 };
 
