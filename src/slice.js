@@ -4,6 +4,7 @@ export const initialState = {
   backgroundColor: 'gray',
   canvasRef: null,
   content: '',
+  fontSize: '14',
   fontColor: 'white',
   width: '500',
   height: '500',
@@ -52,6 +53,12 @@ const { actions, reducer } = createSlice({
         content,
       };
     },
+    setFontSize(state, { payload: fontSize }) {
+      return {
+        ...state,
+        fontSize,
+      };
+    },
     setFontColor(state, { payload: fontColor }) {
       return {
         ...state,
@@ -65,6 +72,7 @@ export const {
   setCanvasRef,
   setBackgroundColor,
   setContent,
+  setFontSize,
   setFontColor,
   setWidth,
   setHeight,

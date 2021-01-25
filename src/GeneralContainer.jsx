@@ -58,8 +58,7 @@ const BackgroundContainer = () => {
         );
       })}
       <br />
-      <label htmlFor="customSize">Custom SIze</label>
-      <br />
+      <p>Custom size</p>
       <input type="text" className="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
       <input type="text" className="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </div>

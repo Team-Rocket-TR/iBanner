@@ -2,18 +2,24 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setContent, setFontColor } from './slice';
+import { setContent, setFontSize, setFontColor } from './slice';
 
 import Content from './Content';
+import FontSize from './FontSize';
 import ColorpickerIcon from './ColorpickerIcon';
 
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
+  const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
-  const handleChange = ({ value }) => {
+  const handleTitleChange = ({ value }) => {
     dispatch(setContent(value));
+  };
+
+  const handleFontSizeChange = ({ value }) => {
+    dispatch(setFontSize(value));
   };
 
   const handleChangeColor = (color) => {
@@ -23,8 +29,9 @@ const ContentContainer = () => {
   return (
     <div>
       <h4>Text Color</h4>
-      <Content onChange={handleChange} />
-      <ColorpickerIcon handleChangeComplete={handleChangeColor} color={fontColor} />
+      <Content onChange={handleTitleChange} />
+      <FontSize fontSize={fontSize} onChange={handleFontSizeChange} />
+      <ColorpickerIcon color={fontColor} handleChangeComplete={handleChangeColor} />
     </div>
   );
 };

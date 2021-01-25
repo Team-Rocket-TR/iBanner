@@ -4,6 +4,7 @@ import reducer, {
   initialState,
   setCanvasRef,
   setContent,
+  setFontSize,
   setFontColor,
 } from './slice';
 
@@ -33,6 +34,16 @@ describe('reducer', () => {
       const state = reducer(initialState, setContent(expectValue));
 
       expect(state.content).toBe(expectValue);
+    });
+  });
+
+  describe('setFontSize', () => {
+    it('changes font size of content', () => {
+      const expectValue = '18';
+
+      const state = reducer(initialState, setFontSize(expectValue));
+
+      expect(state.fontSize).toBe(expectValue);
     });
   });
 
