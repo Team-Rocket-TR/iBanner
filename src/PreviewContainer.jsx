@@ -14,6 +14,7 @@ const PreviewContainer = () => {
   const color = useSelector((state) => state.backgroundColor);
 
   const content = useSelector((state) => state.content);
+  const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
   function handleDraw(canvas) {
@@ -29,6 +30,7 @@ const PreviewContainer = () => {
       height={height}
       color={color}
       content={content}
+      fontSize={fontSize}
       fontColor={fontColor}
       onDraw={handleDraw}
     />

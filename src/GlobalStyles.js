@@ -24,6 +24,8 @@ const GlobalStyles = createGlobalStyle`
     
     a { text-decoration: none; color: inherit; }
 
+    label[for] { display: none; }
+
     hr { margin: 1.5em 0; }
 
     header, footer, article {
@@ -84,14 +86,14 @@ const GlobalStyles = createGlobalStyle`
 
     @media all and (max-width: 768px) {
         #app { 
-            grid-template-areas: 
+            grid-template-areas:
                 "header"
                 "article";
-            grid-template-rows: 60px 1fr;  
+            grid-template-rows: 60px 1fr;
             grid-template-columns: 1fr;
        }
        #app > nav {
-           grid-area: none;
+            grid-area: none;
             position: absolute;
             top: 100vh;
        }

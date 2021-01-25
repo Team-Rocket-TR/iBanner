@@ -13,32 +13,32 @@ describe('Content component', () => {
     ));
   }
 
-  context('with content', () => {
-    it('renders content text', () => {
+  context('with title', () => {
+    it('renders title text', () => {
       const { container } = renderContent();
 
       expect(container).not.toBeNull();
     });
   });
 
-  context('without content', () => {
-    it('renders message, recommend content write', () => {
+  context('without title', () => {
+    it('renders message, recommend title write', () => {
       const { getByPlaceholderText } = renderContent();
 
-      expect(getByPlaceholderText(/banner content/)).not.toBeNull();
+      expect(getByPlaceholderText(/Title/)).not.toBeNull();
     });
   });
 
-  it("renders input entered banner's content", () => {
+  it("renders input entered banner's title", () => {
     const { getByLabelText } = renderContent();
 
-    expect(getByLabelText('Content')).not.toBeNull();
+    expect(getByLabelText('Title')).not.toBeNull();
   });
 
-  it('listens content change event', () => {
+  it('listens title change event', () => {
     const { getByLabelText } = renderContent();
 
-    const target = getByLabelText('Content');
+    const target = getByLabelText('Title');
 
     expect(target).not.toBeNull();
 

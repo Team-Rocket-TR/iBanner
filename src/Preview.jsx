@@ -5,6 +5,7 @@ const Preview = ({
   height,
   color,
   content,
+  fontSize,
   fontColor,
   onDraw,
 }) => {
@@ -17,7 +18,7 @@ const Preview = ({
     context.fillStyle = color;
     context.fillRect(0, 0, width, height);
 
-    context.font = '1.5rem Arial';
+    context.font = `${fontSize}px Arial`;
     context.fillStyle = fontColor;
     context.textBaseline = 'middle';
     context.textAlign = 'center';

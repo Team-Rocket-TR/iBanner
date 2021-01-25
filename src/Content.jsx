@@ -14,12 +14,12 @@ const Content = ({ onChange }) => {
 
   return (
     <>
-      <label htmlFor="input-content" style={styles.label}>Content</label>
+      <label htmlFor="input-title" style={styles.label}>Title</label>
       <input
         type="text"
-        name="content"
-        id="input-content"
-        placeholder="banner content"
+        name="title"
+        id="input-title"
+        placeholder="Title"
         onChange={handleChange}
       />
     </>
