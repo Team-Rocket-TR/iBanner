@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import BannerSizeButton from './BannerSizeButton';
@@ -13,6 +13,13 @@ import {
   setHeight,
   setWidthHeight,
 } from './slice';
+
+const Input = styled.input`
+  width: 40%;
+  margin-right: 0.5em;
+  margin-top: 0.5em; 
+  color: #363636;
+`;
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
@@ -65,8 +72,8 @@ const BackgroundContainer = () => {
       })}
       <br />
       <CardSubTitle>Custom size</CardSubTitle>
-      <input type="text" className="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
-      <input type="text" className="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
+      <Input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
+      <Input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </Card>
   );
 };
