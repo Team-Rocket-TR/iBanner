@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setBackgroundColor } from './slice';
+import { setBackgroundColor, setBackgroundImage } from './slice';
 
 import ColorpickerIcon from './ColorpickerIcon';
 import ImageFile from './ImageFile';
@@ -12,24 +13,21 @@ import CardSubTitle from './component/CardSubTitle';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
+
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
   const handleChangeComplete = (color) => {
     dispatch(setBackgroundColor(color.hex));
   };
 
-  async function handleFileChange({ file }) {
+  const handleFileChange = async ({ file }) => {
     if (!file) return;
 
     const image = file;
-    const reader = new FileReader();
+    const localImageURL = await window.URL.createObjectURL(image);
 
-    reader.onload = function (e) {
-      console.log(e.target.result);
-    };
-
-    await reader.readAsDataURL(image);
-  }
+    dispatch(setBackgroundImage(localImageURL));
+  };
 
   return (
     <Card>
