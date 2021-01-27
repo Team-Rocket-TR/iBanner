@@ -78,6 +78,7 @@ const GlobalStyles = createGlobalStyle`
         display: flex;
         justify-content: center;
         padding: 1em;
+        font-size: 1.2em;
         background-color: #00a788;
     }
     #mainNav a[download$=".png"]:hover {

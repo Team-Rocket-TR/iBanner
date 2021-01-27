@@ -3,6 +3,7 @@ import { createRef } from 'react';
 import reducer, {
   initialState,
   setCanvasRef,
+  setBackgroundImage,
   setContent,
   setFontSize,
   setFontColor,
@@ -24,6 +25,16 @@ describe('reducer', () => {
       const state = reducer(initialState, setCanvasRef(expectRef));
 
       expect(state.canvasRef).toBe(expectRef);
+    });
+  });
+
+  describe('setBackgroundImage', () => {
+    it('changes image data URL', () => {
+      const expectValue = 'data:image/png;base64,iVBORw0KG...';
+
+      const state = reducer(initialState, setBackgroundImage(expectValue));
+
+      expect(state.backgroundImage).toBe(expectValue);
     });
   });
 

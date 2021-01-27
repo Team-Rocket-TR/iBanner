@@ -4,6 +4,7 @@ const Preview = ({
   width,
   height,
   color,
+  backgroundImage,
   content,
   fontSize,
   fontColor,
@@ -17,6 +18,12 @@ const Preview = ({
 
     context.fillStyle = color;
     context.fillRect(0, 0, width, height);
+
+    const imageObj = new Image();
+    imageObj.src = backgroundImage || '';
+    imageObj.onload = () => {
+      context.drawImage(imageObj, 0, 0, canvas.width, canvas.height);
+    };
 
     context.font = `${fontSize}px Arial`;
     context.fillStyle = fontColor;
