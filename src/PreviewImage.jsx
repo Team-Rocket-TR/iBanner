@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Layer from './component/Layer';
 
@@ -8,6 +8,10 @@ const PreviewImage = ({
   backgroundImage,
   onDraw,
 }) => {
+  useEffect(() => {
+    onDraw();
+  });
+
   const style = {
     width: `${width}px`,
     height: `${height}px`,
@@ -16,10 +20,7 @@ const PreviewImage = ({
   };
 
   return (
-    <Layer
-      style={style}
-      onLoad={onDraw}
-    />
+    <Layer style={style} />
   );
 };
 

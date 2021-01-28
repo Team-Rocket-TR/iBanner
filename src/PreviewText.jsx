@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Layer from './component/Layer';
 
@@ -10,6 +10,10 @@ const PreviewText = ({
   fontColor,
   onDraw,
 }) => {
+  useEffect(() => {
+    onDraw();
+  });
+
   const style = {
     display: 'flex',
     justifyContent: 'center',
@@ -21,10 +25,7 @@ const PreviewText = ({
   };
 
   return (
-    <Layer
-      style={style}
-      onLoad={onDraw}
-    >
+    <Layer style={style}>
       {content || '제목을 입력해주세요!'}
     </Layer>
   );
