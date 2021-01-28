@@ -16,14 +16,20 @@ const Preview = ({
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
-    context.fillStyle = color;
-    context.fillRect(0, 0, width, height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-    const imageObj = new Image();
-    imageObj.src = backgroundImage || '';
-    imageObj.onload = () => {
-      context.drawImage(imageObj, 0, 0, canvas.width, canvas.height);
-    };
+    if (backgroundImage) {
+      const imageObj = new Image();
+      imageObj.src = backgroundImage;
+      imageObj.onload = () => {
+        context.drawImage(imageObj, 0, 0, canvas.width, canvas.height);
+      };
+    }
+
+    if (color) {
+      context.fillStyle = color;
+      context.fillRect(0, 0, width, height);
+    }
 
     context.font = `${fontSize}px Arial`;
     context.fillStyle = fontColor;
