@@ -1,14 +1,14 @@
 import React from 'react';
 
-import AppHeader from './AppHeader';
-import PreviewContainer from './PreviewContainer';
-import SettingContainer from './SettingContainer';
-import ExportContainer from './ExportContainer';
+import BannerMakerHeader from './BannerMakerHeader';
+import PreviewContainer from './preview/PreviewContainer';
+import SettingContainer from './setting/SettingContainer';
+import ExportContainer from './export/ExportContainer';
 
 const BannerMaker = () => (
   <>
     <header id="mainHeader">
-      <AppHeader />
+      <BannerMakerHeader />
     </header>
     <article id="mainArticle">
       {/* 미리보기 */}
