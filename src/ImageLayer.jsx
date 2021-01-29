@@ -2,19 +2,15 @@ import React, { useEffect } from 'react';
 
 import Layer from './component/Layer';
 
-const PreviewImage = ({
-  width,
-  height,
+export default function ImageLayer({
   backgroundImage,
   onDraw,
-}) => {
+}) {
   useEffect(() => {
     onDraw();
   });
 
   const style = {
-    width: `${width}px`,
-    height: `${height}px`,
     background: `url(${backgroundImage})`,
     backgroundPosition: 'center',
   };
@@ -22,6 +18,6 @@ const PreviewImage = ({
   return (
     <Layer style={style} />
   );
-};
+}
 
-export default PreviewImage;
+export const MemoizedImageLayer = React.memo(ImageLayer);

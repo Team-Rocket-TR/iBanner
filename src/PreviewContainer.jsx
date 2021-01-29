@@ -2,14 +2,11 @@ import React, { useRef } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-// import * as htmlToImage from 'html-to-image';
-
 import html2canvas from 'html2canvas';
 
-// import Preview from './Preview';
-import PreviewImage from './PreviewImage';
-import PreviewBackgroundColor from './PreviewBackgroundColor';
-import PreviewText from './PreviewText';
+import ImageLayerContainer from './ImageLayerContainer';
+import BackgroundLayerContainer from './BackgroundLayerContainer';
+import TextLayerContainer from './TextLayerContainer';
 
 import { setCanvasRef } from './slice';
 
@@ -22,13 +19,6 @@ const PreviewContainer = () => {
 
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
-
-  const color = useSelector((state) => state.backgroundColor);
-  const backgroundImage = useSelector((state) => state.backgroundImage);
-
-  const content = useSelector((state) => state.content);
-  const fontSize = useSelector((state) => state.fontSize);
-  const fontColor = useSelector((state) => state.fontColor);
 
   function handleDraw() {
     const preview = layers.current;
@@ -47,34 +37,9 @@ const PreviewContainer = () => {
         width={width}
         height={height}
       >
-        {(backgroundImage
-          ? (
-            <PreviewImage
-              width={width}
-              height={height}
-              backgroundImage={backgroundImage}
-              onDraw={handleDraw}
-            />
-          )
-          : null)}
-        {(color
-          ? (
-            <PreviewBackgroundColor
-              width={width}
-              height={height}
-              color={color}
-              onDraw={handleDraw}
-            />
-          )
-          : null)}
-        <PreviewText
-          width={width}
-          height={height}
-          content={content}
-          fontSize={fontSize}
-          fontColor={fontColor}
-          onDraw={handleDraw}
-        />
+        <ImageLayerContainer onDraw={handleDraw} />
+        <BackgroundLayerContainer onDraw={handleDraw} />
+        <TextLayerContainer onDraw={handleDraw} />
       </CanvasLayers>
     </>
   );

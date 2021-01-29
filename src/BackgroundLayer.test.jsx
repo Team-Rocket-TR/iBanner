@@ -2,24 +2,20 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import PreviewBackgroundColor from './PreviewBackgroundColor';
+import BackgroundLayer from './BackgroundLayer';
 
-describe('PreviewBackgroundColor', () => {
+describe('BackgroundLayer', () => {
   function renderPreview({
-    width = '500',
-    height = '500',
     color = '#333',
   } = {}) {
     return render((
-      <PreviewBackgroundColor
-        width={width}
-        height={height}
+      <BackgroundLayer
         color={color}
       />
     ));
   }
 
-  it('renders "PreviewBackgroundColor" component', () => {
+  it('renders "BackgroundLayer" component', () => {
     const { container } = renderPreview();
 
     expect(container).not.toBeNull();
