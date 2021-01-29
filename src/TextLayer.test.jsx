@@ -2,24 +2,20 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import PreviewImage from './PreviewImage';
+import TextLayer from './TextLayer';
 
-describe('PreviewImage', () => {
+describe('TextLayer', () => {
   function renderPreview({
-    width = '500',
-    height = '500',
     backgroundImage = '',
   } = {}) {
     return render((
-      <PreviewImage
-        width={width}
-        height={height}
+      <TextLayer
         backgroundImage={backgroundImage}
       />
     ));
   }
 
-  it('renders "PreviewImage" component', () => {
+  it('renders "TextLayer" component', () => {
     const { container } = renderPreview();
 
     expect(container).not.toBeNull();

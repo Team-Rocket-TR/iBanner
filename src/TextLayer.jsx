@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 
 import Layer from './component/Layer';
 
-const PreviewText = ({
-  width,
-  height,
+export default function TextLayer({
   content,
   fontSize,
   fontColor,
   onDraw,
-}) => {
+}) {
   useEffect(() => {
     onDraw();
   });
@@ -18,8 +16,6 @@ const PreviewText = ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: `${width}px`,
-    height: `${height}px`,
     fontSize: `${fontSize}px`,
     color: `${fontColor}`,
   };
@@ -29,6 +25,6 @@ const PreviewText = ({
       {content || '제목을 입력해주세요!'}
     </Layer>
   );
-};
+}
 
-export default PreviewText;
+export const MemoizedTextLayer = React.memo(TextLayer);
