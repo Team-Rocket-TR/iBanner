@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   canvasRef: null,
-  backgroundColor: 'gray',
+  backgroundColor: {
+    r: 128, g: 128, b: 128, a: 1,
+  },
   backgroundImage: '',
   content: '',
   fontSize: '24',

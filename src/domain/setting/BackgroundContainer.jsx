@@ -16,8 +16,8 @@ const BackgroundContainer = () => {
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
-  const handleChangeComplete = (color) => {
-    dispatch(setBackgroundColor(color.hex));
+  const handleChangeComplete = ({ rgb }) => {
+    dispatch(setBackgroundColor(rgb));
   };
 
   const handleFileChange = async ({ file }) => {
@@ -34,7 +34,10 @@ const BackgroundContainer = () => {
       <CardTitle>Background</CardTitle>
 
       <CardSubTitle>Background Color</CardSubTitle>
-      <ColorpickerIcon handleChangeComplete={handleChangeComplete} color={backgroundColor} />
+      <ColorpickerIcon
+        color={backgroundColor}
+        handleChangeComplete={handleChangeComplete}
+      />
 
       <CardSubTitle>Background Image</CardSubTitle>
       <ImageFile onChange={handleFileChange} />
