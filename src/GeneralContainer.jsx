@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import BannerSizeButton from './BannerSizeButton';
@@ -7,19 +6,13 @@ import BannerSizeButton from './BannerSizeButton';
 import Card from './component/Card';
 import CardTitle from './component/CardTitle';
 import CardSubTitle from './component/CardSubTitle';
+import Input from './component/Input';
 
 import {
   setWidth,
   setHeight,
   setWidthHeight,
 } from './slice';
-
-const Input = styled.input`
-  width: 40%;
-  margin-right: 0.5em;
-  margin-top: 0.5em; 
-  color: #363636;
-`;
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
