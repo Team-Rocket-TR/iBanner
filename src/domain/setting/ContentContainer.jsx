@@ -2,14 +2,14 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setContent, setFontSize, setFontColor } from './slice';
+import Card from 'components/card/Card';
+import CardTitle from 'components/card/CardTitle';
 
-import Content from './Content';
-import FontSize from './FontSize';
-import ColorpickerIcon from './ColorpickerIcon';
+import { setContent, setFontSize, setFontColor } from 'slice';
 
-import Card from './component/Card';
-import CardTitle from './component/CardTitle';
+import Content from './components/Content';
+import FontSize from './components/FontSize';
+import ColorpickerIcon from './components/ColorpickerIcon';
 
 const ContentContainer = () => {
   const dispatch = useDispatch();

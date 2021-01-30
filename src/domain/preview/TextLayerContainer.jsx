@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { MemoizedTextLayer } from './TextLayer';
+import { MemoizedTextLayer } from './components/TextLayer';
 
 const TextLayerContainer = ({ onDraw }) => {
   const content = useSelector((state) => state.content);

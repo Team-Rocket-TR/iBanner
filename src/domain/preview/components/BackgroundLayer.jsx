@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 
-import Layer from './component/Layer';
+import Layer from 'components/layer/Layer';
 
-export default function ImageLayer({
-  backgroundImage,
+export default function BackgroundLayer({
+  color,
   onDraw,
 }) {
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function ImageLayer({
   });
 
   const style = {
-    background: `url(${backgroundImage})`,
+    backgroundColor: `${color}`,
     backgroundPosition: 'center',
   };
 
@@ -20,4 +20,4 @@ export default function ImageLayer({
   );
 }
 
-export const MemoizedImageLayer = React.memo(ImageLayer);
+export const MemoizedBackgroundLayer = React.memo(BackgroundLayer);

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CanvasLayers = styled.section`
+const Layers = styled.section`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -9,4 +9,4 @@ const CanvasLayers = styled.section`
   height: ${(props) => props.height}px;
 `;
 
-export default CanvasLayers;
+export default Layers;

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   module: {
     rules: [
@@ -11,6 +13,7 @@ module.exports = {
   resolve: {
     modules: [
       'node_modules',
+      path.join(__dirname, 'src'),
     ],
     extensions: ['.js', '.jsx'],
   },

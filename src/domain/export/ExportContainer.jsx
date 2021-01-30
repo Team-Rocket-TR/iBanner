@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import Download from './Download';
+import Download from './components/Download';
 
 const ExportContainer = () => {
   const canvasRef = useSelector((state) => state.canvasRef);

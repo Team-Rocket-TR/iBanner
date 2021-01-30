@@ -2,11 +2,11 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import AppHeader from './AppHeader';
+import BannerMakerHeader from './BannerMakerHeader';
 
-describe('AppHeader', () => {
+describe('BannerMakerHeader', () => {
   it('renders app title', () => {
-    const { container } = render(<AppHeader />);
+    const { container } = render(<BannerMakerHeader />);
 
     expect(container).toHaveTextContent(/Banner\+/);
     expect(container).toHaveTextContent(/Settings/);

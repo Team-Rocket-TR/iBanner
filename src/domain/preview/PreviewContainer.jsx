@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import html2canvas from 'html2canvas';
 
+import Layers from 'components/layer/Layers';
+
+import { setCanvasRef } from 'slice';
+
 import ImageLayerContainer from './ImageLayerContainer';
 import BackgroundLayerContainer from './BackgroundLayerContainer';
 import TextLayerContainer from './TextLayerContainer';
-
-import { setCanvasRef } from './slice';
-
-import CanvasLayers from './component/CanvasLayers';
 
 const PreviewContainer = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const PreviewContainer = () => {
 
   return (
     <>
-      <CanvasLayers
+      <Layers
         ref={layers}
         width={width}
         height={height}
@@ -40,27 +40,9 @@ const PreviewContainer = () => {
         <ImageLayerContainer onDraw={handleDraw} />
         <BackgroundLayerContainer onDraw={handleDraw} />
         <TextLayerContainer onDraw={handleDraw} />
-      </CanvasLayers>
+      </Layers>
     </>
   );
 };
 
 export default PreviewContainer;
-
-// <Preview
-//   width={width}
-//   height={height}
-//   color={color}
-//   backgroundImage={backgroundImage}
-//   content={content}
-//   fontSize={fontSize}
-//   fontColor={fontColor}
-//   onDraw={handleDraw}
-// />
-
-// function handleDraw(canvas) {
-// canvas.toBlob((blob) => {
-//   const localURL = window.URL.createObjectURL(blob);
-//   dispatch(setCanvasRef(localURL));
-// }, 'image/png', 1.0);
-// }

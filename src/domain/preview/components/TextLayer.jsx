@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Layer from './component/Layer';
+import Layer from 'components/layer/Layer';
 
 export default function TextLayer({
   content,

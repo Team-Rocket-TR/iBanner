@@ -2,14 +2,14 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setBackgroundColor, setBackgroundImage } from './slice';
+import Card from 'components/card/Card';
+import CardTitle from 'components/card/CardTitle';
+import CardSubTitle from 'components/card/CardSubTitle';
 
-import ColorpickerIcon from './ColorpickerIcon';
-import ImageFile from './ImageFile';
+import { setBackgroundColor, setBackgroundImage } from 'slice';
 
-import Card from './component/Card';
-import CardTitle from './component/CardTitle';
-import CardSubTitle from './component/CardSubTitle';
+import ColorpickerIcon from './components/ColorpickerIcon';
+import ImageFile from './components/ImageFile';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
