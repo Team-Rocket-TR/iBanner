@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 import Layer from 'components/layer/Layer';
 
 export default function BackgroundLayer({
-  color,
+  color: {
+    r, g, b, a,
+  },
   onDraw,
 }) {
   useEffect(() => {
@@ -11,7 +13,7 @@ export default function BackgroundLayer({
   });
 
   const style = {
-    backgroundColor: `${color}`,
+    backgroundColor: `rgb(${r}, ${g}, ${b}, ${a})`,
     backgroundPosition: 'center',
   };
 

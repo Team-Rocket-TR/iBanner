@@ -1,5 +1,5 @@
 import React from 'react';
-import { CirclePicker, MaterialPicker } from 'react-color';
+import { AlphaPicker, CompactPicker } from 'react-color';
 
 const ColorpickerIcon = ({ color, handleChangeComplete }) => {
   const colors = [
@@ -9,11 +9,12 @@ const ColorpickerIcon = ({ color, handleChangeComplete }) => {
 
   return (
     <>
-      <CirclePicker
+      <CompactPicker
         colors={colors}
+        color={color}
         onChangeComplete={handleChangeComplete}
       />
-      <MaterialPicker
+      <AlphaPicker
         color={color}
         onChangeComplete={handleChangeComplete}
       />
