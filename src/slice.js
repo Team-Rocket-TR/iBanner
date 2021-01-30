@@ -44,10 +44,24 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
-    setBackgroundColor(state, { payload: backgroundColor }) {
+    setBackgroundColor(state, { payload: { r, g, b } }) {
       return {
         ...state,
-        backgroundColor,
+        backgroundColor: {
+          ...state.backgroundColor,
+          r,
+          g,
+          b,
+        },
+      };
+    },
+    setAlpha(state, { payload: alpha }) {
+      return {
+        ...state,
+        backgroundColor: {
+          ...state.backgroundColor,
+          a: alpha,
+        },
       };
     },
     setBackgroundImage(state, { payload: backgroundImage }) {
@@ -80,6 +94,7 @@ const { actions, reducer } = createSlice({
 export const {
   setCanvasRef,
   setBackgroundColor,
+  setAlpha,
   setBackgroundImage,
   setContent,
   setFontSize,
