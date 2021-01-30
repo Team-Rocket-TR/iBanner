@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BannerMaker from './BannerMaker';
+import BannerMaker from 'domain/BannerMaker';
 
 import GlobalStyles from './GlobalStyles';
 

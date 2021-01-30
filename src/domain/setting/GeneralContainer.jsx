@@ -1,18 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import BannerSizeButton from './BannerSizeButton';
-
-import Card from './component/Card';
-import CardTitle from './component/CardTitle';
-import CardSubTitle from './component/CardSubTitle';
-import Input from './component/Input';
+import Card from 'components/card/Card';
+import CardTitle from 'components/card/CardTitle';
+import CardSubTitle from 'components/card/CardSubTitle';
+import Input from 'components/card/Input';
 
 import {
   setWidth,
   setHeight,
   setWidthHeight,
-} from './slice';
+} from 'slice';
+
+import BannerSizeButton from './components/BannerSizeButton';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();

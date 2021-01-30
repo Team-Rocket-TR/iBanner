@@ -4,9 +4,9 @@ import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import PreviewContainer from './PreviewContainer';
+import { initialState } from 'slice';
 
-import { initialState } from './slice';
+import PreviewContainer from './PreviewContainer';
 
 describe('PreviewContainer', () => {
   const dispatch = jest.fn();
