@@ -1,10 +1,10 @@
 import React from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import Card from 'components/card/Card';
 import CardTitle from 'components/card/CardTitle';
 import CardSubTitle from 'components/card/CardSubTitle';
+import Input from 'components/card/Input';
 
 import {
   setWidth,
@@ -65,8 +65,8 @@ const BackgroundContainer = () => {
       })}
       <br />
       <CardSubTitle>Custom size</CardSubTitle>
-      <input type="text" className="customSize" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
-      <input type="text" className="customSize" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
+      <Input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleWidthChange} />
+      <Input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleHeightChange} />
     </Card>
   );
 };
