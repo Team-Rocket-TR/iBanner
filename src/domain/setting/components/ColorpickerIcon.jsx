@@ -10,11 +10,12 @@ const ColorpickerIcon = ({ color, handleChangeComplete }) => {
   return (
     <>
       <CompactPicker
-        colors={colors}
         color={color}
+        colors={colors}
         onChangeComplete={handleChangeComplete}
       />
       <AlphaPicker
+        width="100%"
         color={color}
         onChangeComplete={handleChangeComplete}
       />

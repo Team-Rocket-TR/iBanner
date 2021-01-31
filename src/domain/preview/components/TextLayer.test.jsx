@@ -4,13 +4,20 @@ import { render } from '@testing-library/react';
 
 import TextLayer from './TextLayer';
 
+const onDraw = jest.fn();
+
 describe('TextLayer', () => {
   function renderPreview({
-    backgroundImage = '',
+    content = '',
+    fontSize = '',
+    fontColor = '',
   } = {}) {
     return render((
       <TextLayer
-        backgroundImage={backgroundImage}
+        content={content}
+        fontSize={fontSize}
+        fontColor={fontColor}
+        onDraw={onDraw}
       />
     ));
   }
