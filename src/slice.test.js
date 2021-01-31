@@ -60,7 +60,9 @@ describe('reducer', () => {
 
   describe('setFontColor', () => {
     it('changes color of content', () => {
-      const expectValue = 'black';
+      const expectValue = {
+        r: 0, g: 0, b: 0, a: 1,
+      };
 
       const state = reducer(initialState, setFontColor(expectValue));
 

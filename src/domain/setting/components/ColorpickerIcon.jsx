@@ -14,11 +14,15 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
         colors={colors}
         onChange={onChangeBackgroundcolor}
       />
-      <AlphaPicker
-        color={color}
-        onChange={onChangeAlpha}
-        width="100%"
-      />
+      {onChangeAlpha
+        ? (
+          <AlphaPicker
+            color={color}
+            onChange={onChangeAlpha}
+            width="100%"
+          />
+        )
+        : null}
     </>
   );
 };

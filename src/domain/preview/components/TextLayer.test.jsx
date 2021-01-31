@@ -10,7 +10,9 @@ describe('TextLayer', () => {
   function renderPreview({
     content = '',
     fontSize = '',
-    fontColor = '',
+    fontColor = {
+      r: 255, g: 255, b: 255, a: 1,
+    },
   } = {}) {
     return render((
       <TextLayer

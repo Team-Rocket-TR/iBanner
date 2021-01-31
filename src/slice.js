@@ -8,7 +8,9 @@ export const initialState = {
   backgroundImage: '',
   content: '',
   fontSize: '24',
-  fontColor: 'white',
+  fontColor: {
+    r: 255, g: 255, b: 255, a: 1,
+  },
   width: '500',
   height: '500',
 };
