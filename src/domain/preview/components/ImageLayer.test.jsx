@@ -4,6 +4,8 @@ import { render } from '@testing-library/react';
 
 import ImageLayer from './ImageLayer';
 
+const onDraw = jest.fn();
+
 describe('ImageLayer', () => {
   function renderPreview({
     backgroundImage = '',
@@ -11,6 +13,7 @@ describe('ImageLayer', () => {
     return render((
       <ImageLayer
         backgroundImage={backgroundImage}
+        onDraw={onDraw}
       />
     ));
   }

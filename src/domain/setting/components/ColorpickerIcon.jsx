@@ -10,15 +10,19 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
   return (
     <>
       <CompactPicker
-        colors={colors}
         color={color}
+        colors={colors}
         onChange={onChangeBackgroundcolor}
       />
-      <AlphaPicker
-        color={color}
-        width="100%"
-        onChange={onChangeAlpha}
-      />
+      {onChangeAlpha
+        ? (
+          <AlphaPicker
+            color={color}
+            onChange={onChangeAlpha}
+            width="100%"
+          />
+        )
+        : null}
     </>
   );
 };

@@ -5,7 +5,9 @@ import Layer from 'components/layer/Layer';
 export default function TextLayer({
   content,
   fontSize,
-  fontColor,
+  fontColor: {
+    r, g, b, a,
+  } = {},
   onDraw,
 }) {
   useEffect(() => {
@@ -17,7 +19,7 @@ export default function TextLayer({
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: `${fontSize}px`,
-    color: `${fontColor}`,
+    color: `rgb(${r}, ${g}, ${b}, ${a})`,
   };
 
   return (
