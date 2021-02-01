@@ -5,7 +5,7 @@ import Layer from 'components/layer/Layer';
 export default function BackgroundLayer({
   color: {
     r, g, b, a,
-  },
+  } = {},
   onDraw,
 }) {
   useEffect(() => {

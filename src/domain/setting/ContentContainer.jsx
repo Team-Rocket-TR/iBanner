@@ -25,16 +25,22 @@ const ContentContainer = () => {
     dispatch(setFontSize(value));
   };
 
-  const handleChangeColor = (color) => {
-    dispatch(setFontColor(color.hex));
+  const handleChangeColor = ({ rgb }) => {
+    dispatch(setFontColor(rgb));
   };
 
   return (
     <Card>
       <CardTitle>Text Color</CardTitle>
       <Content onChange={handleTitleChange} />
-      <FontSize fontSize={fontSize} onChange={handleFontSizeChange} />
-      <ColorpickerIcon color={fontColor} handleChangeComplete={handleChangeColor} />
+      <FontSize
+        fontSize={fontSize}
+        onChange={handleFontSizeChange}
+      />
+      <ColorpickerIcon
+        color={fontColor}
+        onChangeBackgroundcolor={handleChangeColor}
+      />
     </Card>
   );
 };
