@@ -51,6 +51,7 @@ const BackgroundContainer = () => {
   return (
     <Card>
       <CardTitle>General</CardTitle>
+      <CardSubTitle>Aspect Ratio</CardSubTitle>
       {bannerRatios.map((props) => {
         const [ratio, w, h] = props;
         return (
