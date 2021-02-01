@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Button = styled.button`
     color: white;
-    background: #636363;
-    margin: 5% 5% 5% 0%;
+    background: #202020;
+    margin: .5em .5em .5em .1em;
     padding: .375rem .75rem;
     border: 1px solid #313030;
     border-radius: .25rem;

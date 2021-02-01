@@ -79,10 +79,10 @@ const GlobalStyles = createGlobalStyle`
         justify-content: center;
         padding: 1em;
         font-size: 1.2em;
-        background-color: #00a788;
+        background-color: #3F8237;
     }
     #mainNav a[download$=".png"]:hover {
-        background-color: #009688;
+        background-color: #1A3616;
     }
 
     @media all and (max-width: 768px) {
