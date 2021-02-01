@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlphaPicker, CompactPicker } from 'react-color';
+import { AlphaPicker, TwitterPicker } from 'react-color';
 
 const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
   const colors = [
@@ -9,9 +9,11 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
 
   return (
     <>
-      <CompactPicker
+      <TwitterPicker
         colors={colors}
         color={color}
+        width="100%"
+        triangle="hide"
         onChange={onChangeBackgroundcolor}
       />
       <AlphaPicker
