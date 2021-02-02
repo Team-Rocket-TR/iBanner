@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Card from 'components/card/Card';
 import CardTitle from 'components/card/CardTitle';
+import CardSubTitle from 'components/card/CardSubTitle';
 
 import { setContent, setFontSize, setFontColor } from 'slice';
 
@@ -32,11 +33,14 @@ const ContentContainer = () => {
   return (
     <Card>
       <CardTitle>Text Color</CardTitle>
+      <CardSubTitle>Content</CardSubTitle>
       <Content onChange={handleTitleChange} />
+      <CardSubTitle>Font Size</CardSubTitle>
       <FontSize
         fontSize={fontSize}
         onChange={handleFontSizeChange}
       />
+      <CardSubTitle>Font Color</CardSubTitle>
       <ColorpickerIcon
         color={fontColor}
         onChangeBackgroundcolor={handleChangeColor}
