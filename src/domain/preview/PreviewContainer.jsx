@@ -23,8 +23,8 @@ const PreviewContainer = () => {
   function handleDraw() {
     const preview = layers.current;
     html2canvas(preview).then((canvas) => {
-      canvas.toBlob((blob) => {
-        const localURL = window.URL.createObjectURL(blob);
+      canvas.toBlob(async (blob) => {
+        const localURL = await window.URL.createObjectURL(blob);
         dispatch(setCanvasRef(localURL));
       }, 'image/png', 1.0);
     });

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll --modulePaths=src",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build":"webpack --mode production"     
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@emotion/css": "^11.1.3",
