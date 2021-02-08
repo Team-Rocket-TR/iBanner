@@ -1,47 +1,43 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import html2canvas from 'html2canvas';
-
-import Layers from 'components/layer/Layers';
-
 import { setCanvasRef } from 'slice';
 
-import ImageLayerContainer from './ImageLayerContainer';
-import BackgroundLayerContainer from './BackgroundLayerContainer';
-import TextLayerContainer from './TextLayerContainer';
+import Preview from './Preview';
 
 const PreviewContainer = () => {
   const dispatch = useDispatch();
 
-  const layers = useRef(null);
-
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  function handleDraw() {
-    const preview = layers.current;
-    html2canvas(preview).then((canvas) => {
-      canvas.toBlob(async (blob) => {
-        const localURL = await window.URL.createObjectURL(blob);
-        dispatch(setCanvasRef(localURL));
-      }, 'image/png', 1.0);
-    });
+  const backgroundImage = useSelector((state) => state.backgroundImage);
+
+  const backgroundColor = useSelector((state) => state.backgroundColor);
+
+  const content = useSelector((state) => state.content);
+  const fontSize = useSelector((state) => state.fontSize);
+  const fontColor = useSelector((state) => state.fontColor);
+
+  function handleDraw(canvas) {
+    canvas.toBlob((blob) => {
+      const localURL = window.URL.createObjectURL(blob);
+      dispatch(setCanvasRef(localURL));
+    }, 'image/png', 1.0);
   }
 
   return (
-    <>
-      <Layers
-        ref={layers}
-        width={width}
-        height={height}
-      >
-        <ImageLayerContainer onDraw={handleDraw} />
-        <BackgroundLayerContainer onDraw={handleDraw} />
-        <TextLayerContainer onDraw={handleDraw} />
-      </Layers>
-    </>
+    <Preview
+      width={width}
+      height={height}
+      backgroundImage={backgroundImage}
+      backgroundColor={backgroundColor}
+      content={content}
+      fontSize={fontSize}
+      fontColor={fontColor}
+      onDraw={handleDraw}
+    />
   );
 };
 
