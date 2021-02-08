@@ -13,6 +13,8 @@ export const initialState = {
   },
   width: '500',
   height: '500',
+  mainBackgroundColor: '#F0F0F0',
+  mainNavBackgroundColor: '#c7c7c7',
 };
 
 const { actions, reducer } = createSlice({
@@ -90,6 +92,18 @@ const { actions, reducer } = createSlice({
         fontColor,
       };
     },
+    setMainBackgroundColor(state, { payload: mainBackgroundColor }) {
+      return {
+        ...state,
+        mainBackgroundColor,
+      };
+    },
+    setMainNavBackgroundColor(state, { payload: mainNavBackgroundColor }) {
+      return {
+        ...state,
+        mainNavBackgroundColor,
+      };
+    },
   },
 });
 
@@ -104,6 +118,8 @@ export const {
   setWidth,
   setHeight,
   setWidthHeight,
+  setMainBackgroundColor,
+  setMainNavBackgroundColor,
 } = actions;
 
 export default reducer;

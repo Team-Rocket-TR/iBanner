@@ -11,7 +11,7 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
   const styles = {
     default: {
       card: {
-        width: '100%',
+        width: '90%',
         background: '#363636',
         border: '0 solid rgba(0,0,0,0.25)',
         boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
@@ -85,7 +85,7 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
         colors={colors}
         triangle="hide"
         onChange={onChangeBackgroundcolor}
-        width="100%"
+        width="90%"
         styles={styles}
       />
       {onChangeAlpha

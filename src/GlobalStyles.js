@@ -64,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
         flex-flow: column nowrap;
         justify-content: space-between;
         color: #FFFFFF;
-        background-color: #363636;
+        background-color: #c7c7c7;
     }
     #mainNav section:first-child {
         padding: 1.2em;
