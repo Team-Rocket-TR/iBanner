@@ -104,6 +104,8 @@ export const {
   setWidth,
   setHeight,
   setWidthHeight,
+  setMainBackgroundColor,
+  setMainNavBackgroundColor,
 } = actions;
 
 export default reducer;
