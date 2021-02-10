@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
         height: inherit;
     }
     #app > header { grid-area: header; }
-    #app > article { grid-area: article; }
+    #app > article { grid-area: article; overflow-x: auto; }
     #app > nav { grid-area: nav; }
 
     #mainHeader {
@@ -86,6 +86,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     @media all and (max-width: 768px) {
+        body { overflow-y: hidden; }
         #app { 
             grid-template-areas:
                 "header"
@@ -97,6 +98,7 @@ const GlobalStyles = createGlobalStyle`
             grid-area: none;
             position: absolute;
             top: 100vh;
+            width: 100%;
        }
     }
 `;
