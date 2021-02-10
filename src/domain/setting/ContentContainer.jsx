@@ -18,11 +18,11 @@ const ContentContainer = () => {
   const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
-  const handleTitleChange = ({ value }) => {
+  const handleChangeTitle = ({ value }) => {
     dispatch(setContent(value));
   };
 
-  const handleFontSizeChange = ({ value }) => {
+  const handleChangeFontSize = ({ value }) => {
     dispatch(setFontSize(value));
   };
 
@@ -34,11 +34,11 @@ const ContentContainer = () => {
     <Card>
       <CardTitle>Text Color</CardTitle>
       <CardSubTitle>Content</CardSubTitle>
-      <Content onChange={handleTitleChange} />
+      <Content onChange={handleChangeTitle} />
       <CardSubTitle>Font Size</CardSubTitle>
       <FontSize
         fontSize={fontSize}
-        onChange={handleFontSizeChange}
+        onChange={handleChangeFontSize}
       />
       <CardSubTitle>Font Color</CardSubTitle>
       <ColorpickerIcon

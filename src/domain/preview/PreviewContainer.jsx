@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setCanvasRef } from 'slice';
 
-import Preview from './Preview';
+import Preview from './components/Preview';
 
 const PreviewContainer = () => {
   const dispatch = useDispatch();

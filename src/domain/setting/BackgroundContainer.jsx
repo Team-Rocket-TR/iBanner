@@ -25,7 +25,7 @@ const BackgroundContainer = () => {
     dispatch(setAlpha(a));
   };
 
-  const handleFileChange = async ({ file }) => {
+  const handleChangeFile = async ({ file }) => {
     if (!file) return;
 
     const image = file;
@@ -46,7 +46,7 @@ const BackgroundContainer = () => {
       />
 
       <CardSubTitle>Background Image</CardSubTitle>
-      <ImageFile onChange={handleFileChange} />
+      <ImageFile onChange={handleChangeFile} />
     </Card>
   );
 };
