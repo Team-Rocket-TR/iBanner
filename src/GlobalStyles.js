@@ -50,21 +50,18 @@ const GlobalStyles = createGlobalStyle`
         flex-flow: row nowrap;
         align-items: center;
         justify-content: space-between;
-        background-color: #FFFFFF;
     }
     #mainArticle {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
-        background-color: #F0F0F0;
     }
     #mainNav {
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
         color: #FFFFFF;
-        background-color: #c7c7c7;
     }
     #mainNav section:first-child {
         padding: 1.2em;
@@ -79,10 +76,8 @@ const GlobalStyles = createGlobalStyle`
         justify-content: center;
         padding: 1em;
         font-size: 1.2em;
-        background-color: #3F8237;
     }
     #mainNav a[download$=".png"]:hover {
-        background-color: #1A3616;
     }
 
     @media all and (max-width: 768px) {
