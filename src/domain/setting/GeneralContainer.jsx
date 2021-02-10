@@ -60,9 +60,10 @@ const BackgroundContainer = () => {
   return (
     <Card>
       <CardTitle>General</CardTitle>
+      <br />
       <div>
-        <IoSunnySharp onClick={() => handleChangeTheme('light')} />
-        <RiMoonClearFill onClick={() => handleChangeTheme('dark')} />
+        <IoSunnySharp size="1.5em" onClick={() => handleChangeTheme('light')} />
+        <RiMoonClearFill size="1.5em" onClick={() => handleChangeTheme('dark')} />
         { (theme === 'light') ? <LightTheme /> : <DarkTheme /> }
       </div>
       <CardSubTitle>Aspect Ratio</CardSubTitle>
