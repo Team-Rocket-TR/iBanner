@@ -2,6 +2,7 @@ import { createRef } from 'react';
 
 import reducer, {
   initialState,
+  setTheme,
   setCanvasRef,
   setBackgroundImage,
   setContent,
@@ -15,6 +16,27 @@ describe('reducer', () => {
       const state = reducer(undefined, { type: 'action' });
 
       expect(state).toEqual(initialState);
+    });
+  });
+
+  describe('setTheme', () => {
+    context('with "light" theme', () => {
+      const theme = 'light';
+
+      it('changes application mood to light', () => {
+        const state = reducer(initialState, setTheme(theme));
+
+        expect(state.theme).toBe(theme);
+      });
+    });
+    context('with "dark" theme', () => {
+      const theme = 'dark';
+
+      it('changes application mood to dark', () => {
+        const state = reducer(initialState, setTheme(theme));
+
+        expect(state.theme).toBe(theme);
+      });
     });
   });
 

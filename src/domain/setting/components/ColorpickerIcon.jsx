@@ -51,8 +51,8 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
         display: 'none',
       },
       swatch: {
-        width: '32px',
-        height: '32px',
+        width: '28px',
+        height: '28px',
         float: 'left',
         borderRadius: '4px',
         margin: '0 6px 6px 0',

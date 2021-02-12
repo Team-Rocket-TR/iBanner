@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-    color: white;
-    background: #202020;
-    margin: 0em .5em .5em .1em;
+    margin-right: .5em;
     padding: .375rem .75rem;
+    background: #202020;
     border: 1px solid #313030;
     border-radius: .25rem;
-    fontSize: 1rem;
     lineHeight: 1.5;
+    fontSize: 1rem;
+    color: white;
 `;
 
 const BannerSizeButton = ({
