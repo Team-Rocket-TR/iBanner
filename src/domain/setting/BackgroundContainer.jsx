@@ -36,8 +36,6 @@ const BackgroundContainer = () => {
 
   return (
     <Card>
-      <CardTitle>Background</CardTitle>
-
       <CardSubTitle>Background Color</CardSubTitle>
       <ColorpickerIcon
         color={backgroundColor}

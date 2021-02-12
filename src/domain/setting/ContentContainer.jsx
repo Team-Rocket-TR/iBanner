@@ -32,7 +32,6 @@ const ContentContainer = () => {
 
   return (
     <Card>
-      <CardTitle>Text Color</CardTitle>
       <CardSubTitle>Content</CardSubTitle>
       <Content onChange={handleChangeTitle} />
       <CardSubTitle>Font Size</CardSubTitle>
