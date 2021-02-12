@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
+
 import { IoSunnySharp } from 'react-icons/io5';
 import { RiMoonClearFill } from 'react-icons/ri';
 
 import {
   Card, CardTitle, CardSubTitle, Input,
 } from 'components/card';
+
 import {
-  setWidth,
-  setHeight,
-  setWidthHeight,
+  setTheme, setWidth, setHeight, setWidthHeight,
 } from 'slice';
-import DarkTheme from './DarkTheme';
-import LightTheme from './LightTheme';
 
 import BannerSizeButton from './components/BannerSizeButton';
 
@@ -21,8 +20,6 @@ const BackgroundContainer = () => {
 
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
-
-  const [theme, setTheme] = useState('light');
 
   const bannerRatios = [
     ['1:1', width, width],
@@ -53,19 +50,25 @@ const BackgroundContainer = () => {
   };
 
   // Change Theme (Dark mode & Light mode)
-  const handleChangeTheme = (themeColor) => {
-    setTheme(themeColor);
+  const handleChangeTheme = (themeMood) => {
+    dispatch(setTheme(themeMood));
   };
 
   return (
     <Card>
       <CardTitle>General</CardTitle>
+
+      <CardSubTitle>Theme</CardSubTitle>
+      <IoSunnySharp
+        size="1.5em"
+        onClick={() => handleChangeTheme('light')}
+      />
+      <RiMoonClearFill
+        size="1.5em"
+        onClick={() => handleChangeTheme('dark')}
+      />
       <br />
-      <div>
-        <IoSunnySharp size="1.5em" onClick={() => handleChangeTheme('light')} />
-        <RiMoonClearFill size="1.5em" onClick={() => handleChangeTheme('dark')} />
-        { (theme === 'light') ? <LightTheme /> : <DarkTheme /> }
-      </div>
+
       <CardSubTitle>Aspect Ratio</CardSubTitle>
       {bannerRatios.map((props) => {
         const [ratio, w, h] = props;
@@ -80,6 +83,7 @@ const BackgroundContainer = () => {
         );
       })}
       <br />
+
       <CardSubTitle>Custom size</CardSubTitle>
       <Input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleChangeWidth} />
       <Input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleChangeHeight} />
