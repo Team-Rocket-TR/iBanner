@@ -56,8 +56,6 @@ const BackgroundContainer = () => {
 
   return (
     <Card>
-      <CardTitle>General</CardTitle>
-
       <CardSubTitle>Theme</CardSubTitle>
       <IoSunnySharp
         size="1.5em"

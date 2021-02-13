@@ -15,17 +15,17 @@ const SettingContainer = () => {
   return (
     <section>
       <Tabs>
-        <Tab label="Gator">
+        <Tab label="General">
           <TabContent>
             <GeneralContainer />
           </TabContent>
         </Tab>
-        <Tab label="Croc">
+        <Tab label="Background">
           <TabContent>
             <BackgroundContainer />
           </TabContent>
         </Tab>
-        <Tab label="Sarcosuchus">
+        <Tab label="Content">
           <TabContent>
             <ContentContainer />
           </TabContent>
