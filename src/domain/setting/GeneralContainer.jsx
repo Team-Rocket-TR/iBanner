@@ -67,12 +67,24 @@ const BackgroundContainer = () => {
     <Card>
       <CardSubTitle>Theme</CardSubTitle>
       <Switch
+        width={48}
+        height={24}
         onColor="#f9f3f0"
         onHandleColor="#ecb399"
         onChange={handleChangeTheme}
         checked={checked}
-        checkedIcon={<RiMoonClearFill />}
-        uncheckedIcon={<IoSunnySharp />}
+        checkedIcon={(
+          <RiMoonClearFill
+            size={24}
+            color="#bfbfbf"
+          />
+        )}
+        uncheckedIcon={(
+          <IoSunnySharp
+            size={24}
+            color="#ffe6c0"
+          />
+        )}
       />
       <br />
 
