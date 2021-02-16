@@ -14,7 +14,7 @@ const DarkTheme = createGlobalStyle`
     background-color: #52616b;
   }
   #mainNav a[download$=".png"]:hover {
-      background-color: #364f6b;
+    background-color: #364f6b;
   }
 `;
 

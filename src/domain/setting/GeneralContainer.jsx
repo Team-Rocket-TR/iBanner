@@ -11,7 +11,7 @@ import {
 } from 'components/card';
 
 import {
-  setTheme, setWidth, setHeight, setWidthHeight, setChecked
+  setTheme, setWidth, setHeight, setWidthHeight, setChecked,
 } from 'slice';
 
 import BannerSizeButton from './components/BannerSizeButton';
@@ -66,7 +66,26 @@ const BackgroundContainer = () => {
   return (
     <Card>
       <CardSubTitle>Theme</CardSubTitle>
-      <Switch onChange={handleChangeTheme} onColor="#f9f3f0" onHandleColor="#ecb399" uncheckedIcon={<IoSunnySharp />} checkedIcon={<RiMoonClearFill />} checked={checked} />
+      <Switch
+        width={48}
+        height={24}
+        onColor="#f9f3f0"
+        onHandleColor="#ecb399"
+        onChange={handleChangeTheme}
+        checked={checked}
+        checkedIcon={(
+          <RiMoonClearFill
+            size={24}
+            color="#bfbfbf"
+          />
+        )}
+        uncheckedIcon={(
+          <IoSunnySharp
+            size={24}
+            color="#ffe6c0"
+          />
+        )}
+      />
       <br />
 
       <CardSubTitle>Aspect Ratio</CardSubTitle>
@@ -85,8 +104,22 @@ const BackgroundContainer = () => {
       <br />
 
       <CardSubTitle>Custom size</CardSubTitle>
-      <Input type="text" name="width" value={width} maxLength="3" placeholder="Banner Width" onChange={handleChangeWidth} />
-      <Input type="text" name="height" value={height} maxLength="3" placeholder="Banner Height" onChange={handleChangeHeight} />
+      <Input
+        type="text"
+        name="width"
+        value={width}
+        maxLength="3"
+        placeholder="Banner Width"
+        onChange={handleChangeWidth}
+      />
+      <Input
+        type="text"
+        name="height"
+        value={height}
+        maxLength="3"
+        placeholder="Banner Height"
+        onChange={handleChangeHeight}
+      />
     </Card>
   );
 };
