@@ -10,6 +10,7 @@ const Button = styled.button`
     lineHeight: 1.5;
     fontSize: 1rem;
     color: white;
+    cursor:pointer;
 `;
 
 const BannerSizeButton = ({

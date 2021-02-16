@@ -1,4 +1,5 @@
 import React from 'react';
+import Switch from 'react-switch';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -6,11 +7,11 @@ import { IoSunnySharp } from 'react-icons/io5';
 import { RiMoonClearFill } from 'react-icons/ri';
 
 import {
-  Card, CardTitle, CardSubTitle, Input,
+  Card, CardSubTitle, Input,
 } from 'components/card';
 
 import {
-  setTheme, setWidth, setHeight, setWidthHeight,
+  setTheme, setWidth, setHeight, setWidthHeight, setChecked
 } from 'slice';
 
 import BannerSizeButton from './components/BannerSizeButton';
@@ -20,6 +21,8 @@ const BackgroundContainer = () => {
 
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
+
+  const checked = useSelector((state) => state.checked);
 
   const bannerRatios = [
     ['1:1', width, width],
@@ -50,21 +53,20 @@ const BackgroundContainer = () => {
   };
 
   // Change Theme (Dark mode & Light mode)
-  const handleChangeTheme = (themeMood) => {
-    dispatch(setTheme(themeMood));
+  const handleChangeTheme = (nextChecked) => {
+    dispatch(setChecked(nextChecked));
+
+    if (nextChecked) {
+      dispatch(setTheme('light'));
+    } else {
+      dispatch(setTheme('dark'));
+    }
   };
 
   return (
     <Card>
       <CardSubTitle>Theme</CardSubTitle>
-      <IoSunnySharp
-        size="1.5em"
-        onClick={() => handleChangeTheme('light')}
-      />
-      <RiMoonClearFill
-        size="1.5em"
-        onClick={() => handleChangeTheme('dark')}
-      />
+      <Switch onChange={handleChangeTheme} onColor="#f9f3f0" onHandleColor="#ecb399" uncheckedIcon={<IoSunnySharp />} checkedIcon={<RiMoonClearFill />} checked={checked} />
       <br />
 
       <CardSubTitle>Aspect Ratio</CardSubTitle>

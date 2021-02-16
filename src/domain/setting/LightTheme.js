@@ -1,20 +1,20 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const LightTheme = createGlobalStyle`
   #mainHeader {
-    background-color: #e0ece4;
+    background-color: #ecb399;
   }
   #mainArticle {
-    background-color: #f7f2e7;
+    background-color: #f9f3f0;
   }
   #mainNav {
-    background-color: #e4dede;
+    background-color: #dbc2c3;
   }
   #mainNav a[download$=".png"] {
     background-color: #d8d3cd;
   }
   #mainNav a[download$=".png"]:hover {
-      background-color: #797a7e ;
+      background-color: #f1b49b ;
   }
 `;
 
