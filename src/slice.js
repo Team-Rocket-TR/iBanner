@@ -20,7 +20,7 @@ export const initialState = {
   },
   width: "500",
   height: "500",
-  checked: false,
+  isLightTheme: true,
 };
 
 const { actions, reducer } = createSlice({
@@ -104,10 +104,10 @@ const { actions, reducer } = createSlice({
         fontColor,
       };
     },
-    setChecked(state, { payload: checked }) {
+    setLightTheme(state, { payload: isLightTheme }) {
       return {
         ...state,
-        checked,
+        isLightTheme,
       };
     },
   },
@@ -127,7 +127,7 @@ export const {
   setWidthHeight,
   setMainBackgroundColor,
   setMainNavBackgroundColor,
-  setChecked,
+  setLightTheme,
 } = actions;
 
 export default reducer;
