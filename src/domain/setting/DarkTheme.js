@@ -16,6 +16,9 @@ const DarkTheme = createGlobalStyle`
   #mainNav a[download$=".png"]:hover {
     background-color: #364f6b;
   }
+  .react-switch-bg {
+    text-align: center;
+  }
 `;
 
 export default DarkTheme;

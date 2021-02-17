@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setCanvasRef } from 'slice';
 
-import Preview from './components/Preview';
+import PreviewFabric from './components/PreviewFabric';
 
 const PreviewContainer = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const PreviewContainer = () => {
   }
 
   return (
-    <Preview
+    <PreviewFabric
       width={width}
       height={height}
       backgroundImage={backgroundImage}

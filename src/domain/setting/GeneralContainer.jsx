@@ -53,10 +53,10 @@ const BackgroundContainer = () => {
   };
 
   // Change Theme (Dark mode & Light mode)
-  const handleChangeTheme = (nextChecked) => {
-    dispatch(setChecked(nextChecked));
+  const handleChangeTheme = (toggleSwitch) => {
+    dispatch(setChecked(toggleSwitch));
 
-    if (nextChecked) {
+    if (toggleSwitch) {
       dispatch(setTheme('light'));
     } else {
       dispatch(setTheme('dark'));
@@ -67,7 +67,7 @@ const BackgroundContainer = () => {
     <Card>
       <CardSubTitle>Theme</CardSubTitle>
       <Switch
-        width={48}
+        width={50}
         height={24}
         onColor="#f9f3f0"
         onHandleColor="#ecb399"
