@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   theme: 'light',
-  checked: true,
+  isLightTheme: true,
   canvasRef: null,
   backgroundColor: {
     r: 128,
@@ -104,10 +104,10 @@ const { actions, reducer } = createSlice({
         fontColor,
       };
     },
-    setChecked(state, { payload: checked }) {
+    setLightTheme(state, { payload: isLightTheme }) {
       return {
         ...state,
-        checked,
+        isLightTheme,
       };
     },
   },
@@ -127,7 +127,7 @@ export const {
   setWidthHeight,
   setMainBackgroundColor,
   setMainNavBackgroundColor,
-  setChecked,
+  setLightTheme,
 } = actions;
 
 export default reducer;

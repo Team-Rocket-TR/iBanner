@@ -11,7 +11,7 @@ import {
 } from 'components/card';
 
 import {
-  setTheme, setWidth, setHeight, setWidthHeight, setChecked,
+  setTheme, setWidth, setHeight, setWidthHeight, setLightTheme,
 } from 'slice';
 
 import BannerSizeButton from './components/BannerSizeButton';
@@ -22,7 +22,7 @@ const BackgroundContainer = () => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  const checked = useSelector((state) => state.checked);
+  const isLightTheme = useSelector((state) => state.isLightTheme);
 
   const bannerRatios = [
     ['1:1', width, width],
@@ -52,11 +52,11 @@ const BackgroundContainer = () => {
     dispatch(setWidthHeight({ width: w, height: h }));
   };
 
-  // Change Theme (Dark mode & Light mode)
-  const handleChangeTheme = (toggleSwitch) => {
-    dispatch(setChecked(toggleSwitch));
+  // Change Theme (Dark theme & Light theme)
+  const handleChangeTheme = (lightTheme) => {
+    dispatch(setLightTheme(lightTheme));
 
-    if (toggleSwitch) {
+    if (lightTheme) {
       dispatch(setTheme('light'));
     } else {
       dispatch(setTheme('dark'));
@@ -72,7 +72,7 @@ const BackgroundContainer = () => {
         onColor="#f9f3f0"
         onHandleColor="#ecb399"
         onChange={handleChangeTheme}
-        checked={checked}
+        checked={isLightTheme}
         checkedIcon={(
           <RiMoonClearFill
             size={24}
