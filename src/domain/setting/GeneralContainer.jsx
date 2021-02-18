@@ -11,7 +11,7 @@ import {
 } from 'components/card';
 
 import {
-  setTheme, setWidth, setHeight, setWidthHeight, setLightTheme,
+  setTheme, setWidth, setHeight, setWidthHeight, setLightTheme, changeCustomSize, 
 } from 'slice';
 
 import BannerSizeButton from './components/BannerSizeButton';
@@ -31,12 +31,14 @@ const BackgroundContainer = () => {
     ['16:9', width, Math.floor(width * (9 / 16))],
   ];
 
-  // Custom Change banner width
-  const handleChangeWidth = (e) => {
-    const bannerWidth = /^[0-9\b]+$/;
-    if (e.target.value || bannerWidth.test(e.target.value)) {
-      dispatch(setWidth(e.target.value));
-    }
+  // Check Number
+  const handleIsCheckNumber = (sizeValue) => {
+    const number = /^[0-9\b]+$/;
+    return (sizeValue || number.test(sizeValue));
+  };
+
+  const handleChangeCustomSize = ({ name, value }) => {
+    dispatch(changeCustomSize({ name, value }));
   };
 
   // Custom Change banner height
@@ -110,7 +112,7 @@ const BackgroundContainer = () => {
         value={width}
         maxLength="3"
         placeholder="Banner Width"
-        onChange={handleChangeWidth}
+        onChange={(e) => handleChangeCustomSize(e.target.name, e.target.value)}
       />
       <Input
         type="text"

@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
-  theme: "light",
+  theme: 'light',
   canvasRef: null,
   backgroundColor: {
     r: 128,
@@ -9,22 +9,26 @@ export const initialState = {
     b: 128,
     a: 1,
   },
-  backgroundImage: "",
-  content: "",
-  fontSize: "24",
+  backgroundImage: '',
+  content: '',
+  fontSize: '24',
   fontColor: {
     r: 255,
     g: 255,
     b: 255,
     a: 1,
   },
-  width: "500",
-  height: "500",
+  width: '500',
+  height: '500',
+  bannerSize: {
+    width: '',
+    height: '',
+  },
   isLightTheme: true,
 };
 
 const { actions, reducer } = createSlice({
-  name: "app",
+  name: 'app',
   initialState: {
     ...initialState,
   },
@@ -110,6 +114,15 @@ const { actions, reducer } = createSlice({
         isLightTheme,
       };
     },
+    changeCustomSize(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        bannerSize: {
+          ...state.bannerSize,
+          [name]: value,
+        },
+      };
+    },
   },
 });
 
@@ -128,6 +141,7 @@ export const {
   setMainBackgroundColor,
   setMainNavBackgroundColor,
   setLightTheme,
+  changeCustomSize,
 } = actions;
 
 export default reducer;
