@@ -20,16 +20,18 @@ const PreviewFabric = ({
   fontColor,
   onDraw,
 }) => {
-  const [canvas, setCanvas] = useState('');
+  const [canvas, setCanvas] = useState();
 
   const canvasRef = useRef(null);
 
-  const initCanvas = () => (
-    new fabric.Canvas(`${canvasRef.current.id}`, {
-      height,
-      width,
-    })
-  );
+  const initCanvas = () => {
+    setCanvas(
+      new fabric.Canvas(canvasRef.current, {
+        width,
+        height,
+      }),
+    );
+  };
 
   const drawCanvas = (...works) => {
     works.map((work) => work);
@@ -63,16 +65,25 @@ const PreviewFabric = ({
   };
 
   useEffect(() => {
-    const cvs = initCanvas();
-    drawCanvas(clearCanvas(cvs), drawRect(cvs), drawText(cvs));
-  }, []);
+    console.log('PreviewFabric 컴포넌트가 화면에 나타남');
+    console.log(canvas, width, height);
+
+    if (!canvas) {
+      initCanvas();
+      return () => (null);
+    }
+
+    drawCanvas(clearCanvas(canvas), drawRect(canvas), drawText(canvas));
+    return () => {
+      console.log('PreviewFabric 컴포넌트가 화면에서 사라짐!');
+    };
+  }, [canvas, width, height]);
 
   return (
     <>
       <button type="button" onClick={() => clearCanvas()}>Clear</button>
       <Canvas
         ref={canvasRef}
-        id="canvas"
       />
     </>
   );
