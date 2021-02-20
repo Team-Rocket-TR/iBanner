@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Switch from 'react-switch';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -67,7 +68,7 @@ const BackgroundContainer = () => {
     <Card>
       <CardSubTitle>Theme</CardSubTitle>
       <Switch
-        width={48}
+        width={50}
         height={24}
         onColor="#f9f3f0"
         onHandleColor="#ecb399"

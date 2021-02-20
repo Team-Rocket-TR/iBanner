@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const LightTheme = createGlobalStyle`
   #mainHeader {
@@ -14,7 +14,10 @@ const LightTheme = createGlobalStyle`
     background-color: #d8d3cd;
   }
   #mainNav a[download$=".png"]:hover {
-      background-color: #f1b49b ;
+    background-color: #f1b49b ;
+  }
+  .react-switch-bg {
+    text-align: center;
   }
 `;
 

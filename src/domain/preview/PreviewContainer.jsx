@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setCanvasRef } from 'slice';
 
-import Preview from './components/Preview';
+import PreviewFabric from './components/PreviewFabric';
 
 const PreviewContainer = () => {
   const dispatch = useDispatch();
@@ -20,15 +20,15 @@ const PreviewContainer = () => {
   const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
-  function handleDraw(canvas) {
-    canvas.toBlob((blob) => {
+  function handleDraw(canvasElement) {
+    canvasElement.toBlob((blob) => {
       const localURL = window.URL.createObjectURL(blob);
       dispatch(setCanvasRef(localURL));
     }, 'image/png', 1.0);
   }
 
   return (
-    <Preview
+    <PreviewFabric
       width={width}
       height={height}
       backgroundImage={backgroundImage}
