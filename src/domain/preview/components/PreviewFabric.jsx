@@ -12,9 +12,7 @@ const PreviewFabric = ({
   width,
   height,
   backgroundImage,
-  backgroundColor: {
-    r, g, b, a,
-  },
+  backgroundColor,
   content,
   fontSize,
   fontColor,
@@ -24,7 +22,7 @@ const PreviewFabric = ({
 
   const canvasRef = useRef(null);
 
-  const initCanvas = () => {
+  const initializeCanvas = () => {
     setCanvas(
       new fabric.Canvas(canvasRef.current, {
         width,
@@ -33,19 +31,26 @@ const PreviewFabric = ({
     );
   };
 
-  const drawCanvas = (...works) => {
-    works.map((work) => work);
+  const destroyCanvas = () => {
+    setCanvas(null);
   };
 
   const clearCanvas = (cvs) => {
     cvs.clear();
   };
 
+  const drawCanvas = (...works) => {
+    works.map((work) => work);
+  };
+
   const drawRect = (cvs) => {
+    const {
+      r, g, b, a,
+    } = backgroundColor;
     const rect = new fabric.Rect({
       width,
       height,
-      fill: 'yellow',
+      fill: `rgb(${r}, ${g}, ${b}, ${a})`,
       selectable: false,
       hoverCursor: 'default',
     });
@@ -55,37 +60,48 @@ const PreviewFabric = ({
 
   const drawText = (cvs) => {
     const fillText = content || '제목을 입력해주세요!';
-    const text = new fabric.Text(fillText, {
-      top: 0,
-      left: 0,
-      fill: '#f55',
-    });
+    const {
+      r, g, b, a,
+    } = fontColor;
+    const text = new fabric.Text(
+      fillText, {
+        originX: 'center',
+        originY: 'center',
+        top: 0.5 * height,
+        left: 0.5 * width,
+        fill: `rgb(${r}, ${g}, ${b}, ${a})`,
+        fontSize,
+      },
+    );
     cvs.add(text);
     cvs.renderAll();
   };
 
   useEffect(() => {
-    console.log('PreviewFabric 컴포넌트가 화면에 나타남');
-    console.log(canvas, width, height);
-
     if (!canvas) {
-      initCanvas();
+      initializeCanvas();
       return () => (null);
     }
 
-    drawCanvas(clearCanvas(canvas), drawRect(canvas), drawText(canvas));
-    return () => {
-      console.log('PreviewFabric 컴포넌트가 화면에서 사라짐!');
-    };
-  }, [canvas, width, height]);
+    drawCanvas(
+      clearCanvas(canvas),
+      drawRect(canvas),
+      drawText(canvas),
+      onDraw(canvasRef.current),
+    );
+    return () => (null);
+  }, [
+    canvas,
+    width,
+    height,
+    backgroundColor,
+    content,
+    fontSize,
+    fontColor,
+  ]);
 
   return (
-    <>
-      <button type="button" onClick={() => clearCanvas()}>Clear</button>
-      <Canvas
-        ref={canvasRef}
-      />
-    </>
+    <Canvas ref={canvasRef} />
   );
 };
 

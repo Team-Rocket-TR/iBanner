@@ -20,8 +20,8 @@ const PreviewContainer = () => {
   const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
-  function handleDraw(canvas) {
-    canvas.toBlob((blob) => {
+  function handleDraw(canvasElement) {
+    canvasElement.toBlob((blob) => {
       const localURL = window.URL.createObjectURL(blob);
       dispatch(setCanvasRef(localURL));
     }, 'image/png', 1.0);
