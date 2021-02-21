@@ -15,7 +15,7 @@ import {
   setTheme, setWidth, setHeight, setWidthHeight, setLightTheme,
 } from 'slice';
 
-import BannerSizeButton from './components/BannerSizeButton';
+import { BannerSizeButton, BannerSize } from 'domain/setting/components/';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
@@ -105,14 +105,7 @@ const BackgroundContainer = () => {
       <br />
 
       <CardSubTitle>Custom size</CardSubTitle>
-      <Input
-        type="text"
-        name="width"
-        value={width}
-        maxLength="3"
-        placeholder="Banner Width"
-        onChange={handleChangeWidth}
-      />
+      <BannerSize width={width} onChange={handleChangeWidth} />
       <Input
         type="text"
         name="height"
