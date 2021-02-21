@@ -12,7 +12,7 @@ import {
 } from 'components/card';
 
 import {
-  setTheme, setWidth, setHeight, setWidthHeight, setLightTheme,
+  setTheme, setSize, setWidthHeight, setLightTheme,
 } from 'slice';
 
 import { BannerSizeButton, BannerSize } from 'domain/setting/components/';
@@ -34,10 +34,7 @@ const BackgroundContainer = () => {
 
   // Custom Change banner size
   const handleChangeBannerSize = ({ name, value }) => {
-    const bannerSize = /^[0-9\b]+$/;
-    if (e.target.value || bannerSize.test(e.target.value)) {
-      dispatch(setWidth(e.target.value));
-    }
+    dispatch(setSize({ name, value }));
   };
 
   // Change banner size (Resize by Ratio)
@@ -97,8 +94,23 @@ const BackgroundContainer = () => {
       <br />
 
       <CardSubTitle>Custom size</CardSubTitle>
-      <BannerSize name="width" value={width} placeholder="Banner Width" onChange={handleChangeBannerSize} />
-      <BannerSize name="height" value={height} placeholder="Banner Height" onChange={handleChangeBannerSize} />
+      {[{
+        name: 'width',
+        value: width,
+        placeholder: 'Banner Width',
+      }, {
+        name: 'height',
+        value: height,
+        placeholder: 'Banner Height',
+      }].map(({ name, value, placeholder }) => (
+        <BannerSize
+          key={name}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleChangeBannerSize}
+        />
+      ))}
     </Card>
   );
 };

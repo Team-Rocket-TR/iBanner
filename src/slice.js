@@ -4,13 +4,15 @@ export const initialState = {
   theme: 'light',
   isLightTheme: true,
   canvasRef: null,
+  width: '500',
+  height: '500',
+  backgroundImage: '',
   backgroundColor: {
     r: 128,
     g: 128,
     b: 128,
     a: 1,
   },
-  backgroundImage: '',
   content: '',
   fontSize: '24',
   fontColor: {
@@ -18,12 +20,6 @@ export const initialState = {
     g: 255,
     b: 255,
     a: 1,
-  },
-  width: '500',
-  height: '500',
-  bannerSize: {
-    width: '',
-    height: '',
   },
 };
 
@@ -43,6 +39,12 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         canvasRef,
+      };
+    },
+    setSize(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        [name]: value,
       };
     },
     setWidth(state, { payload: width }) {
@@ -114,15 +116,6 @@ const { actions, reducer } = createSlice({
         isLightTheme,
       };
     },
-    changeCustomSize(state, { payload: { name, value } }) {
-      return {
-        ...state,
-        bannerSize: {
-          ...state.bannerSize,
-          [name]: value,
-        },
-      };
-    },
   },
 });
 
@@ -135,6 +128,7 @@ export const {
   setContent,
   setFontSize,
   setFontColor,
+  setSize,
   setWidth,
   setHeight,
   setWidthHeight,

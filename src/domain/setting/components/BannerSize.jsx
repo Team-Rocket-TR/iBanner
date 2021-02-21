@@ -1,5 +1,12 @@
 import React from 'react';
 
+import { Input } from 'components/card';
+
+const isNumber = (value) => {
+  const bannerHeight = /^[0-9\b]+$/;
+  return value && bannerHeight.test(value);
+};
+
 const BannerSize = ({
   name,
   value,
@@ -7,20 +14,17 @@ const BannerSize = ({
   onChange,
 }) => {
   const handleChange = (e) => {
-    const bannerHeight = /^[0-9\b]+$/;
-    if (e.target.value || bannerHeight.test(e.target.value)) {
-      onChange({ name, value });
+    if (!isNumber(e.target.value)) {
+      return;
     }
+    onChange({
+      name: e.target.name,
+      value: e.target.value,
+    });
   };
 
-  // const isNumber = (value) => {
-  //   const bannerSize = /^[0-9\b]+$/;
-  //   if (e.target.value || bannerSize.test(e.target.value)) {
-  //     dispatch(setWidth(e.target.value));
-  //   }
-  // };
   return (
-    <input
+    <Input
       type="text"
       name={name}
       value={value}
