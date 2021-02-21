@@ -13,12 +13,12 @@ const BannerSize = ({
     }
   };
 
-  const isNumber = (value) => {
-    const bannerSize = /^[0-9\b]+$/;
-    if (e.target.value || bannerSize.test(e.target.value)) {
-      dispatch(setWidth(e.target.value));
-    }
-  };
+  // const isNumber = (value) => {
+  //   const bannerSize = /^[0-9\b]+$/;
+  //   if (e.target.value || bannerSize.test(e.target.value)) {
+  //     dispatch(setWidth(e.target.value));
+  //   }
+  // };
   return (
     <input
       type="text"

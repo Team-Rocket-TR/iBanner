@@ -8,7 +8,7 @@ import { IoSunnySharp } from 'react-icons/io5';
 import { RiMoonClearFill } from 'react-icons/ri';
 
 import {
-  Card, CardSubTitle, Input,
+  Card, CardSubTitle,
 } from 'components/card';
 
 import {
@@ -32,19 +32,11 @@ const BackgroundContainer = () => {
     ['16:9', width, Math.floor(width * (9 / 16))],
   ];
 
-  // Custom Change banner width
-  const handleChangeWidth = (e) => {
-    const bannerWidth = /^[0-9\b]+$/;
-    if (e.target.value || bannerWidth.test(e.target.value)) {
+  // Custom Change banner size
+  const handleChangeBannerSize = ({ name, value }) => {
+    const bannerSize = /^[0-9\b]+$/;
+    if (e.target.value || bannerSize.test(e.target.value)) {
       dispatch(setWidth(e.target.value));
-    }
-  };
-
-  // Custom Change banner height
-  const handleChangeHeight = (e) => {
-    const bannerHeight = /^[0-9\b]+$/;
-    if (e.target.value || bannerHeight.test(e.target.value)) {
-      dispatch(setHeight(e.target.value));
     }
   };
 
@@ -105,15 +97,8 @@ const BackgroundContainer = () => {
       <br />
 
       <CardSubTitle>Custom size</CardSubTitle>
-      <BannerSize width={width} onChange={handleChangeWidth} />
-      <Input
-        type="text"
-        name="height"
-        value={height}
-        maxLength="3"
-        placeholder="Banner Height"
-        onChange={handleChangeHeight}
-      />
+      <BannerSize name="width" value={width} placeholder="Banner Width" onChange={handleChangeBannerSize} />
+      <BannerSize name="height" value={height} placeholder="Banner Height" onChange={handleChangeBannerSize} />
     </Card>
   );
 };

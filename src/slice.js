@@ -21,6 +21,10 @@ export const initialState = {
   },
   width: '500',
   height: '500',
+  bannerSize: {
+    width: '',
+    height: '',
+  },
 };
 
 const { actions, reducer } = createSlice({
@@ -110,6 +114,15 @@ const { actions, reducer } = createSlice({
         isLightTheme,
       };
     },
+    changeCustomSize(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        bannerSize: {
+          ...state.bannerSize,
+          [name]: value,
+        },
+      };
+    },
   },
 });
 
@@ -128,6 +141,7 @@ export const {
   setMainBackgroundColor,
   setMainNavBackgroundColor,
   setLightTheme,
+  changeCustomSize,
 } = actions;
 
 export default reducer;
