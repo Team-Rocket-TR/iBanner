@@ -3,7 +3,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Card from 'components/card/Card';
-import CardTitle from 'components/card/CardTitle';
 import CardSubTitle from 'components/card/CardSubTitle';
 
 import { setContent, setFontSize, setFontColor } from 'slice';

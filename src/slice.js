@@ -41,7 +41,7 @@ const { actions, reducer } = createSlice({
         canvasRef,
       };
     },
-    setSize(state, { payload: { name, value } }) {
+    setBannerSize(state, { payload: { name, value } }) {
       return {
         ...state,
         [name]: value,
@@ -59,7 +59,7 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
-    setWidthHeight(state, { payload: { width, height } }) {
+    setBannerRatios(state, { payload: { width, height } }) {
       return {
         ...state,
         width,
@@ -128,14 +128,13 @@ export const {
   setContent,
   setFontSize,
   setFontColor,
-  setSize,
+  setBannerSize,
   setWidth,
   setHeight,
-  setWidthHeight,
+  setBannerRatios,
   setMainBackgroundColor,
   setMainNavBackgroundColor,
   setLightTheme,
-  changeCustomSize,
 } = actions;
 
 export default reducer;

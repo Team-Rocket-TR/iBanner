@@ -2,7 +2,21 @@ import React from 'react';
 
 import { AlphaPicker, TwitterPicker } from 'react-color';
 
-const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
+// eslint-disable-next-line no-bitwise
+const rgbToHex = ({ r, g, b }) => `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+
+const hexToRgb = (hex) => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16),
+  } : null;
+};
+
+const ColorpickerIcon = ({
+  color, onChangeBackgroundcolor, onChangeAlpha,
+}) => {
   const colors = [
     '#f44336', '#e84b63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#009688',
     '#4caf50', '#8bc34a', '#9bab9a', '#ff9800', '#ffee4b', '#ffffff', '#000000',
@@ -63,6 +77,12 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
     },
   };
 
+  const handleChangeHexBackgroundColor = (e) => {
+    const hex = e.target.value;
+    const rgb = hexToRgb(hex);
+    onChangeBackgroundcolor({ rgb });
+  };
+
   return (
     <>
       <TwitterPicker
@@ -73,6 +93,7 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
         width="90%"
         styles={styles}
       />
+      <input type="text" name="hexBackgroundColor" value={rgbToHex(color)} onChange={handleChangeHexBackgroundColor} />
       {onChangeAlpha
         ? (
           <AlphaPicker
