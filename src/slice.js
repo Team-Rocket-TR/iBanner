@@ -13,7 +13,6 @@ export const initialState = {
     b: 128,
     a: 1,
   },
-  backgroundColorHex: '#808080',
   content: '',
   fontSize: '24',
   fontColor: {
@@ -78,12 +77,6 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setBackgroundColorHex(state, { payload: backgroundColorHex }) {
-      return {
-        ...state,
-        backgroundColorHex,
-      };
-    },
     setAlpha(state, { payload: alpha }) {
       return {
         ...state,
@@ -130,7 +123,6 @@ export const {
   setTheme,
   setCanvasRef,
   setBackgroundColor,
-  setBackgroundColorHex,
   setAlpha,
   setBackgroundImage,
   setContent,
