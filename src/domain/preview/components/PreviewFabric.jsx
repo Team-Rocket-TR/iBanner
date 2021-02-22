@@ -31,50 +31,51 @@ const PreviewFabric = ({
     );
   };
 
-  const destroyCanvas = () => {
-    setCanvas(null);
-  };
-
-  const clearCanvas = (cvs) => {
-    cvs.clear();
-  };
-
-  const drawCanvas = (...works) => {
-    works.map((work) => work);
-  };
-
-  const drawRect = (cvs) => {
+  const initializeRectangle = () => {
     const {
       r, g, b, a,
     } = backgroundColor;
-    const rect = new fabric.Rect({
+    return new fabric.Rect({
       width,
       height,
       fill: `rgb(${r}, ${g}, ${b}, ${a})`,
       selectable: false,
       hoverCursor: 'default',
     });
-    cvs.add(rect);
-    cvs.renderAll();
+  };
+
+  const initializeText = ({ fillText }) => {
+    const {
+      r, g, b, a,
+    } = fontColor;
+    return new fabric.Text(
+      fillText, {
+        originX: 'center',
+        originY: 'center',
+        left: 0.5 * width,
+        top: 0.5 * height,
+        fontSize,
+        fill: `rgb(${r}, ${g}, ${b}, ${a})`,
+      },
+    );
+  };
+
+  const drawPreview = (...works) => {
+    works.map((work) => work);
+  };
+
+  const clearCanvas = (cvs) => cvs.clear();
+  const drawCanvas = (cvs) => cvs.setWidth(width).setHeight(height);
+
+  const drawRect = (cvs) => {
+    const rect = initializeRectangle({ width, height, fillColor: backgroundColor });
+    return cvs.add(rect).renderAll();
   };
 
   const drawText = (cvs) => {
     const fillText = content || '제목을 입력해주세요!';
-    const {
-      r, g, b, a,
-    } = fontColor;
-    const text = new fabric.Text(
-      fillText, {
-        originX: 'center',
-        originY: 'center',
-        top: 0.5 * height,
-        left: 0.5 * width,
-        fill: `rgb(${r}, ${g}, ${b}, ${a})`,
-        fontSize,
-      },
-    );
-    cvs.add(text);
-    cvs.renderAll();
+    const text = initializeText({ fillText });
+    return cvs.add(text).renderAll();
   };
 
   useEffect(() => {
@@ -83,8 +84,9 @@ const PreviewFabric = ({
       return () => (null);
     }
 
-    drawCanvas(
+    drawPreview(
       clearCanvas(canvas),
+      drawCanvas(canvas),
       drawRect(canvas),
       drawText(canvas),
       onDraw(canvasRef.current),
