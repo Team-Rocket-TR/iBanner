@@ -2,7 +2,9 @@ import React from 'react';
 
 import { AlphaPicker, TwitterPicker } from 'react-color';
 
-const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
+const ColorpickerIcon = ({
+  color, onChangeBackgroundcolor, onChangeAlpha, backgroundColorHex,
+}) => {
   const colors = [
     '#f44336', '#e84b63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#009688',
     '#4caf50', '#8bc34a', '#9bab9a', '#ff9800', '#ffee4b', '#ffffff', '#000000',
@@ -73,6 +75,7 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor, onChangeAlpha }) => {
         width="90%"
         styles={styles}
       />
+      <input type="text" value={backgroundColorHex} onChange={onChangeBackgroundcolor} />
       {onChangeAlpha
         ? (
           <AlphaPicker
