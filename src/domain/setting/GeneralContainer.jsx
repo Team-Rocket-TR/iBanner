@@ -12,7 +12,7 @@ import {
 } from 'components/card';
 
 import {
-  setTheme, setSize, setWidthHeight, setLightTheme,
+  setTheme, setBannerSize, setBannerRatios, setLightTheme,
 } from 'slice';
 
 import { BannerSizeButton, BannerSize } from 'domain/setting/components/';
@@ -34,12 +34,12 @@ const BackgroundContainer = () => {
 
   // Custom Change banner size
   const handleChangeBannerSize = ({ name, value }) => {
-    dispatch(setSize({ name, value }));
+    dispatch(setBannerSize({ name, value }));
   };
 
   // Change banner size (Resize by Ratio)
-  const handleChangeSize = ({ w, h }) => {
-    dispatch(setWidthHeight({ width: w, height: h }));
+  const handleChangeBannerRatios = ({ w, h }) => {
+    dispatch(setBannerRatios({ width: w, height: h }));
   };
 
   // Change Theme (Dark theme & Light theme)
@@ -87,7 +87,7 @@ const BackgroundContainer = () => {
             height={h}
             ratio={ratio}
             key={ratio}
-            onClick={handleChangeSize}
+            onClick={handleChangeBannerRatios}
           />
         );
       })}
