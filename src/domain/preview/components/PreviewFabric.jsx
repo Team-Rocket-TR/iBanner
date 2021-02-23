@@ -96,7 +96,6 @@ const PreviewFabric = ({
   };
 
   const handleClick = () => {
-    console.log(canvas, canvasRef.current);
     canvasRef.current.toBlob((blob) => {
       saveAs(blob, 'banner.png');
     });
