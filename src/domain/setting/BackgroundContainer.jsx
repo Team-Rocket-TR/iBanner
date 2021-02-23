@@ -3,10 +3,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Card from 'components/card/Card';
-import CardTitle from 'components/card/CardTitle';
 import CardSubTitle from 'components/card/CardSubTitle';
 
-import { setBackgroundColor, setAlpha, setBackgroundImage } from 'slice';
+import {
+  setBackgroundColor, setAlpha, setBackgroundImage,
+} from 'slice';
 
 import ColorpickerIcon from './components/ColorpickerIcon';
 import ImageFile from './components/ImageFile';
@@ -42,7 +43,6 @@ const BackgroundContainer = () => {
         onChangeBackgroundcolor={handleChangeBackgroundcolor}
         onChangeAlpha={handleChangeAlpha}
       />
-
       <CardSubTitle>Background Image</CardSubTitle>
       <ImageFile onChange={handleChangeFile} />
     </Card>
