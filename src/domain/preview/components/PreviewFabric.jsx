@@ -23,12 +23,13 @@ const PreviewFabric = ({
   const canvasRef = useRef(null);
 
   const initializeCanvas = () => {
-    setCanvas(
-      new fabric.Canvas(canvasRef.current, {
+    const fabricCanvas = new fabric.Canvas(
+      canvasRef.current, {
         width,
         height,
-      }),
+      },
     );
+    setCanvas(fabricCanvas);
   };
 
   const initializeRectangle = () => {
@@ -65,6 +66,7 @@ const PreviewFabric = ({
   };
 
   const clearCanvas = (cvs) => cvs.clear();
+
   const drawCanvas = (cvs) => cvs.setWidth(width).setHeight(height);
 
   const drawRect = (cvs) => {
@@ -83,7 +85,6 @@ const PreviewFabric = ({
       initializeCanvas();
       return () => (null);
     }
-
     drawPreview(
       clearCanvas(canvas),
       drawCanvas(canvas),
