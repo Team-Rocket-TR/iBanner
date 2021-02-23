@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { fabric } from 'fabric';
 
+import { saveAs } from 'file-saver';
+
 const Canvas = styled.canvas`
   border: 1px dashed;
 `;
@@ -93,6 +95,13 @@ const PreviewFabric = ({
     return cvs.add(text).renderAll();
   };
 
+  const handleClick = () => {
+    console.log(canvas, canvasRef.current);
+    canvasRef.current.toBlob((blob) => {
+      saveAs(blob, 'banner.png');
+    });
+  };
+
   useEffect(() => {
     if (!canvas) {
       initializeCanvas();
@@ -119,7 +128,10 @@ const PreviewFabric = ({
   ]);
 
   return (
-    <Canvas ref={canvasRef} />
+    <>
+      <Canvas ref={canvasRef} />
+      <button type="button" onClick={handleClick}>다운로드</button>
+    </>
   );
 };
 
