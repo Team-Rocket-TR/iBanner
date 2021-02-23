@@ -57,6 +57,8 @@ const PreviewFabric = ({
         top: 0.5 * height,
         fontSize,
         fill: `rgb(${r}, ${g}, ${b}, ${a})`,
+        selectable: false,
+        hoverCursor: 'default',
       },
     );
   };
@@ -68,6 +70,17 @@ const PreviewFabric = ({
   const clearCanvas = (cvs) => cvs.clear();
 
   const drawCanvas = (cvs) => cvs.setWidth(width).setHeight(height);
+
+  const drawImage = (cvs) => {
+    fabric.Image.fromURL(backgroundImage, async (image) => {
+      const img = image.set({
+        left: 0,
+        top: 0,
+        selectable: false,
+      });
+      cvs.add(img).sendToBack(img).renderAll();
+    });
+  };
 
   const drawRect = (cvs) => {
     const rect = initializeRectangle({ width, height, fillColor: backgroundColor });
@@ -88,6 +101,7 @@ const PreviewFabric = ({
     drawPreview(
       clearCanvas(canvas),
       drawCanvas(canvas),
+      drawImage(canvas),
       drawRect(canvas),
       drawText(canvas),
       onDraw(canvasRef.current),
@@ -97,6 +111,7 @@ const PreviewFabric = ({
     canvas,
     width,
     height,
+    backgroundImage,
     backgroundColor,
     content,
     fontSize,
