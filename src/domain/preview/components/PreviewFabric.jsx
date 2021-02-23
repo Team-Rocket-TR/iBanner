@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { fabric } from 'fabric';
 
+import { saveAs } from 'file-saver';
+
 const Canvas = styled.canvas`
   border: 1px dashed;
 `;
@@ -23,12 +25,13 @@ const PreviewFabric = ({
   const canvasRef = useRef(null);
 
   const initializeCanvas = () => {
-    setCanvas(
-      new fabric.Canvas(canvasRef.current, {
+    const fabricCanvas = new fabric.Canvas(
+      canvasRef.current, {
         width,
         height,
-      }),
+      },
     );
+    setCanvas(fabricCanvas);
   };
 
   const initializeRectangle = () => {
@@ -56,6 +59,8 @@ const PreviewFabric = ({
         top: 0.5 * height,
         fontSize,
         fill: `rgb(${r}, ${g}, ${b}, ${a})`,
+        selectable: false,
+        hoverCursor: 'default',
       },
     );
   };
@@ -65,7 +70,19 @@ const PreviewFabric = ({
   };
 
   const clearCanvas = (cvs) => cvs.clear();
+
   const drawCanvas = (cvs) => cvs.setWidth(width).setHeight(height);
+
+  const drawImage = (cvs) => {
+    fabric.Image.fromURL(backgroundImage, async (image) => {
+      const img = image.set({
+        left: 0,
+        top: 0,
+        selectable: false,
+      });
+      cvs.add(img).sendToBack(img).renderAll();
+    });
+  };
 
   const drawRect = (cvs) => {
     const rect = initializeRectangle({ width, height, fillColor: backgroundColor });
@@ -78,15 +95,21 @@ const PreviewFabric = ({
     return cvs.add(text).renderAll();
   };
 
+  const handleClick = () => {
+    canvasRef.current.toBlob((blob) => {
+      saveAs(blob, 'banner.png');
+    });
+  };
+
   useEffect(() => {
     if (!canvas) {
       initializeCanvas();
       return () => (null);
     }
-
     drawPreview(
       clearCanvas(canvas),
       drawCanvas(canvas),
+      drawImage(canvas),
       drawRect(canvas),
       drawText(canvas),
       onDraw(canvasRef.current),
@@ -96,6 +119,7 @@ const PreviewFabric = ({
     canvas,
     width,
     height,
+    backgroundImage,
     backgroundColor,
     content,
     fontSize,
@@ -103,7 +127,10 @@ const PreviewFabric = ({
   ]);
 
   return (
-    <Canvas ref={canvasRef} />
+    <>
+      <Canvas ref={canvasRef} />
+      <button type="button" onClick={handleClick}>다운로드</button>
+    </>
   );
 };
 
