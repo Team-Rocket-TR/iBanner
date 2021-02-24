@@ -29,10 +29,11 @@ const { actions, reducer } = createSlice({
     ...initialState,
   },
   reducers: {
-    setTheme(state, { payload: theme }) {
+    setTheme(state, { payload: { theme, isLightTheme } }) {
       return {
         ...state,
         theme,
+        isLightTheme,
       };
     },
     setCanvasRef(state, { payload: canvasRef }) {
@@ -110,12 +111,6 @@ const { actions, reducer } = createSlice({
         fontColor,
       };
     },
-    setLightTheme(state, { payload: isLightTheme }) {
-      return {
-        ...state,
-        isLightTheme,
-      };
-    },
   },
 });
 
@@ -134,7 +129,6 @@ export const {
   setBannerRatios,
   setMainBackgroundColor,
   setMainNavBackgroundColor,
-  setLightTheme,
 } = actions;
 
 export default reducer;
