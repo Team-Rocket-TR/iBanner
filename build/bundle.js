@@ -163,14 +163,14 @@ e.exports=function(){"use strict";
         bottom: 0;
         z-index: 9;
     }
-    #mainNav a[download$=".png"] {
+    #mainNav button[name="download"] {
         display: flex;
         justify-content: center;
         padding: 1em;
         font-size: 1.2em;
         background-color: #3F8237;
     }
-    #mainNav a[download$=".png"]:hover {
+    #mainNav button[name="download"]:hover {
         background-color: #1A3616;
     }
 

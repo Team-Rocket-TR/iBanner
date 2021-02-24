@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const LightTheme = createGlobalStyle`
+  body, button {
+    color: #333333;
+  }
   #mainHeader {
     background-color: #ecb399;
   }
@@ -10,11 +13,11 @@ const LightTheme = createGlobalStyle`
   #mainNav {
     background-color: #dbc2c3;
   }
-  #mainNav a[download$=".png"] {
-    background-color: #d8d3cd;
+  #mainNav button[name="download"] {
+    background-color: #f1b49b;
   }
-  #mainNav a[download$=".png"]:hover {
-    background-color: #f1b49b ;
+  #mainNav button[name="download"]:hover {
+    background-color:  #d8d3cd;
   }
   .react-switch-bg {
     text-align: center;
