@@ -2,8 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Card from 'components/card/Card';
-import CardSubTitle from 'components/card/CardSubTitle';
+import { Card, CardSubTitle } from 'components/card';
 
 import {
   setBackgroundColor, setAlpha, setBackgroundImage,
@@ -17,10 +16,12 @@ const BackgroundContainer = () => {
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
+  // CHange Banner BackgroundColor
   const handleChangeBackgroundcolor = ({ rgb }) => {
     dispatch(setBackgroundColor(rgb));
   };
 
+  // Change RGB => a
   const handleChangeAlpha = ({ rgb }) => {
     const { a } = rgb;
     dispatch(setAlpha(a));

@@ -7,12 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoSunnySharp } from 'react-icons/io5';
 import { RiMoonClearFill } from 'react-icons/ri';
 
-import {
-  Card, CardSubTitle,
-} from 'components/card';
+import { Card, CardSubTitle } from 'components/card';
 
 import {
-  setTheme, setBannerSize, setBannerRatios, setLightTheme,
+  setTheme, setBannerSize, setBannerRatios,
 } from 'slice';
 
 import { BannerSizeButton, BannerSize } from 'domain/setting/components/';
@@ -44,13 +42,8 @@ const BackgroundContainer = () => {
 
   // Change Theme (Dark theme & Light theme)
   const handleChangeTheme = (lightTheme) => {
-    dispatch(setLightTheme(lightTheme));
-
-    if (lightTheme) {
-      dispatch(setTheme('light'));
-    } else {
-      dispatch(setTheme('dark'));
-    }
+    const theme = (lightTheme) ? { theme: 'light', isLightTheme: true } : { theme: 'dark', isLightTheme: false };
+    dispatch(setTheme(theme));
   };
 
   return (
