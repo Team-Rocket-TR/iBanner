@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: boerder-box;
     }
-
+    
     body {
         font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 14px;
@@ -71,13 +71,16 @@ const GlobalStyles = createGlobalStyle`
         bottom: 0;
         z-index: 9;
     }
-    #mainNav a[download$=".png"] {
+    #mainNav button[name="download"] {
         display: flex;
         justify-content: center;
+        width: 100%;
         padding: 1em;
         font-size: 1.2em;
+        border: 0;
+        cursor: pointer;
     }
-    #mainNav a[download$=".png"]:hover {
+    #mainNav button[name="download"]:hover {
     }
 
     @media all and (max-width: 768px) {

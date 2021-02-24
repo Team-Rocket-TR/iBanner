@@ -1,16 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styled from 'styled-components';
 
 import { fabric } from 'fabric';
-
-import { saveAs } from 'file-saver';
 
 const Canvas = styled.canvas`
   border: 1px dashed;
 `;
 
 const PreviewFabric = ({
+  canvasRef,
   width,
   height,
   backgroundImage,
@@ -18,21 +17,15 @@ const PreviewFabric = ({
   content,
   fontSize,
   fontColor,
-  onDraw,
 }) => {
   const [canvas, setCanvas] = useState();
 
-  const canvasRef = useRef(null);
-
-  const initializeCanvas = () => {
-    const fabricCanvas = new fabric.Canvas(
-      canvasRef.current, {
-        width,
-        height,
-      },
-    );
-    setCanvas(fabricCanvas);
-  };
+  const initializeCanvas = () => new fabric.Canvas(
+    canvasRef.current, {
+      width,
+      height,
+    },
+  );
 
   const initializeRectangle = () => {
     const {
@@ -95,15 +88,10 @@ const PreviewFabric = ({
     return cvs.add(text).renderAll();
   };
 
-  const handleClick = () => {
-    canvasRef.current.toBlob((blob) => {
-      saveAs(blob, 'banner.png');
-    });
-  };
-
   useEffect(() => {
     if (!canvas) {
-      initializeCanvas();
+      const fabricCanvas = initializeCanvas();
+      setCanvas(fabricCanvas);
       return () => (null);
     }
     drawPreview(
@@ -112,7 +100,6 @@ const PreviewFabric = ({
       drawImage(canvas),
       drawRect(canvas),
       drawText(canvas),
-      onDraw(canvasRef.current),
     );
     return () => (null);
   }, [
@@ -127,10 +114,7 @@ const PreviewFabric = ({
   ]);
 
   return (
-    <>
-      <Canvas ref={canvasRef} />
-      <button type="button" onClick={handleClick}>다운로드</button>
-    </>
+    <Canvas ref={canvasRef} />
   );
 };
 

@@ -1,18 +1,19 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { saveAs } from 'file-saver';
 
 import Download from './components/Download';
 
-const ExportContainer = () => {
-  const canvasRef = useSelector((state) => state.canvasRef);
+const ExportContainer = ({ canvasRef }) => {
+  const handleClick = () => {
+    canvasRef.current.toBlob((blob) => {
+      saveAs(blob, 'banner.png');
+    });
+  };
 
   return (
     <section>
-      <Download
-        imageURL={canvasRef}
-        filename="banner.png"
-      />
+      <Download onClick={handleClick} />
     </section>
   );
 };
