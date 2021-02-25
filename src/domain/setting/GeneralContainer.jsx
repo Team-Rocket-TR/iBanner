@@ -1,5 +1,7 @@
 import React from 'react';
 
+// import TextField from '@material-ui/core/TextField';
+
 import Switch from 'react-switch';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -103,6 +105,16 @@ const BackgroundContainer = () => {
           placeholder={placeholder}
           onChange={handleChangeBannerSize}
         />
+        // <TextField
+        //   key={name}
+        //   name={name}
+        //   id={`standard-${name}`}
+        //   label={name}
+        //   value={value}
+        //   onChange={handleChangeBannerSize}
+        //   helperText={`${name} < 999`}
+        //   fullWidth
+        // />
       ))}
     </Card>
   );
