@@ -36,6 +36,10 @@ const BackgroundContainer = () => {
     dispatch(setBackgroundImage(localImageURL));
   };
 
+  const handleClickDelete = () => {
+    dispatch(setBackgroundImage(''));
+  };
+
   return (
     <Card>
       <CardSubTitle>Background Color</CardSubTitle>
@@ -45,7 +49,10 @@ const BackgroundContainer = () => {
         onChangeAlpha={handleChangeAlpha}
       />
       <CardSubTitle>Background Image</CardSubTitle>
-      <ImageFile onChange={handleChangeFile} />
+      <ImageFile
+        onChange={handleChangeFile}
+        onClick={handleClickDelete}
+      />
     </Card>
   );
 };

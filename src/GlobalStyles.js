@@ -24,8 +24,6 @@ const GlobalStyles = createGlobalStyle`
     
     a { text-decoration: none; color: inherit; }
 
-    label[for] { display: none; }
-
     hr { margin: 1.5em 0; }
 
     header, footer, article {
