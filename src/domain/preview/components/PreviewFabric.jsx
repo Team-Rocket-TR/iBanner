@@ -68,18 +68,27 @@ const PreviewFabric = ({
 
   const drawImage = (cvs) => {
     fabric.Image.fromURL(backgroundImage, async (image) => {
+      const imageWidth = image.width / 2;
+      const imageHeight = image.height / 2;
+
       const img = image.set({
-        left: 0,
-        top: 0,
+        left: (width - imageWidth) / 2,
+        top: (height - imageHeight) / 2,
+        scaleX: 0.5,
+        scaleY: 0.5,
+        centeredScaling: true,
         selectable: false,
       });
-      cvs.add(img).sendToBack(img).renderAll();
+      return cvs.add(img)
+        .sendToBack(img)
+        .renderAll();
     });
   };
 
   const drawRect = (cvs) => {
     const rect = initializeRectangle({ width, height, fillColor: backgroundColor });
-    return cvs.add(rect).renderAll();
+    return cvs.add(rect)
+      .renderAll();
   };
 
   const drawText = (cvs) => {
