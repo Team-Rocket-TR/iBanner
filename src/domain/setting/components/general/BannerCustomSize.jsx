@@ -7,7 +7,7 @@ const isNumber = (value) => {
   return value && bannerHeight.test(value);
 };
 
-const BannerSize = ({
+const BannerCustomSize = ({
   name,
   value,
   placeholder,
@@ -35,4 +35,4 @@ const BannerSize = ({
   );
 };
 
-export default BannerSize;
+export default BannerCustomSize;
