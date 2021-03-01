@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
             "header header"
             "article nav";
         grid-template-rows: 60px 1fr;
-        grid-template-columns: 1fr 80px;
+        grid-template-columns: 1fr minmax(325px,340px);
         height: inherit;
     }
     #app > header { grid-area: header; }
