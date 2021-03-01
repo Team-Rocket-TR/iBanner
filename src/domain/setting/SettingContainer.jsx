@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 
 function TabPanel(props) {
   const {
-    children, value, index, ...other
+    children, value, index,
   } = props;
 
   return (
@@ -38,7 +38,6 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
-      {...other}
     >
       {value === index && (
         <Box p={3}>
@@ -102,6 +101,9 @@ const SettingContainer = () => {
         </TabPanel>
         <TabPanel value={value} index={3}>
           Item Four
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          Item Five
         </TabPanel>
       </Paper>
     </>
