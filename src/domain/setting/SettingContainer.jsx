@@ -16,6 +16,8 @@ import TextFieldsIcon from '@material-ui/icons/TextFields';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import GetAppIcon from '@material-ui/icons/GetApp';
 
+import styled from 'styled-components';
+
 import DarkTheme from './DarkTheme';
 import LightTheme from './LightTheme';
 
@@ -27,26 +29,39 @@ const useStyles = makeStyles({
   },
 });
 
-function TabPanel(props) {
+const CustomTabPanel = styled.article`
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 340px;
+  height: calc(100vh - 60px);
+  background: #fff;
+  padding: 0;
+  & > div {
+    padding: 1em;
+  }
+`;
+
+const TabPanel = (props) => {
   const {
     children, value, index,
   } = props;
 
   return (
-    <div
+    <CustomTabPanel
       role="tabpanel"
-      hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      hidden={value !== index}
     >
       {value === index && (
         <Box p={3}>
           <Typography>{children}</Typography>
         </Box>
       )}
-    </div>
+    </CustomTabPanel>
   );
-}
+};
 
 const CustomTab = withStyles((theme) => ({
   root: {
@@ -91,13 +106,13 @@ const SettingContainer = () => {
           <CustomTab icon={<GetAppIcon />} label="다운로드" />
         </Tabs>
         <TabPanel value={value} index={0}>
-          Item One
+          <GeneralContainer />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <BackgroundContainer />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three
+          <ContentContainer />
         </TabPanel>
         <TabPanel value={value} index={3}>
           Item Four
