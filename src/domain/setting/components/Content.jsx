@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Content = ({ onChange }) => {
-  const styles = {
-    label: {
-      display: 'none',
-    },
-  };
+const styles = {
+  label: {
+    display: 'none',
+  },
+};
 
+const Content = ({ onChange }) => {
   function handleChange(event) {
     const { target } = event;
     onChange({ value: target.value });
