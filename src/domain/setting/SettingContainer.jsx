@@ -26,6 +26,7 @@ import { GeneralContainer, BackgroundContainer, ContentContainer } from '.';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    backgroundColor: '#eeeeee',
   },
 });
 

@@ -2,6 +2,12 @@ import React from 'react';
 
 const isNumber = (value) => value || /^[0-9\b]+$/.test(value);
 
+const styles = {
+  label: {
+    display: 'none',
+  },
+};
+
 const FontSize = ({ fontSize, onChange }) => {
   function handleChange(event) {
     const { value } = event.target;
@@ -13,7 +19,7 @@ const FontSize = ({ fontSize, onChange }) => {
 
   return (
     <>
-      <label htmlFor="input-fontsize">Font size</label>
+      <label htmlFor="input-fontsize" style={styles.label}>Font size</label>
       <input
         type="text"
         name="fontsize"

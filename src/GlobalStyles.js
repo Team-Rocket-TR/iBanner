@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
         height: inherit;
     }
     #app > header { grid-area: header; }
-    #app > article { grid-area: article; overflow-x: auto; }
+    #app > article { grid-area: article; overflow-x: auto; margin-right: 340px; }
     #app > nav { grid-area: nav; }
 
     #mainHeader {
