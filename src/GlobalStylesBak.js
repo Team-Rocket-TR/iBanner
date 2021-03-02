@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
             "header header"
             "article nav";
         grid-template-rows: 60px 1fr;
-        grid-template-columns: 1fr 80px;
+        grid-template-columns: 1fr minmax(325px,340px);
         height: inherit;
     }
     #app > header { grid-area: header; }
@@ -59,6 +59,7 @@ const GlobalStyles = createGlobalStyle`
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
+        color: #FFFFFF;
     }
     #mainNav section:first-child {
         padding: 1.2em;
