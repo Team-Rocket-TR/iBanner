@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Typography from '@material-ui/core/Typography';
 import BannerCustomSize from './BannerCustomSize';
 
 const BannerCustom = ({ width, height, onChange }) => {
@@ -18,6 +19,13 @@ const BannerCustom = ({ width, height, onChange }) => {
 
   return (
     <>
+      <Typography
+        id="label-fontsize-slider"
+        variant="h6"
+        gutterBottom
+      >
+        크기
+      </Typography>
       {customs.map(({ name, value, placeholder }) => (
         <BannerCustomSize
           key={name}

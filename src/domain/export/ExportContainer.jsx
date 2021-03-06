@@ -8,7 +8,7 @@ import Download from './components/Download';
 
 const FloatButtonArea = styled.div`
   position: absolute;
-  bottom: 1em;
+  bottom: 1.5em;
   right: calc(80px + .6em);
 `;
 

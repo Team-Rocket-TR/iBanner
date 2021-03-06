@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Card = styled.div`
-  padding: 1em;
+  margin-bottom: 20px;
 `;
 
 export default Card;

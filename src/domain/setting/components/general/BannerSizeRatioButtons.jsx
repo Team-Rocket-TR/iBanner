@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Typography from '@material-ui/core/Typography';
+
 import BannerSizeRatioButton from './BannerSizeRatioButton';
 
 const BannerSizeButtons = ({ width, onClick }) => {
@@ -12,6 +14,13 @@ const BannerSizeButtons = ({ width, onClick }) => {
 
   return (
     <>
+      <Typography
+        id="label-fontsize-slider"
+        variant="h6"
+        gutterBottom
+      >
+        가로세로비율
+      </Typography>
       {bannerRatios.map((props) => {
         const [ratio, w, h] = props;
         return (
