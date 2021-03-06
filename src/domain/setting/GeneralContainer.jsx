@@ -10,7 +10,7 @@ import {
 
 import {
   ThemeSwitch, BannerSizeRatioButtons, BannerCustom,
-} from 'domain/setting/components/general';
+} from 'domain/setting/components';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { MemoizedBackgroundLayer } from './components/BackgroundLayer';
+import { MemoizedBackgroundLayer } from './components';
 
 const BackgroundLayerContainer = ({ onDraw }) => {
   const color = useSelector((state) => state.backgroundColor);

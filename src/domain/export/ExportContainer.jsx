@@ -4,7 +4,7 @@ import { saveAs } from 'file-saver';
 
 import styled from 'styled-components';
 
-import Download from './components/Download';
+import { Download } from './components';
 
 const FloatButtonArea = styled.div`
   position: absolute;
