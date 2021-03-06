@@ -17,8 +17,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import styled from 'styled-components';
 
-import DarkTheme from './DarkTheme';
-import LightTheme from './LightTheme';
+import DarkTheme from 'public/css/DarkTheme';
+import LightTheme from 'public/css/LightTheme';
 
 import { GeneralContainer, BackgroundContainer, ContentContainer } from '.';
 
