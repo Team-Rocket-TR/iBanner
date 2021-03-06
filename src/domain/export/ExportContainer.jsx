@@ -2,7 +2,15 @@ import React from 'react';
 
 import { saveAs } from 'file-saver';
 
+import styled from 'styled-components';
+
 import Download from './components/Download';
+
+const FloatButtonArea = styled.div`
+  position: absolute;
+  bottom: 1em;
+  right: calc(80px + .6em);
+`;
 
 const ExportContainer = ({ canvasRef }) => {
   const handleClick = () => {
@@ -12,9 +20,9 @@ const ExportContainer = ({ canvasRef }) => {
   };
 
   return (
-    <section>
+    <FloatButtonArea>
       <Download onClick={handleClick} />
-    </section>
+    </FloatButtonArea>
   );
 };
 

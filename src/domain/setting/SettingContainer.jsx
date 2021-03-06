@@ -14,7 +14,6 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ImageIcon from '@material-ui/icons/Image';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import GetAppIcon from '@material-ui/icons/GetApp';
 
 import styled from 'styled-components';
 
@@ -108,7 +107,6 @@ const SettingContainer = () => {
           <CustomTab icon={<ImageIcon />} label="배경화면" />
           <CustomTab icon={<TextFieldsIcon />} label="텍스트" />
           <CustomTab icon={<FavoriteIcon />} label="즐겨찾기" />
-          <CustomTab icon={<GetAppIcon />} label="다운로드" />
         </Tabs>
         <TabPanel value={value} index={0}>
           <GeneralContainer />
@@ -121,9 +119,6 @@ const SettingContainer = () => {
         </TabPanel>
         <TabPanel value={value} index={3}>
           신규 기능 준비중...
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          Item Five
         </TabPanel>
       </Paper>
     </>
