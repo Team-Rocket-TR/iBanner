@@ -1,13 +1,13 @@
-import BackgroundColorpicker from 'domain/setting/components/BackgroundColorpicker';
-import ColorpickerIcon from 'domain/setting/components/ColorpickerIcon';
-import Content from 'domain/setting/components/Content';
-import FontSize from 'domain/setting/components/FontSize';
-import ImageFile from 'domain/setting/components/ImageFile';
+import ColorpickerIcon from 'domain/setting/components/common/ColorpickerIcon';
+import BackgroundColorpicker from 'domain/setting/components/background/BackgroundColorpicker';
+import ImageFile from 'domain/setting/components/background/ImageFile';
+import Content from 'domain/setting/components/font/Content';
+import FontSize from 'domain/setting/components/font/FontSize';
 
 export {
-  BackgroundColorpicker,
   ColorpickerIcon,
+  BackgroundColorpicker,
+  ImageFile,
   Content,
   FontSize,
-  ImageFile,
 };

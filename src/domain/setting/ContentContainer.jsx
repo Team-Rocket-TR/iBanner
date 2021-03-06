@@ -7,9 +7,9 @@ import CardSubTitle from 'components/card/CardSubTitle';
 
 import { setContent, setFontSize, setFontColor } from 'slice';
 
-import Content from './components/Content';
-import FontSize from './components/FontSize';
-import ColorpickerIcon from './components/ColorpickerIcon';
+import Content from './components/font/Content';
+import FontSize from './components/font/FontSize';
+import ColorpickerIcon from './components/common/ColorpickerIcon';
 
 const ContentContainer = () => {
   const dispatch = useDispatch();

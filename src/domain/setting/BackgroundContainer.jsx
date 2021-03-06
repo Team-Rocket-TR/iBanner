@@ -8,8 +8,8 @@ import {
   setBackgroundColor, setAlpha, setBackgroundImage,
 } from 'slice';
 
-import ColorpickerIcon from './components/ColorpickerIcon';
-import ImageFile from './components/ImageFile';
+import ColorpickerIcon from './components/common/ColorpickerIcon';
+import ImageFile from './components/background/ImageFile';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
