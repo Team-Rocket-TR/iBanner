@@ -2,23 +2,17 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Card from 'components/card/Card';
-import CardSubTitle from 'components/card/CardSubTitle';
+import { setFontSize, setFontColor } from 'slice';
 
-import { setContent, setFontSize, setFontColor } from 'slice';
+import { Deck, Card } from 'components/card';
 
-import Content from './components/font/Content';
 import FontSize from './components/font/FontSize';
-import ColorpickerIcon from './components/common/ColorpickerIcon';
+import FontColor from './components/font/FontColor';
 
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
   const fontColor = useSelector((state) => state.fontColor);
-
-  const handleChangeTitle = ({ value }) => {
-    dispatch(setContent(value));
-  };
 
   const handleChangeFontSize = ({ value }) => {
     dispatch(setFontSize(value));
@@ -29,21 +23,20 @@ const ContentContainer = () => {
   };
 
   return (
-    <Card>
-      <CardSubTitle>Content</CardSubTitle>
-      <Content onChange={handleChangeTitle} />
-      {/* Font Color */}
-      <CardSubTitle>Font Color</CardSubTitle>
-      <ColorpickerIcon
-        color={fontColor}
-        onChangeBackgroundcolor={handleChangeColor}
-      />
-      {/* Font Size */}
-      <FontSize
-        defaultValue={14}
-        onChange={handleChangeFontSize}
-      />
-    </Card>
+    <Deck>
+      <Card>
+        <FontColor
+          color={fontColor}
+          onChange={handleChangeColor}
+        />
+      </Card>
+      <Card>
+        <FontSize
+          defaultValue={14}
+          onChange={handleChangeFontSize}
+        />
+      </Card>
+    </Deck>
   );
 };
 

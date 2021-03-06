@@ -2,11 +2,13 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Card, CardSubTitle } from 'components/card';
+import { Deck, Card } from 'components/card';
 
 import {
   setBackgroundColor, setAlpha, setBackgroundImage,
 } from 'slice';
+
+import Typography from '@material-ui/core/Typography';
 
 import ColorpickerIcon from './components/common/ColorpickerIcon';
 import ImageFile from './components/background/ImageFile';
@@ -41,19 +43,28 @@ const BackgroundContainer = () => {
   };
 
   return (
-    <Card>
-      <CardSubTitle>Background Color</CardSubTitle>
-      <ColorpickerIcon
-        color={backgroundColor}
-        onChangeBackgroundcolor={handleChangeBackgroundcolor}
-        onChangeAlpha={handleChangeAlpha}
-      />
-      <CardSubTitle>Background Image</CardSubTitle>
-      <ImageFile
-        onChange={handleChangeFile}
-        onClick={handleClickDelete}
-      />
-    </Card>
+    <Deck>
+      <Card>
+        <Typography
+          id="label-fontsize-slider"
+          variant="h6"
+          gutterBottom
+        >
+          배경 색상
+        </Typography>
+        <ColorpickerIcon
+          color={backgroundColor}
+          onChangeBackgroundcolor={handleChangeBackgroundcolor}
+          onChangeAlpha={handleChangeAlpha}
+        />
+      </Card>
+      <Card>
+        <ImageFile
+          onChange={handleChangeFile}
+          onClick={handleClickDelete}
+        />
+      </Card>
+    </Deck>
   );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Card, CardSubTitle } from 'components/card';
+import { Deck, Card } from 'components/card';
 
 import {
   setTheme, setBannerSize, setBannerRatios,
@@ -37,26 +37,27 @@ const BackgroundContainer = () => {
   };
 
   return (
-    <Card>
-      <CardSubTitle>Theme</CardSubTitle>
-      <ThemeSwitch
-        onChange={handleChangeTheme}
-        checked={isLightTheme}
-      />
-
-      <CardSubTitle>Aspect Ratio</CardSubTitle>
-      <BannerSizeRatioButtons
-        width={width}
-        onClick={handleChangeBannerRatios}
-      />
-
-      <CardSubTitle>Custom size</CardSubTitle>
-      <BannerCustom
-        width={width}
-        height={height}
-        onChange={handleChangeBannerSize}
-      />
-    </Card>
+    <Deck>
+      <Card>
+        <ThemeSwitch
+          onChange={handleChangeTheme}
+          checked={isLightTheme}
+        />
+      </Card>
+      <Card>
+        <BannerSizeRatioButtons
+          width={width}
+          onClick={handleChangeBannerRatios}
+        />
+      </Card>
+      <Card>
+        <BannerCustom
+          width={width}
+          height={height}
+          onChange={handleChangeBannerSize}
+        />
+      </Card>
+    </Deck>
   );
 };
 

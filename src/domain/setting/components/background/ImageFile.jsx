@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import Button from '@material-ui/core/Button';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(() => ({
   input: {
@@ -26,11 +28,14 @@ const ImageFile = ({ onChange, onClick }) => {
   }
 
   return (
-    // <input
-    //   type="file"
-    //   onChange={handleChange}
-    // />
-    <div>
+    <>
+      <Typography
+        id="label-fontsize-slider"
+        variant="h6"
+        gutterBottom
+      >
+        배경 이미지 삽입
+      </Typography>
       <input
         className={classes.input}
         id="contained-button-file"
@@ -59,7 +64,7 @@ const ImageFile = ({ onChange, onClick }) => {
       >
         <DeleteIcon fontSize="small" />
       </IconButton>
-    </div>
+    </>
   );
 };
 

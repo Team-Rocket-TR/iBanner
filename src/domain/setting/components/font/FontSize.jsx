@@ -105,7 +105,7 @@ const FontSize = ({ defaultValue, onChange }) => {
   }
 
   return (
-    <>
+    <div>
       <Typography
         id="label-fontsize-slider"
         variant="h6"
@@ -137,7 +137,7 @@ const FontSize = ({ defaultValue, onChange }) => {
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
