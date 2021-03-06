@@ -21,7 +21,6 @@ const Download = ({ onClick }) => {
     <Fab
       aria-label="save"
       variant="extended"
-      size="medium"
       color="secondary"
       className={classes.margin}
       onClick={onClick}

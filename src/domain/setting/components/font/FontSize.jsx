@@ -1,10 +1,21 @@
 import React from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+
 import Typography from '@material-ui/core/Typography';
+
+import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 
+import FormatSizeIcon from '@material-ui/icons/FormatSize';
+
 const isNumber = (value) => value || /^[0-9\b]+$/.test(value);
+
+const useStyles = makeStyles(() => ({
+  root: {
+    marginTop: '-8px',
+  },
+}));
 
 const AirbnbSlider = withStyles({
   root: {
@@ -38,11 +49,11 @@ const AirbnbSlider = withStyles({
     '& .MuiSlider-valueLabel': {
       top: '40px',
       left: 'calc(-50% + 6px)',
-      '& .PrivateValueLabel-circle-19': {
+      '& > span': {
         transform: 'rotate(135deg)',
-      },
-      '& .PrivateValueLabel-label-20': {
-        transform: 'rotate(-135deg)',
+        '& > span': {
+          transform: 'rotate(-135deg)',
+        },
       },
     },
   },
@@ -85,6 +96,8 @@ const marks = [
 ];
 
 const FontSize = ({ defaultValue, onChange }) => {
+  const classes = useStyles();
+
   function handleChange(_, value) {
     if (!isNumber(value)) return;
 
@@ -93,19 +106,37 @@ const FontSize = ({ defaultValue, onChange }) => {
 
   return (
     <>
-      <Typography id="label-fontsize-slider" gutterBottom>
+      <Typography
+        id="label-fontsize-slider"
+        variant="h6"
+        gutterBottom
+      >
         글자 크기
       </Typography>
-      <AirbnbSlider
-        step={2}
-        min={10}
-        max={80}
-        valueLabelDisplay="auto"
-        aria-labelledby="label-fontsize-slider"
-        defaultValue={defaultValue}
-        marks={marks}
-        onChangeCommitted={handleChange}
-      />
+      <Grid
+        container
+        spacing={1}
+        alignItems="center"
+      >
+        <Grid item xs>
+          <AirbnbSlider
+            step={2}
+            min={10}
+            max={80}
+            valueLabelDisplay="auto"
+            aria-labelledby="label-fontsize-slider"
+            defaultValue={defaultValue}
+            marks={marks}
+            onChangeCommitted={handleChange}
+          />
+        </Grid>
+        <Grid item>
+          <FormatSizeIcon
+            className={classes.root}
+            color="disabled"
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };

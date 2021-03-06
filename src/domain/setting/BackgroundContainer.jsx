@@ -30,7 +30,6 @@ const BackgroundContainer = () => {
   const handleChangeFile = async ({ file }) => {
     if (!file) return;
 
-    console.log(file);
     const image = file;
     const localImageURL = await window.URL.createObjectURL(image);
 
