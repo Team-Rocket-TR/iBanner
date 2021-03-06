@@ -57,7 +57,11 @@ const TabPanel = (props) => {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography
+            component="span"
+          >
+            {children}
+          </Typography>
         </Box>
       )}
     </CustomTabPanel>
@@ -116,7 +120,7 @@ const SettingContainer = () => {
           <ContentContainer />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          Item Four
+          신규 기능 준비중...
         </TabPanel>
         <TabPanel value={value} index={4}>
           Item Five
