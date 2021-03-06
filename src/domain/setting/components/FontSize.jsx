@@ -1,25 +1,61 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
 const isNumber = (value) => value || /^[0-9\b]+$/.test(value);
 
-const styles = {
-  label: {
-    display: 'none',
-  },
-};
-
-const useStyles = makeStyles((theme) => ({
+const AirbnbSlider = withStyles({
   root: {
-    width: 300,
+    color: '#3a8589',
+    height: 3,
+    padding: '13px 0',
+    marginTop: '10px',
+    marginBottom: '20px',
+    '& .MuiSlider-markLabel': {
+      top: '-16px',
+    },
   },
-  margin: {
-    height: theme.spacing(3),
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '1px solid currentColor',
+    marginTop: -12,
+    marginLeft: -12,
+    boxShadow: '#ebebeb 0 2px 2px',
+    '&:focus, &:hover, &$active': {
+      boxShadow: '#ccc 0 2px 3px 1px',
+    },
+    '& .bar': {
+      height: 9,
+      width: 1,
+      backgroundColor: 'currentColor',
+      marginLeft: 1,
+      marginRight: 1,
+    },
+    '& .MuiSlider-valueLabel': {
+      top: '40px',
+      left: 'calc(-50% + 6px)',
+      '& .PrivateValueLabel-circle-19': {
+        transform: 'rotate(135deg)',
+      },
+      '& .PrivateValueLabel-label-20': {
+        transform: 'rotate(-135deg)',
+      },
+    },
   },
-}));
+  active: {},
+  track: {
+    height: 3,
+  },
+  rail: {
+    color: '#d8d8d8',
+    opacity: 1,
+    height: 3,
+  },
+})(Slider);
 
 const marks = [
   {
@@ -42,6 +78,10 @@ const marks = [
     value: 48,
     label: '48',
   },
+  {
+    value: 80,
+    label: '80',
+  },
 ];
 
 const FontSize = ({ defaultValue, onChange }) => {
@@ -56,13 +96,13 @@ const FontSize = ({ defaultValue, onChange }) => {
       <Typography id="label-fontsize-slider" gutterBottom>
         글자 크기
       </Typography>
-      <Slider
+      <AirbnbSlider
         step={2}
         min={10}
         max={80}
-        defaultValue={defaultValue}
-        aria-labelledby="label-fontsize-slider"
         valueLabelDisplay="auto"
+        aria-labelledby="label-fontsize-slider"
+        defaultValue={defaultValue}
         marks={marks}
         onChangeCommitted={handleChange}
       />
