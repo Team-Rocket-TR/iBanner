@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 // import { setCanvasRef } from 'slice';
 
-import PreviewFabric from './components/PreviewFabric';
+import { PreviewFabric } from './components';
 
 const PreviewContainer = ({ canvasRef }) => {
   const width = useSelector((state) => state.width);
