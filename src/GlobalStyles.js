@@ -26,9 +26,7 @@ const GlobalStyles = createGlobalStyle`
 
     hr { margin: 1.5em 0; }
 
-    header, footer, article {
-        padding: 1.2em;
-    }
+    header, footer, article { padding: 1.2em; }
 
     #app {
         display: grid;
@@ -49,12 +47,14 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
         justify-content: space-between;
     }
+
     #mainArticle {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
     }
+
     #mainNav {
         display: flex;
         flex-flow: column nowrap;
@@ -78,7 +78,11 @@ const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
     #mainNav button[name="download"]:hover {
+        
     }
+
+    // Preview Canvas Color
+    .canvas-container { background-color: #FFFFFF; }
 
     @media all and (max-width: 768px) {
         body { overflow-y: hidden; }

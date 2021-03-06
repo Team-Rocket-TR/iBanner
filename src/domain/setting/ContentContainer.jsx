@@ -14,7 +14,6 @@ import ColorpickerIcon from './components/ColorpickerIcon';
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
-  const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
   const handleChangeTitle = ({ value }) => {
@@ -33,15 +32,16 @@ const ContentContainer = () => {
     <Card>
       <CardSubTitle>Content</CardSubTitle>
       <Content onChange={handleChangeTitle} />
-      <CardSubTitle>Font Size</CardSubTitle>
-      <FontSize
-        fontSize={fontSize}
-        onChange={handleChangeFontSize}
-      />
+      {/* Font Color */}
       <CardSubTitle>Font Color</CardSubTitle>
       <ColorpickerIcon
         color={fontColor}
         onChangeBackgroundcolor={handleChangeColor}
+      />
+      {/* Font Size */}
+      <FontSize
+        defaultValue={14}
+        onChange={handleChangeFontSize}
       />
     </Card>
   );
