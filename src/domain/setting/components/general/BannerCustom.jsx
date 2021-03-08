@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
 import BannerCustomSize from './BannerCustomSize';
 
 const BannerCustom = ({ width, height, onChange }) => {
@@ -26,15 +28,22 @@ const BannerCustom = ({ width, height, onChange }) => {
       >
         크기
       </Typography>
-      {customs.map(({ name, value, placeholder }) => (
-        <BannerCustomSize
-          key={name}
-          name={name}
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-        />
-      ))}
+      <Grid container spacing={2}>
+        {customs.map(({ name, value, placeholder }) => (
+          <Grid
+            item
+            xs={6}
+            key={name}
+          >
+            <BannerCustomSize
+              name={name}
+              value={value}
+              placeholder={placeholder}
+              onChange={onChange}
+            />
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 };
