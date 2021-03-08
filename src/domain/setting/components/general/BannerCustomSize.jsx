@@ -8,19 +8,10 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
-// import { Input } from 'components/card';
-
 const isNumber = (value) => {
   const bannerHeight = /^[0-9\b]+$/;
   return value && bannerHeight.test(value);
 };
-
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-}));
 
 const BannerCustomSize = ({
   name,
@@ -28,8 +19,6 @@ const BannerCustomSize = ({
   placeholder,
   onChange,
 }) => {
-  const classes = useStyles();
-
   const handleChange = (e) => {
     if (!isNumber(e.target.value)) {
       return;
@@ -41,7 +30,7 @@ const BannerCustomSize = ({
   };
 
   return (
-    <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
+    <FormControl>
       <Input
         id="standard-adornment-weight"
         name={name}
