@@ -1,8 +1,5 @@
 import React from 'react';
 
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Input from '@material-ui/core/Input';
