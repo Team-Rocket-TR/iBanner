@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     }
     
     body {
-        font-family: 'Roboto', sans-serif, -apple-system;
+        font-family: Roboto, sans-serif, -apple-system;
         font-size: 14px;
         height: 100vh;
         margin: 0;

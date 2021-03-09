@@ -46,12 +46,13 @@ const PreviewFabric = ({
     } = fontColor;
     return new fabric.Text(
       fillText, {
-        originX: 'center',
-        originY: 'center',
-        left: 0.5 * width,
-        top: 0.5 * height,
+        fontFamily: 'Roboto',
         fontSize,
         fill: `rgb(${r}, ${g}, ${b}, ${a})`,
+        top: 0.5 * height,
+        left: 0.5 * width,
+        originX: 'center',
+        originY: 'center',
         selectable: false,
         hoverCursor: 'default',
       },
@@ -94,7 +95,8 @@ const PreviewFabric = ({
   const drawText = (cvs) => {
     const fillText = content || '제목을 입력해주세요!';
     const text = initializeText({ fillText });
-    return cvs.add(text).renderAll();
+    return cvs.add(text)
+      .renderAll();
   };
 
   useEffect(() => {

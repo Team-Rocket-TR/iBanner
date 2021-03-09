@@ -125,7 +125,8 @@ const FontSize = ({ defaultValue, onChange }) => {
             max={80}
             valueLabelDisplay="auto"
             aria-labelledby="label-fontsize-slider"
-            defaultValue={defaultValue}
+            key={`slider-${defaultValue}`}
+            defaultValue={Number(defaultValue)}
             marks={marks}
             onChangeCommitted={handleChange}
           />

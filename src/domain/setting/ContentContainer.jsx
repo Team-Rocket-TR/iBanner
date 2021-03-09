@@ -12,6 +12,7 @@ import FontColor from './components/font/FontColor';
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
+  const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
 
   const handleChangeFontSize = ({ value }) => {
@@ -32,7 +33,7 @@ const ContentContainer = () => {
       </Card>
       <Card>
         <FontSize
-          defaultValue={14}
+          defaultValue={fontSize}
           onChange={handleChangeFontSize}
         />
       </Card>
