@@ -19,12 +19,14 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/, // /\.(woff|woff2|ttf|eot)$/,
-        use: [// 'file-loader?name=fonts/[name].[ext]!static',
+        test: /\.(woff(2)?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              name: '[name].[ext]',
+              limit: 10000,
+              fallback: 'file-loader',
+              name: 'fonts/[name].[ext]',
               outputPath: 'fonts/',
             },
           },

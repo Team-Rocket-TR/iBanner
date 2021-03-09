@@ -46,7 +46,7 @@ const PreviewFabric = ({
     } = fontColor;
     return new fabric.Text(
       fillText, {
-        fontFamily: 'Roboto',
+        fontFamily: 'BMDOHYEON',
         fontSize,
         fill: `rgb(${r}, ${g}, ${b}, ${a})`,
         top: 0.5 * height,
