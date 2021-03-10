@@ -103,6 +103,14 @@ const GlobalStyles = createGlobalStyle`
             width: 100%;
        }
     }
+
+    #sponsor {
+        width: 20em;
+    }
+
+    #sponsorText {
+        padding-left: 1em;
+    }
 `;
 
 export default GlobalStyles;
