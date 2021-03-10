@@ -14,13 +14,16 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ImageIcon from '@material-ui/icons/Image';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import MoneyIcon from '@material-ui/icons/Money';
 
 import styled from 'styled-components';
 
 import DarkTheme from 'public/css/DarkTheme';
 import LightTheme from 'public/css/LightTheme';
 
-import { GeneralContainer, BackgroundContainer, ContentContainer } from '.';
+import {
+  GeneralContainer, BackgroundContainer, ContentContainer, SponsorContainer,
+} from '.';
 
 const useStyles = makeStyles({
   root: {
@@ -107,6 +110,7 @@ const SettingContainer = () => {
           <CustomTab icon={<ImageIcon />} label="배경화면" />
           <CustomTab icon={<TextFieldsIcon />} label="텍스트" />
           <CustomTab icon={<FavoriteIcon />} label="즐겨찾기" />
+          <CustomTab icon={<MoneyIcon />} label="후원하기" />
         </Tabs>
         <TabPanel value={value} index={0}>
           <GeneralContainer />
@@ -119,6 +123,9 @@ const SettingContainer = () => {
         </TabPanel>
         <TabPanel value={value} index={3}>
           신규 기능 준비중...
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+          <SponsorContainer />
         </TabPanel>
       </Paper>
     </>
