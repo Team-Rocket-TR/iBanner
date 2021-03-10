@@ -11,8 +11,9 @@ import GlobalStyles from './GlobalStyles';
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      'fontsource-roboto',
-      'Roboto',
+      'BMDOHYEON',
+      // 'Roboto',
+      // 'fontsource-roboto',
     ].join(','),
   },
 });

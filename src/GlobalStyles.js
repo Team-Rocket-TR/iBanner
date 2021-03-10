@@ -2,14 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 import reset from 'styled-reset';
 
+import GlobalFonts from './GlobalFonts';
+
 const GlobalStyles = createGlobalStyle`
     ${reset};
+    ${GlobalFonts}
     * {
         box-sizing: boerder-box;
     }
     
     body {
-        font-family: Roboto, sans-serif, -apple-system;
+        font-family: BMDOHYEON, Roboto, sans-serif, -apple-system;
         font-size: 14px;
         height: 100vh;
         margin: 0;
