@@ -1,5 +1,6 @@
 const path = require('path'); // core nodejs 모듈 중 하나, 파일 경로 설정할 때 사용
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -26,8 +27,9 @@ module.exports = {
             options: {
               limit: 10000,
               fallback: 'file-loader',
+              publicPath: './src/public',
               name: 'fonts/[name].[ext]',
-              outputPath: 'fonts/',
+              // outputPath: 'fonts/',
             },
           },
         ],
@@ -35,7 +37,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './index.html' }), // 생성한 템플릿 파일
+    new HtmlWebpackPlugin({
+      template: './index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'src/public', to: '' }],
+    }),
   ],
   resolve: {
     modules: [
