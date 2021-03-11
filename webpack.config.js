@@ -19,7 +19,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(woff(2)?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|otf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: 'url-loader',
@@ -38,10 +38,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: './index.html' }), // 생성한 템플릿 파일
   ],
   resolve: {
-    modules: [
-      'node_modules',
-      path.join(__dirname, 'src'),
-    ],
+    modules: ['node_modules', path.join(__dirname, 'src')],
     extensions: ['.js', '.jsx'],
   },
 };
