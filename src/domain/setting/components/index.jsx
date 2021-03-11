@@ -12,6 +12,8 @@ import ImageFile from 'domain/setting/components/background/ImageFile';
 import Content from 'domain/setting/components/font/Content';
 import FontSize from 'domain/setting/components/font/FontSize';
 
+import Sponsor from 'domain/setting/components/sponsor/Sponsor';
+
 export {
   ColorpickerIcon,
   ThemeSwitch,
@@ -23,4 +25,5 @@ export {
   ImageFile,
   Content,
   FontSize,
+  Sponsor,
 };
