@@ -21,7 +21,8 @@ export const initialState = {
     b: 255,
     a: 1,
   },
-  fontStyle: 'BMDOHYEON',
+  fontFamily: 'BMDOHYEON',
+  fontWeight: 'normal',
 };
 
 const { actions, reducer } = createSlice({
@@ -112,10 +113,16 @@ const { actions, reducer } = createSlice({
         fontSize,
       };
     },
-    setFontStyle(state, { payload: fontStyle }) {
+    setFontFamily(state, { payload: fontFamily }) {
       return {
         ...state,
-        fontStyle,
+        fontFamily,
+      };
+    },
+    setFontWeight(state, { payload: fontWeight }) {
+      return {
+        ...state,
+        fontWeight,
       };
     },
   },
@@ -131,7 +138,8 @@ export const {
   setContent,
   setFontColor,
   setFontSize,
-  setFontStyle,
+  setFontFamily,
+  setFontWeight,
   setBannerSize,
   setWidth,
   setHeight,

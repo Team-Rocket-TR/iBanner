@@ -15,7 +15,7 @@ const PreviewContainer = ({ canvasRef }) => {
   const content = useSelector((state) => state.content);
   const fontColor = useSelector((state) => state.fontColor);
   const fontSize = useSelector((state) => state.fontSize);
-  const fontStyle = useSelector((state) => state.fontStyle);
+  const fontFamily = useSelector((state) => state.fontFamily);
 
   return (
     <PreviewFabric
@@ -27,7 +27,7 @@ const PreviewContainer = ({ canvasRef }) => {
       content={content}
       fontColor={fontColor}
       fontSize={fontSize}
-      fontStyle={fontStyle}
+      fontFamily={fontFamily}
     />
   );
 };
