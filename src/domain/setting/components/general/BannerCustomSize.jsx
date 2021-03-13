@@ -29,19 +29,23 @@ const BannerCustomSize = ({
   return (
     <FormControl>
       <Input
-        id="standard-adornment-weight"
+        id={`standard-${name}`}
         name={name}
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
         endAdornment={<InputAdornment position="end">px</InputAdornment>}
-        aria-describedby="standard-weight-helper-text"
+        aria-describedby={`standard-${name}-helper-text`}
         inputProps={{
           'aria-label': `${name}`,
         }}
         maxLength="3"
       />
-      <FormHelperText id="standard-weight-helper-text">{name}</FormHelperText>
+      <FormHelperText
+        id={`standard-${name}-helper-text`}
+      >
+        {name}
+      </FormHelperText>
     </FormControl>
   );
 };

@@ -2,7 +2,9 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setFontColor, setFontSize, setFontStyle } from 'slice';
+import {
+  setFontColor, setFontSize, setFontFamily, setFontWeight,
+} from 'slice';
 
 import { Deck, Card } from 'components/card';
 
@@ -15,7 +17,8 @@ const ContentContainer = () => {
 
   const fontColor = useSelector((state) => state.fontColor);
   const fontSize = useSelector((state) => state.fontSize);
-  const fontStyle = useSelector((state) => state.fontStyle);
+  const fontFamily = useSelector((state) => state.fontFamily);
+  const fontWeight = useSelector((state) => state.fontWeight);
 
   const handleChangeColor = ({ rgb }) => {
     dispatch(setFontColor(rgb));
@@ -25,8 +28,12 @@ const ContentContainer = () => {
     dispatch(setFontSize(value));
   };
 
-  const handleChangeFontStyle = ({ value }) => {
-    dispatch(setFontStyle(value));
+  const handleChangeFontFamily = ({ value }) => {
+    dispatch(setFontFamily(value));
+  };
+
+  const handleChangeFontWeight = ({ value }) => {
+    dispatch(setFontWeight(value));
   };
 
   return (
@@ -45,8 +52,10 @@ const ContentContainer = () => {
       </Card>
       <Card>
         <FontStyle
-          defaultValue={fontStyle}
-          onChange={handleChangeFontStyle}
+          defaultFontFamilyValue={fontFamily}
+          defaultFontWeightValue={fontWeight}
+          onChangeFontFamily={handleChangeFontFamily}
+          onChangeFontWeight={handleChangeFontWeight}
         />
       </Card>
     </Deck>
