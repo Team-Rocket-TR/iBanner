@@ -20,7 +20,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(woff(2)?|ttf|otf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: 'url-loader',
@@ -30,6 +30,21 @@ module.exports = {
               publicPath: './src/public',
               name: 'fonts/[name].[ext]',
               // outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              limit: 10000,
+              fallback: 'url-loader',
+              publicPath: './src/public',
+              name: 'image/[name].[ext]',
+              // outputPath: 'image/',
             },
           },
         ],

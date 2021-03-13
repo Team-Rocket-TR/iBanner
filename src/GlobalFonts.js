@@ -14,10 +14,10 @@ const GlobalFonts = `
     }
 
     @font-face {
-        font-family: 'BMEuljiro10yearslater';
+        font-family: 'BMEULJIRO10yearslater';
         font-weight: normal;
         font-style: normal;
-        src: url('fonts/baemin/BMEuljiro10yearslater.woff') format('woff');
+        src: url('fonts/baemin/BMEULJIRO10yearslater.ttf') format('truetype');
     }
 
     @font-face {
