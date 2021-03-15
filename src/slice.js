@@ -21,7 +21,7 @@ export const initialState = {
     b: 255,
     a: 1,
   },
-  fontFamily: 'BMDOHYEON',
+  fontFamily: 'Arial, sans-serif',
   fontWeight: 'normal',
 };
 
