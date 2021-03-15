@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
 const fontCollection = {
   // 공통
   common: {
-    name: '공통',
+    name: '기본',
     fonts: [
       { font: 'Arial, sans-serif', fontName: 'Arial' },
       { font: 'Verdana, sans-serif', fontName: 'Verdana' },
@@ -62,7 +62,10 @@ const FontFamily = ({ defaultValue, onChange }) => {
         {Object.keys(fontCollection).map((key) => {
           const { name, fonts } = fontCollection[key];
           return (
-            <optgroup label={name}>
+            <optgroup
+              key={name}
+              label={name}
+            >
               {fonts.map(({ font, fontName }) => (
                 <option
                   key={font}
