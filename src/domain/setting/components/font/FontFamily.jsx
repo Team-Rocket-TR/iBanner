@@ -13,14 +13,31 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const fonts = [
-  { font: 'BMDOHYEON', fontName: '배민 도현체' },
-  { font: 'BMEULJIRO', fontName: '배민 을지로체' },
-  { font: 'BMEULJIRO10yearslater', fontName: '배민 을지로10년후체' },
-  { font: 'BMHANNAPro', fontName: '배민 한나체 프로' },
-  { font: 'BMYEONSUNG', fontName: '배민 연성체' },
-  { font: 'BMJUA', fontName: '배민 주아체' },
-];
+const fontCollection = {
+  // 공통
+  common: {
+    name: '공통',
+    fonts: [
+      { font: 'Arial, sans-serif', fontName: 'Arial' },
+      { font: 'Verdana, sans-serif', fontName: 'Verdana' },
+      { font: 'Garamond, serif', fontName: 'Garamond' },
+      { font: 'Courier New, monospace', fontName: 'Courier New' },
+      { font: 'Brush Script MT, cursive', fontName: 'Brush Script' },
+    ],
+  },
+  // 배민
+  baemin: {
+    name: '배달의민족',
+    fonts: [
+      { font: 'BMDOHYEON', fontName: '도현체' },
+      { font: 'BMEULJIRO', fontName: '을지로체' },
+      { font: 'BMEULJIRO10yearslater', fontName: '을지로10년후체' },
+      { font: 'BMHANNAPro', fontName: '한나체Pro' },
+      { font: 'BMYEONSUNG', fontName: '연성체' },
+      { font: 'BMJUA', fontName: '배민 주아체' },
+    ],
+  },
+};
 
 const FontFamily = ({ defaultValue, onChange }) => {
   const classes = useStyles();
@@ -38,19 +55,25 @@ const FontFamily = ({ defaultValue, onChange }) => {
       <NativeSelect
         className={classes.root}
         value={defaultValue}
-        defaultValue={defaultValue}
         onChange={handleChange}
         name="font-style"
         inputProps={{ 'aria-label': 'font-style' }}
       >
-        {fonts.map(({ font, fontName }) => (
-          <option
-            key={font}
-            value={font}
-          >
-            {fontName}
-          </option>
-        ))}
+        {Object.keys(fontCollection).map((key) => {
+          const { name, fonts } = fontCollection[key];
+          return (
+            <optgroup label={name}>
+              {fonts.map(({ font, fontName }) => (
+                <option
+                  key={font}
+                  value={font}
+                >
+                  {fontName}
+                </option>
+              ))}
+            </optgroup>
+          );
+        })}
       </NativeSelect>
       <FormHelperText>마음에 드는 폰트를 선택해주세요!</FormHelperText>
     </>
