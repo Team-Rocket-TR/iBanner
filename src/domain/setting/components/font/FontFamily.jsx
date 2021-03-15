@@ -38,19 +38,20 @@ const FontFamily = ({ defaultValue, onChange }) => {
       <NativeSelect
         className={classes.root}
         value={defaultValue}
-        defaultValue={defaultValue}
         onChange={handleChange}
         name="font-style"
         inputProps={{ 'aria-label': 'font-style' }}
       >
-        {fonts.map(({ font, fontName }) => (
-          <option
-            key={font}
-            value={font}
-          >
-            {fontName}
-          </option>
-        ))}
+        <optgroup label="배달의민족체">
+          {fonts.map(({ font, fontName }) => (
+            <option
+              key={font}
+              value={font}
+            >
+              {fontName}
+            </option>
+          ))}
+        </optgroup>
       </NativeSelect>
       <FormHelperText>마음에 드는 폰트를 선택해주세요!</FormHelperText>
     </>

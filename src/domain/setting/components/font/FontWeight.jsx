@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FontFamily = ({ defaultValue, onChange }) => {
+const FontWeight = ({ defaultValue, onChange }) => {
   const classes = useStyles();
 
   function handleChange(event) {
@@ -29,7 +29,6 @@ const FontFamily = ({ defaultValue, onChange }) => {
       <NativeSelect
         className={classes.root}
         value={defaultValue}
-        defaultValue="normal"
         onChange={handleChange}
         name="font-weight"
         inputProps={{ 'aria-label': 'font-weight' }}
@@ -37,9 +36,9 @@ const FontFamily = ({ defaultValue, onChange }) => {
         <option value="normal">기본</option>
         <option value="bold">굵게</option>
       </NativeSelect>
-      <FormHelperText>지원 안 할수도?</FormHelperText>
+      <FormHelperText>기본 폰트만</FormHelperText>
     </>
   );
 };
 
-export default FontFamily;
+export default FontWeight;
