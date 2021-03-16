@@ -1,6 +1,6 @@
 import React from 'react';
 
-import kakaopayQRcode from './src/public/image/kakaopay_QRcode.png';
+import kakaopayQRcode from '/image/kakaopay_QRcode.png';
 
 const Sponsor = () => {
     return (
