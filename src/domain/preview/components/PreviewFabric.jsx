@@ -70,17 +70,17 @@ const PreviewFabric = ({
 
   const drawImage = (cvs) => {
     fabric.Image.fromURL(backgroundImage, async (image) => {
-      const imageWidth = image.width / 2;
-      const imageHeight = image.height / 2;
+      const left = (width - image.width * 1.0) / 2;
+      const top = (height - image.height * 1.0) / 2;
 
       const img = image.set({
-        left: (width - imageWidth) / 2,
-        top: (height - imageHeight) / 2,
-        scaleX: 0.5,
-        scaleY: 0.5,
-        centeredScaling: true,
+        left,
+        top,
+        scaleX: 1.0,
+        scaleY: 1.0,
         selectable: false,
       });
+
       return cvs.add(img)
         .sendToBack(img)
         .renderAll();
