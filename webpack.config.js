@@ -49,6 +49,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.png$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              fallback: 'file-loader',
+              name: 'image/[name].[ext]',
+              outputPath: 'image/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
