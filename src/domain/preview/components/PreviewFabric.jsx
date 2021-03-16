@@ -15,8 +15,9 @@ const PreviewFabric = ({
   backgroundImage,
   backgroundColor,
   content,
-  fontSize,
   fontColor,
+  fontSize,
+  fontFamily,
 }) => {
   const [canvas, setCanvas] = useState();
 
@@ -46,7 +47,7 @@ const PreviewFabric = ({
     } = fontColor;
     return new fabric.Text(
       fillText, {
-        fontFamily: 'BMDOHYEON',
+        fontFamily,
         fontSize,
         fill: `rgb(${r}, ${g}, ${b}, ${a})`,
         top: 0.5 * height,

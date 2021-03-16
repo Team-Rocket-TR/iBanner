@@ -21,6 +21,8 @@ export const initialState = {
     b: 255,
     a: 1,
   },
+  fontFamily: 'Arial, sans-serif',
+  fontWeight: 'normal',
 };
 
 const { actions, reducer } = createSlice({
@@ -99,16 +101,28 @@ const { actions, reducer } = createSlice({
         content,
       };
     },
+    setFontColor(state, { payload: fontColor }) {
+      return {
+        ...state,
+        fontColor,
+      };
+    },
     setFontSize(state, { payload: fontSize }) {
       return {
         ...state,
         fontSize,
       };
     },
-    setFontColor(state, { payload: fontColor }) {
+    setFontFamily(state, { payload: fontFamily }) {
       return {
         ...state,
-        fontColor,
+        fontFamily,
+      };
+    },
+    setFontWeight(state, { payload: fontWeight }) {
+      return {
+        ...state,
+        fontWeight,
       };
     },
   },
@@ -122,8 +136,10 @@ export const {
   setAlpha,
   setBackgroundImage,
   setContent,
-  setFontSize,
   setFontColor,
+  setFontSize,
+  setFontFamily,
+  setFontWeight,
   setBannerSize,
   setWidth,
   setHeight,

@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-// import { setCanvasRef } from 'slice';
-
 import { PreviewFabric } from './components';
 
 const PreviewContainer = ({ canvasRef }) => {
@@ -15,8 +13,9 @@ const PreviewContainer = ({ canvasRef }) => {
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
   const content = useSelector((state) => state.content);
-  const fontSize = useSelector((state) => state.fontSize);
   const fontColor = useSelector((state) => state.fontColor);
+  const fontSize = useSelector((state) => state.fontSize);
+  const fontFamily = useSelector((state) => state.fontFamily);
 
   return (
     <PreviewFabric
@@ -26,8 +25,9 @@ const PreviewContainer = ({ canvasRef }) => {
       backgroundImage={backgroundImage}
       backgroundColor={backgroundColor}
       content={content}
-      fontSize={fontSize}
       fontColor={fontColor}
+      fontSize={fontSize}
+      fontFamily={fontFamily}
     />
   );
 };
