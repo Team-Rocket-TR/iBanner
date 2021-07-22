@@ -2,7 +2,7 @@ import React from 'react';
 
 const BannerMakerHeader = () => (
   <>
-    <h1>iBanner</h1>
+    <img id="iBanner_logo" src='/image/iBanner_logo.png' />
     <h5>⚙️ Settings</h5>
   </>
 );
