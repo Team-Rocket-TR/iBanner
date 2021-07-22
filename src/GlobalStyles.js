@@ -111,6 +111,10 @@ const GlobalStyles = createGlobalStyle`
     #sponsorText {
         padding-left: 1em;
     }
+
+    #iBanner_logo {
+        width: 80px;
+    }
 `;
 
 export default GlobalStyles;
