@@ -4,6 +4,7 @@ import Layer from 'components/layer/Layer';
 
 export default function TextLayer({
   content,
+  fontFamily,
   fontSize,
   fontColor: {
     r, g, b, a,
@@ -18,6 +19,7 @@ export default function TextLayer({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    fontFamily: `${fontFamily}`,
     fontSize: `${fontSize}px`,
     color: `rgb(${r}, ${g}, ${b}, ${a})`,
   };
