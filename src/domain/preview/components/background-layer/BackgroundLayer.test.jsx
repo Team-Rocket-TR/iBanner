@@ -4,20 +4,24 @@ import { render } from '@testing-library/react';
 
 import BackgroundLayer from './BackgroundLayer';
 
-const onDraw = jest.fn();
-
 describe('BackgroundLayer', () => {
-  const rgba = {
-    r: 0, g: 0, b: 0, a: 1,
+  const backgroundColor = {
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
   };
 
   function renderPreview({
-    color = rgba,
+    fill = backgroundColor,
+    width = 500,
+    height = 500,
   } = {}) {
     return render((
       <BackgroundLayer
-        color={color}
-        onDraw={onDraw}
+        fill={fill}
+        width={width}
+        height={height}
       />
     ));
   }

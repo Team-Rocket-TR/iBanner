@@ -1,24 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import Layer from 'components/layer/Layer';
+import { Layer, Rect } from 'react-konva';
 
 export default function BackgroundLayer({
-  color: {
-    r, g, b, a,
-  } = {},
-  onDraw,
+  fill,
+  width,
+  height,
 }) {
-  useEffect(() => {
-    onDraw();
-  });
-
-  const style = {
-    backgroundColor: `rgb(${r}, ${g}, ${b}, ${a})`,
-    backgroundPosition: 'center',
-  };
+  const {
+    r, g, b, a,
+  } = fill;
 
   return (
-    <Layer style={style} />
+    <Layer>
+      <Rect
+        width={width}
+        height={height}
+        fill={`rgba(${r},${g},${b},${a})`}
+        stroke="#777"
+        strokeWidth={1}
+      />
+    </Layer>
   );
 }
 

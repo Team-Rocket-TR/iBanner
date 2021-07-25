@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import Layer from 'components/layer/Layer';
+import { Layer, Text } from 'react-konva';
 
 export default function TextLayer({
   content,
-  fontFamily,
   fontSize,
-  fontColor: {
-    r, g, b, a,
-  } = {},
-  onDraw,
+  fontFamily,
+  fontColor = {},
+  width,
+  height,
 }) {
-  useEffect(() => {
-    onDraw();
-  });
-
-  const style = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: `${fontFamily}`,
-    fontSize: `${fontSize}px`,
-    color: `rgb(${r}, ${g}, ${b}, ${a})`,
-  };
+  const {
+    r, g, b, a,
+  } = fontColor;
 
   return (
-    <Layer style={style}>
-      {content || '제목을 입력해주세요!'}
+    <Layer>
+      <Text
+        text={content || '제목을 입력해주세요!'}
+        fontSize={fontSize}
+        fontFamily={fontFamily}
+        fill={`rgba(${r},${g},${b},${a})`}
+        width={width}
+        height={height}
+        align="center"
+        verticalAlign="middle"
+        wrap="none"
+      />
     </Layer>
   );
 }
