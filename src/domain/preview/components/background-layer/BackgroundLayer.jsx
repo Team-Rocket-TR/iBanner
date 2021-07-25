@@ -1,22 +1,24 @@
 import React from 'react';
 
-import { Layer, Image } from 'react-konva';
-
-import useImage from 'use-image';
+import { Layer, Rect } from 'react-konva';
 
 export default function BackgroundLayer({
-  backgroundImage,
+  fill,
   width,
   height,
 }) {
-  const [image] = useImage(backgroundImage);
+  const {
+    r, g, b, a,
+  } = fill;
 
   return (
     <Layer>
-      <Image
-        image={image}
+      <Rect
         width={width}
         height={height}
+        fill={`rgba(${r},${g},${b},${a})`}
+        stroke="#777"
+        strokeWidth={1}
       />
     </Layer>
   );

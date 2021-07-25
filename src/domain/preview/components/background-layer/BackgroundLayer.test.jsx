@@ -5,16 +5,21 @@ import { render } from '@testing-library/react';
 import BackgroundLayer from './BackgroundLayer';
 
 describe('BackgroundLayer', () => {
-  const imageUri = 'https://IMAGE_URL.com/';
+  const backgroundColor = {
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  };
 
   function renderPreview({
-    backgroundImage = imageUri,
+    fill = backgroundColor,
     width = 500,
     height = 500,
   } = {}) {
     return render((
       <BackgroundLayer
-        backgroundImage={backgroundImage}
+        fill={fill}
         width={width}
         height={height}
       />

@@ -3,10 +3,10 @@ import React from 'react';
 import {
   Stage,
   Layer,
-  Rect,
   Text,
 } from 'react-konva';
 
+import { MemoizedImageLayer } from './image-layer/ImageLayer';
 import { MemoizedBackgroundLayer } from './background-layer/BackgroundLayer';
 
 const PreviewKonva = ({
@@ -14,9 +14,7 @@ const PreviewKonva = ({
   width,
   height,
   backgroundImage,
-  backgroundColor: {
-    r: br, g: bg, b: bb, a: ba,
-  } = {},
+  backgroundColor,
   content,
   fontColor: {
     r: fr, g: fg, b: fb, a: fa,
@@ -29,21 +27,16 @@ const PreviewKonva = ({
     width={width}
     height={height}
   >
-    <MemoizedBackgroundLayer
+    <MemoizedImageLayer
       backgroundImage={backgroundImage}
       width={500}
       height={500}
     />
-    <Layer>
-      <Rect
-        width={width}
-        height={height}
-        fill={`rgba(${br},${bg},${bb},${ba})`}
-        shadowBlur={5}
-        stroke="#777"
-        strokeWidth={1}
-      />
-    </Layer>
+    <MemoizedBackgroundLayer
+      fill={backgroundColor}
+      width={width}
+      height={height}
+    />
     <Layer>
       <Text
         width={width}
