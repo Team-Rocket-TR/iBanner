@@ -133,6 +133,7 @@ const PreviewKonva = ({
           fill={`rgba(${fr},${fg},${fb},${fa})`}
           align="center"
           verticalAlign="middle"
+          wrap="none"
         />
       </Layer>
     </Stage>

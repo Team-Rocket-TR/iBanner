@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { saveAs } from 'file-saver';
-
 import styled from 'styled-components';
 
 import { Download } from './components';
