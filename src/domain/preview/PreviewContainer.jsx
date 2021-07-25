@@ -2,9 +2,15 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { PreviewKonva } from './components';
+import { Stage } from 'react-konva';
 
-const PreviewContainer = ({ canvasRef }) => {
+import {
+  MemoizedImageLayer,
+  MemoizedBackgroundLayer,
+  MemoizedTextLayer,
+} from 'domain/preview/components';
+
+const PreviewKonva = ({ canvasRef }) => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
@@ -18,18 +24,31 @@ const PreviewContainer = ({ canvasRef }) => {
   const fontFamily = useSelector((state) => state.fontFamily);
 
   return (
-    <PreviewKonva
-      canvasRef={canvasRef}
+    <Stage
+      ref={canvasRef}
       width={width}
       height={height}
-      backgroundImage={backgroundImage}
-      backgroundColor={backgroundColor}
-      content={content}
-      fontColor={fontColor}
-      fontSize={fontSize}
-      fontFamily={fontFamily}
-    />
+    >
+      <MemoizedImageLayer
+        backgroundImage={backgroundImage}
+        width={500}
+        height={500}
+      />
+      <MemoizedBackgroundLayer
+        fill={backgroundColor}
+        width={width}
+        height={height}
+      />
+      <MemoizedTextLayer
+        text={content}
+        fontSize={fontSize}
+        fontFamily={fontFamily}
+        fontColor={fontColor}
+        width={width}
+        height={height}
+      />
+    </Stage>
   );
 };
 
-export default PreviewContainer;
+export default PreviewKonva;
