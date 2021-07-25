@@ -40,7 +40,7 @@ const PreviewKonva = ({ canvasRef }) => {
         height={height}
       />
       <MemoizedTextLayer
-        text={content}
+        content={content}
         fontSize={fontSize}
         fontFamily={fontFamily}
         fontColor={fontColor}
