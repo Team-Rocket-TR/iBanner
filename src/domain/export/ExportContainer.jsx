@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { saveAs } from 'file-saver';
-
 import styled from 'styled-components';
 
 import { Download } from './components';
@@ -12,10 +10,21 @@ const FloatButtonArea = styled.div`
   right: calc(80px + .6em);
 `;
 
-const ExportContainer = ({ canvasRef }) => {
+export default function ExportContainer({ canvasRef }) {
+  const downloadURI = ({ uri, name }) => {
+    const link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleClick = () => {
-    canvasRef.current.toBlob((blob) => {
-      saveAs(blob, 'banner.png');
+    const uri = canvasRef.current.toDataURL();
+    downloadURI({
+      uri,
+      name: 'banner.png',
     });
   };
 
@@ -24,6 +33,4 @@ const ExportContainer = ({ canvasRef }) => {
       <Download onClick={handleClick} />
     </FloatButtonArea>
   );
-};
-
-export default ExportContainer;
+}

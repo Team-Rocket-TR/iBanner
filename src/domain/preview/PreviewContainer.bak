@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { PreviewKonva } from './components';
+import { PreviewFabric } from './components';
 
 const PreviewContainer = ({ canvasRef }) => {
   const width = useSelector((state) => state.width);
@@ -18,7 +18,7 @@ const PreviewContainer = ({ canvasRef }) => {
   const fontFamily = useSelector((state) => state.fontFamily);
 
   return (
-    <PreviewKonva
+    <PreviewFabric
       canvasRef={canvasRef}
       width={width}
       height={height}
