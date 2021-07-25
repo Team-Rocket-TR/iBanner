@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import Layer from 'components/layer/Layer';
+import { Layer, Image } from 'react-konva';
+
+import useImage from 'use-image';
 
 export default function BackgroundLayer({
-  color: {
-    r, g, b, a,
-  } = {},
-  onDraw,
+  backgroundImage,
+  width,
+  height,
 }) {
-  useEffect(() => {
-    onDraw();
-  });
-
-  const style = {
-    backgroundColor: `rgb(${r}, ${g}, ${b}, ${a})`,
-    backgroundPosition: 'center',
-  };
+  const [image] = useImage(backgroundImage);
 
   return (
-    <Layer style={style} />
+    <Layer>
+      <Image
+        image={image}
+        width={width}
+        height={height}
+      />
+    </Layer>
   );
 }
 
