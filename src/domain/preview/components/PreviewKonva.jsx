@@ -1,13 +1,10 @@
 import React from 'react';
 
-import {
-  Stage,
-  Layer,
-  Text,
-} from 'react-konva';
+import { Stage } from 'react-konva';
 
 import { MemoizedImageLayer } from './image-layer/ImageLayer';
 import { MemoizedBackgroundLayer } from './background-layer/BackgroundLayer';
+import { MemoizedTextLayer } from './text-layer/TextLayer';
 
 const PreviewKonva = ({
   canvasRef,
@@ -16,9 +13,7 @@ const PreviewKonva = ({
   backgroundImage,
   backgroundColor,
   content,
-  fontColor: {
-    r: fr, g: fg, b: fb, a: fa,
-  } = {},
+  fontColor,
   fontSize,
   fontFamily,
 }) => (
@@ -37,19 +32,14 @@ const PreviewKonva = ({
       width={width}
       height={height}
     />
-    <Layer>
-      <Text
-        width={width}
-        height={height}
-        text={content || '제목을 입력해주세요!'}
-        fontSize={fontSize}
-        fontFamily={fontFamily}
-        fill={`rgba(${fr},${fg},${fb},${fa})`}
-        align="center"
-        verticalAlign="middle"
-        wrap="none"
-      />
-    </Layer>
+    <MemoizedTextLayer
+      text={content}
+      fontSize={fontSize}
+      fontFamily={fontFamily}
+      fontColor={fontColor}
+      width={width}
+      height={height}
+    />
   </Stage>
 );
 
