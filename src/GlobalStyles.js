@@ -113,7 +113,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     #iBanner_logo {
-        width: 80px;
+        width: 64px;
     }
 `;
 
