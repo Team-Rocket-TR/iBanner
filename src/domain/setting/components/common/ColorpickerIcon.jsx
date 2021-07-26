@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { AlphaPicker, TwitterPicker } from 'react-color';
+import { TwitterPicker } from 'react-color';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+
+import Input from '@material-ui/core/Input';
 
 // eslint-disable-next-line no-bitwise
 const rgbToHex = ({ r, g, b }) => `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
@@ -93,16 +97,22 @@ const ColorpickerIcon = ({
         width="90%"
         styles={styles}
       />
-      <input type="text" name="hexBackgroundColor" value={rgbToHex(color)} onChange={handleChangeHexBackgroundColor} />
-      {onChangeAlpha
-        ? (
-          <AlphaPicker
-            color={color}
-            onChange={onChangeAlpha}
-            width="100%"
-          />
-        )
-        : null}
+      <FormControl>
+        <Input
+          name="hexBackgroundColor"
+          value={rgbToHex(color)}
+          onChange={handleChangeHexBackgroundColor}
+          aria-describedby="standard-color-helper-text"
+          inputProps={{
+            'aria-label': 'color',
+          }}
+        />
+        <FormHelperText
+          id="standard-color-helper-text"
+        >
+          Color
+        </FormHelperText>
+      </FormControl>
     </>
   );
 };
