@@ -20,6 +20,14 @@ const BannerCustomSize = ({
     if (!isNumber(e.target.value)) {
       return;
     }
+    // width & height minLength limit
+    if (e.target.value === '0') {
+      e.target.value = '200';
+    }
+    // width & height value maxLength limit
+    if (e.target.value.length > 4) {
+      e.target.value = e.target.value.substr(0, 4);
+    }
     onChange({
       name: e.target.name,
       value: e.target.value,
@@ -39,7 +47,6 @@ const BannerCustomSize = ({
         inputProps={{
           'aria-label': `${name}`,
         }}
-        maxLength="3"
       />
       <FormHelperText
         id={`standard-${name}-helper-text`}
