@@ -11,6 +11,7 @@ import {
 import Typography from '@material-ui/core/Typography';
 
 import ColorpickerIcon from './components/common/ColorpickerIcon';
+import AlphaPickerIcon from './components/common/AlphaPickerIcon';
 import ImageFile from './components/background/ImageFile';
 
 const BackgroundContainer = () => {
@@ -55,6 +56,18 @@ const BackgroundContainer = () => {
         <ColorpickerIcon
           color={backgroundColor}
           onChangeBackgroundcolor={handleChangeBackgroundcolor}
+        />
+      </Card>
+      <Card>
+        <Typography
+          id="label-fontsize-slider"
+          variant="h6"
+          gutterBottom
+        >
+          배경 투명도
+        </Typography>
+        <AlphaPickerIcon
+          color={backgroundColor}
           onChangeAlpha={handleChangeAlpha}
         />
       </Card>
