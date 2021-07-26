@@ -2,7 +2,6 @@ import React from 'react';
 
 import { AlphaPicker } from 'react-color';
 
-// eslint-disable-next-line no-bitwise
 const AlphaPickerIcon = ({
   color, onChangeAlpha,
 }) => (

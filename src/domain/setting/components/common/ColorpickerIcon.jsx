@@ -19,7 +19,7 @@ const hexToRgb = (hex) => {
 };
 
 const ColorpickerIcon = ({
-  color, onChangeBackgroundcolor, onChangeAlpha,
+  color, onChangeBackgroundcolor,
 }) => {
   const colors = [
     '#f44336', '#e84b63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#009688',
