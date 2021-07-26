@@ -20,11 +20,11 @@ const BannerCustomSize = ({
     if (!isNumber(e.target.value)) {
       return;
     }
-    // width & height minLength limit
-    if (e.target.value === '0') {
-      e.target.value = '200';
+    // width & height minValue limit
+    if (parseInt(e.target.value, 10) <= 0) {
+      e.target.value = 1;
     }
-    // width & height value maxLength limit
+    // width & height maxLength limit
     if (e.target.value.length > 4) {
       e.target.value = e.target.value.substr(0, 4);
     }
