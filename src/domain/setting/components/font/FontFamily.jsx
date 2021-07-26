@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Observer from 'fontfaceobserver';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -44,10 +46,28 @@ const FontFamily = ({ defaultValue, onChange }) => {
 
   function handleChange(event) {
     const { value } = event.target;
+    if (isEmpty(value)) {
+      return;
+    }
 
-    if (isEmpty(value)) return;
+    const commonFonts = fontCollection.common.fonts.reduce((accumulator, currentFont) => {
+      const { font } = currentFont;
+      accumulator.push(font);
+      return accumulator;
+    }, []);
 
-    onChange({ value });
+    if (commonFonts.includes(value)) {
+      onChange({ value });
+      return;
+    }
+
+    const bodyFont = new Observer(value, {
+      weight: 'normal',
+    });
+
+    bodyFont.load().then(() => {
+      onChange({ value });
+    });
   }
 
   return (
@@ -63,7 +83,7 @@ const FontFamily = ({ defaultValue, onChange }) => {
           const { name, fonts } = fontCollection[key];
           return (
             <optgroup
-              key={name}
+              key={key}
               label={name}
             >
               {fonts.map(({ font, fontName }) => (
