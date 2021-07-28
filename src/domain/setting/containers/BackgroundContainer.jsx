@@ -13,7 +13,6 @@ import {
   setImageScale,
 } from 'slice';
 
-import { ControlPointSharp } from '@material-ui/icons';
 import {
   ColorpickerIcon,
   AlphaPickerIcon,
