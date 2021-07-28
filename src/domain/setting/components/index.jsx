@@ -1,24 +1,25 @@
 // ===== 공통 ===== //
-import ColorpickerIcon from 'domain/setting/components/common/ColorpickerIcon';
-import AlphaPickerIcon from 'domain/setting/components/common/AlphaPickerIcon';
+import ColorpickerIcon from './common/ColorpickerIcon';
+import AlphaPickerIcon from './common/AlphaPickerIcon';
 
 // ===== 기본설정 ===== //
-import ThemeSwitch from 'domain/setting/components/general/ThemeSwitch';
-import BannerSizeRatioButtons from 'domain/setting/components/general/BannerSizeRatioButtons';
-import BannerSizeRatioButton from 'domain/setting/components/general/BannerSizeRatioButton';
-import BannerCustomSize from 'domain/setting/components/general/BannerCustomSize';
-import BannerCustom from 'domain/setting/components/general/BannerCustom';
+import ThemeSwitch from './general/ThemeSwitch';
+import BannerSizeRatioButtons from './general/BannerSizeRatioButtons';
+import BannerSizeRatioButton from './general/BannerSizeRatioButton';
+import BannerCustomSize from './general/BannerCustomSize';
+import BannerCustom from './general/BannerCustom';
 
 // ===== 배경화면 ===== //
-import BackgroundColorpicker from 'domain/setting/components/background/BackgroundColorpicker';
-import ImageFile from 'domain/setting/components/image/ImageFile';
+import BackgroundColorpicker from './background/BackgroundColorpicker';
+import ImageFile from './image/ImageFile';
+import ImageScale from './image/ImageScale';
 
 // ===== 텍스트 ===== //
-import Content from 'domain/setting/components/font/Content';
-import FontSize from 'domain/setting/components/font/FontSize';
+import Content from './font/Content';
+import FontSize from './font/FontSize';
 
 // ===== 후원하기 ===== //
-import Sponsor from 'domain/setting/components/sponsor/Sponsor';
+import Sponsor from './sponsor/Sponsor';
 
 export {
   ColorpickerIcon,
@@ -30,6 +31,7 @@ export {
   BannerCustomSize,
   BackgroundColorpicker,
   ImageFile,
+  ImageScale,
   Content,
   FontSize,
   Sponsor,

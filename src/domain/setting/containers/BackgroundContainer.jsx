@@ -16,14 +16,16 @@ import {
   ColorpickerIcon,
   AlphaPickerIcon,
   ImageFile,
+  ImageScale,
 } from '../components';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
+  const backgroundImage = useSelector((state) => state.backgroundImage);
 
-  // CHange Banner BackgroundColor
+  // Change Banner BackgroundColor
   const handleChangeBackgroundcolor = ({ rgb }) => {
     dispatch(setBackgroundColor(rgb));
   };
@@ -34,53 +36,68 @@ const BackgroundContainer = () => {
     dispatch(setAlpha(a));
   };
 
-  const handleChangeFile = async ({ file }) => {
-    if (!file) return;
+  const handleUploadImage = async ({ file }) => {
+    if (!file) {
+      return;
+    }
 
-    const image = file;
-    const localImageURL = await window.URL.createObjectURL(image);
-
+    const localImageURL = await window.URL.createObjectURL(file);
     dispatch(setBackgroundImage(localImageURL));
   };
 
-  const handleClickDelete = () => {
+  const handleClickDeleteImage = () => {
     dispatch(setBackgroundImage(''));
   };
 
+  const handleChangeImageScale = () => {
+    dispatch(setBackgroundImage(''));
+  };
+
+  const backgroundSettings = [
+    {
+      title: '배경 색상',
+      component: <ColorpickerIcon
+        color={backgroundColor}
+        onChangeBackgroundcolor={handleChangeBackgroundcolor}
+      />,
+    },
+    {
+      title: '배경 투명도',
+      component: <AlphaPickerIcon
+        color={backgroundColor}
+        onChangeAlpha={handleChangeAlpha}
+      />,
+    },
+    {
+      title: '이미지 삽입',
+      component: <ImageFile
+        image={backgroundImage}
+        onChange={handleUploadImage}
+        onClick={handleClickDeleteImage}
+      />,
+    },
+    {
+      title: '이미지 배율',
+      component: <ImageScale
+        scale={1}
+        onChange={handleChangeImageScale}
+      />,
+    },
+  ];
+
   return (
     <Deck>
-      <Card>
-        <Typography
-          id="label-fontsize-slider"
-          variant="h6"
-          gutterBottom
-        >
-          배경 색상
-        </Typography>
-        <ColorpickerIcon
-          color={backgroundColor}
-          onChangeBackgroundcolor={handleChangeBackgroundcolor}
-        />
-      </Card>
-      <Card>
-        <Typography
-          id="label-fontsize-slider"
-          variant="h6"
-          gutterBottom
-        >
-          배경 투명도
-        </Typography>
-        <AlphaPickerIcon
-          color={backgroundColor}
-          onChangeAlpha={handleChangeAlpha}
-        />
-      </Card>
-      <Card>
-        <ImageFile
-          onChange={handleChangeFile}
-          onClick={handleClickDelete}
-        />
-      </Card>
+      {backgroundSettings.map(({ title, component }) => (
+        <Card>
+          <Typography
+            variant="h6"
+            gutterBottom
+          >
+            {title}
+          </Typography>
+          {component}
+        </Card>
+      ))}
     </Deck>
   );
 };

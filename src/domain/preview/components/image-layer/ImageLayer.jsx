@@ -15,8 +15,8 @@ export default function ImageLayer({
     <Layer>
       <Image
         image={image}
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
       />
     </Layer>
   );
