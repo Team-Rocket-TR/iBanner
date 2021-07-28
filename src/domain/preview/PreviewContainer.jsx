@@ -15,6 +15,7 @@ const PreviewKonva = ({ canvasRef }) => {
   const height = useSelector((state) => state.height);
 
   const backgroundImage = useSelector((state) => state.backgroundImage);
+  const { scale } = useSelector((state) => state.imageLayer);
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
@@ -31,8 +32,7 @@ const PreviewKonva = ({ canvasRef }) => {
     >
       <MemoizedImageLayer
         backgroundImage={backgroundImage}
-        width={500}
-        height={500}
+        scale={scale}
       />
       <MemoizedBackgroundLayer
         fill={backgroundColor}

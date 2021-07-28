@@ -5,7 +5,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 
-import FormatSizeIcon from '@material-ui/icons/FormatSize';
+import AspectRatioIcon from '@material-ui/icons/AspectRatio';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -75,15 +75,15 @@ const marks = [
   },
   {
     value: 1,
-    label: '1',
+    label: 'x1',
   },
   {
     value: 2,
-    label: '2',
+    label: 'x2',
   },
   {
     value: 4,
-    label: '4',
+    label: 'x4',
   },
 ];
 
@@ -117,7 +117,7 @@ const ImageScale = ({
           />
         </Grid>
         <Grid item>
-          <FormatSizeIcon
+          <AspectRatioIcon
             className={classes.root}
             color="disabled"
           />

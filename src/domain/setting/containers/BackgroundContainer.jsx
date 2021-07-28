@@ -10,6 +10,7 @@ import {
   setBackgroundColor,
   setAlpha,
   setBackgroundImage,
+  setImageScale,
 } from 'slice';
 
 import {
@@ -23,7 +24,9 @@ const BackgroundContainer = () => {
   const dispatch = useDispatch();
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
+
   const backgroundImage = useSelector((state) => state.backgroundImage);
+  const { scale } = useSelector((state) => state.imageLayer);
 
   // Change Banner BackgroundColor
   const handleChangeBackgroundcolor = ({ rgb }) => {
@@ -49,8 +52,8 @@ const BackgroundContainer = () => {
     dispatch(setBackgroundImage(''));
   };
 
-  const handleChangeImageScale = () => {
-    dispatch(setBackgroundImage(''));
+  const handleChangeImageScale = ({ value }) => {
+    dispatch(setImageScale(value));
   };
 
   const backgroundSettings = [
@@ -79,7 +82,7 @@ const BackgroundContainer = () => {
     {
       title: '이미지 배율',
       component: <ImageScale
-        scale={1}
+        scale={scale}
         onChange={handleChangeImageScale}
       />,
     },
@@ -88,7 +91,7 @@ const BackgroundContainer = () => {
   return (
     <Deck>
       {backgroundSettings.map(({ title, component }) => (
-        <Card>
+        <Card key={title}>
           <Typography
             variant="h6"
             gutterBottom

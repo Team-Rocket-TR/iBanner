@@ -10,7 +10,7 @@ export const initialState = {
     image: '',
     sizeX: 0,
     sizeY: 0,
-    scale: 1.0,
+    scale: 1,
   },
   backgroundImage: '',
   backgroundColor: {
@@ -101,6 +101,15 @@ const { actions, reducer } = createSlice({
         backgroundImage,
       };
     },
+    setImageScale(state, { payload: scale }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          scale,
+        },
+      };
+    },
     setContent(state, { payload: content }) {
       return {
         ...state,
@@ -141,6 +150,7 @@ export const {
   setBackgroundColor,
   setAlpha,
   setBackgroundImage,
+  setImageScale,
   setContent,
   setFontColor,
   setFontSize,
