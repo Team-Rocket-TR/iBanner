@@ -8,8 +8,6 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-import Typography from '@material-ui/core/Typography';
-
 const useStyles = makeStyles(() => ({
   input: {
     display: 'none',
@@ -19,7 +17,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ImageFile = ({ onChange, onClick }) => {
+const ImageFile = ({
+  image,
+  onChange,
+  onClick,
+}) => {
   const classes = useStyles();
 
   function handleChange(event) {
@@ -29,13 +31,6 @@ const ImageFile = ({ onChange, onClick }) => {
 
   return (
     <>
-      <Typography
-        id="label-fontsize-slider"
-        variant="h6"
-        gutterBottom
-      >
-        배경 이미지 삽입
-      </Typography>
       <input
         className={classes.input}
         id="contained-button-file"
@@ -57,13 +52,17 @@ const ImageFile = ({ onChange, onClick }) => {
         </Button>
       </label>
 
-      <IconButton
-        className={classes.margin}
-        aria-label="delete"
-        onClick={onClick}
-      >
-        <DeleteIcon fontSize="small" />
-      </IconButton>
+      {image
+        ? (
+          <IconButton
+            className={classes.margin}
+            aria-label="delete"
+            onClick={onClick}
+          >
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        )
+        : null}
     </>
   );
 };

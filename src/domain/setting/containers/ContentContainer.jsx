@@ -3,14 +3,17 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  setFontColor, setFontSize, setFontFamily, setFontWeight,
+  setFontColor,
+  setFontSize,
+  setFontFamily,
+  setFontWeight,
 } from 'slice';
 
 import { Deck, Card } from 'components/card';
 
-import FontColor from './components/font/FontColor';
-import FontSize from './components/font/FontSize';
-import FontStyle from './components/font/FontStyle';
+import FontColor from '../components/font/FontColor';
+import FontSize from '../components/font/FontSize';
+import FontStyle from '../components/font/FontStyle';
 
 const ContentContainer = () => {
   const dispatch = useDispatch();

@@ -6,8 +6,7 @@ import useImage from 'use-image';
 
 export default function ImageLayer({
   backgroundImage,
-  width,
-  height,
+  scale,
 }) {
   const [image] = useImage(backgroundImage);
 
@@ -15,8 +14,10 @@ export default function ImageLayer({
     <Layer>
       <Image
         image={image}
-        width={width}
-        height={height}
+        scale={{
+          x: scale,
+          y: scale,
+        }}
       />
     </Layer>
   );
