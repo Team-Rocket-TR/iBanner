@@ -22,8 +22,11 @@ import DarkTheme from 'public/css/DarkTheme';
 import LightTheme from 'public/css/LightTheme';
 
 import {
-  GeneralContainer, BackgroundContainer, ContentContainer, SponsorContainer,
-} from '.';
+  GeneralContainer,
+  BackgroundContainer,
+  ContentContainer,
+  SponsorContainer,
+} from './containers';
 
 const useStyles = makeStyles({
   root: {

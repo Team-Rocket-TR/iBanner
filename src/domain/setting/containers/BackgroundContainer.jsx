@@ -10,9 +10,9 @@ import {
 
 import Typography from '@material-ui/core/Typography';
 
-import ColorpickerIcon from './components/common/ColorpickerIcon';
-import AlphaPickerIcon from './components/common/AlphaPickerIcon';
-import ImageFile from './components/background/ImageFile';
+import ColorpickerIcon from '../components/common/ColorpickerIcon';
+import AlphaPickerIcon from '../components/common/AlphaPickerIcon';
+import ImageFile from '../components/image/ImageFile';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
