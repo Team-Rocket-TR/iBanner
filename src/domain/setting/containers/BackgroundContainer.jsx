@@ -13,6 +13,7 @@ import {
   setImageScale,
 } from 'slice';
 
+import { ControlPointSharp } from '@material-ui/icons';
 import {
   ColorpickerIcon,
   AlphaPickerIcon,
@@ -45,6 +46,14 @@ const BackgroundContainer = () => {
     }
 
     const localImageURL = await window.URL.createObjectURL(file);
+    // const image = document.createElement('img');
+
+    // image.src = localImageURL;
+
+    // image.onload = function () {
+    //   console.log(`width : ${image.width} px`);
+    //   console.log(`height : ${image.height} px`);
+    // };
     dispatch(setBackgroundImage(localImageURL));
   };
 
