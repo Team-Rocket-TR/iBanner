@@ -2,17 +2,21 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import Typography from '@material-ui/core/Typography';
+
 import { Deck, Card } from 'components/card';
 
 import {
-  setBackgroundColor, setAlpha, setBackgroundImage,
+  setBackgroundColor,
+  setAlpha,
+  setBackgroundImage,
 } from 'slice';
 
-import Typography from '@material-ui/core/Typography';
-
-import ColorpickerIcon from '../components/common/ColorpickerIcon';
-import AlphaPickerIcon from '../components/common/AlphaPickerIcon';
-import ImageFile from '../components/image/ImageFile';
+import {
+  ColorpickerIcon,
+  AlphaPickerIcon,
+  ImageFile,
+} from '../components';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
