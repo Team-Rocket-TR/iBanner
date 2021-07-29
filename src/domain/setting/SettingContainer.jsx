@@ -49,24 +49,18 @@ const CustomTabPanel = styled.article`
 `;
 
 const TabPanel = (props) => {
-  const {
-    children, value, index,
-  } = props;
+  const { children, value, index } = props;
 
   return (
     <CustomTabPanel
-      role="tabpanel"
+      role='tabpanel'
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
       hidden={value !== index}
     >
       {value === index && (
         <Box p={3}>
-          <Typography
-            component="span"
-          >
-            {children}
-          </Typography>
+          <Typography component='span'>{children}</Typography>
         </Box>
       )}
     </CustomTabPanel>
@@ -96,24 +90,22 @@ const SettingContainer = () => {
 
   return (
     <>
-      {(theme === 'light')
-        ? <LightTheme />
-        : <DarkTheme />}
+      {theme === 'light' ? <LightTheme /> : <DarkTheme />}
       <Paper square className={classes.root}>
         <Tabs
-          orientation="vertical"
-          variant="scrollable"
-          indicatorColor="secondary"
-          textColor="secondary"
-          aria-label="icon label tabs example"
+          orientation='vertical'
+          variant='scrollable'
+          indicatorColor='secondary'
+          textColor='secondary'
+          aria-label='icon label tabs example'
           value={value}
           onChange={handleChange}
         >
-          <CustomTab icon={<SettingsIcon />} label="기본설정" />
-          <CustomTab icon={<ImageIcon />} label="배경화면" />
-          <CustomTab icon={<TextFieldsIcon />} label="텍스트" />
-          <CustomTab icon={<FavoriteIcon />} label="즐겨찾기" />
-          <CustomTab icon={<MoneyIcon />} label="후원하기" />
+          <CustomTab icon={<SettingsIcon />} label='기본설정' />
+          <CustomTab icon={<ImageIcon />} label='배경화면' />
+          <CustomTab icon={<TextFieldsIcon />} label='텍스트' />
+          <CustomTab icon={<FavoriteIcon />} label='즐겨찾기' />
+          <CustomTab icon={<MoneyIcon />} label='후원하기' />
         </Tabs>
         <TabPanel value={value} index={0}>
           <GeneralContainer />

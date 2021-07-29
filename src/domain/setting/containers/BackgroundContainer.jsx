@@ -67,32 +67,35 @@ const BackgroundContainer = () => {
   const backgroundSettings = [
     {
       title: '배경 색상',
-      component: <ColorpickerIcon
-        color={backgroundColor}
-        onChangeBackgroundcolor={handleChangeBackgroundcolor}
-      />,
+      component: (
+        <ColorpickerIcon
+          color={backgroundColor}
+          onChangeBackgroundcolor={handleChangeBackgroundcolor}
+        />
+      ),
     },
     {
       title: '배경 투명도',
-      component: <AlphaPickerIcon
-        color={backgroundColor}
-        onChangeAlpha={handleChangeAlpha}
-      />,
+      component: (
+        <AlphaPickerIcon
+          color={backgroundColor}
+          onChangeAlpha={handleChangeAlpha}
+        />
+      ),
     },
     {
       title: '이미지 삽입',
-      component: <ImageFile
-        image={backgroundImage}
-        onChange={handleUploadImage}
-        onClick={handleClickDeleteImage}
-      />,
+      component: (
+        <ImageFile
+          image={backgroundImage}
+          onChange={handleUploadImage}
+          onClick={handleClickDeleteImage}
+        />
+      ),
     },
     {
       title: '이미지 배율',
-      component: <ImageScale
-        scale={scale}
-        onChange={handleChangeImageScale}
-      />,
+      component: <ImageScale scale={scale} onChange={handleChangeImageScale} />,
     },
   ];
 
@@ -100,10 +103,7 @@ const BackgroundContainer = () => {
     <Deck>
       {backgroundSettings.map(({ title, component }) => (
         <Card key={title}>
-          <Typography
-            variant="h6"
-            gutterBottom
-          >
+          <Typography variant='h6' gutterBottom>
             {title}
           </Typography>
           {component}
