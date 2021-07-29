@@ -12,6 +12,7 @@ import {
   setUploadImage,
   setImageUri,
   setImageScale,
+  setImageVerticalAlign,
 } from 'slice';
 
 import {
@@ -28,6 +29,8 @@ const BackgroundContainer = () => {
   const {
     image,
     scale,
+    alignX,
+    alignY,
   } = useSelector((state) => state.imageLayer);
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
@@ -53,8 +56,8 @@ const BackgroundContainer = () => {
     imageEl.onload = () => {
       dispatch(setUploadImage({
         image: imageEl.src,
-        width: imageEl.width,
-        height: imageEl.height,
+        sizeX: imageEl.width,
+        sizeY: imageEl.height,
       }));
     };
   };
@@ -67,8 +70,8 @@ const BackgroundContainer = () => {
     dispatch(setImageScale(value));
   };
 
-  const handleChangeImageVerticalAlign = () => {
-
+  const handleChangeImageVerticalAlign = (align) => {
+    dispatch(setImageVerticalAlign(align));
   };
 
   const handleChangeImageHorizontalAlign = () => {
@@ -108,6 +111,8 @@ const BackgroundContainer = () => {
     {
       title: '이미지 정렬',
       component: <ImageAlign
+        verticalAlign={alignY}
+        horizontalAlign={alignX}
         onChangeImageVerticalAlign={handleChangeImageVerticalAlign}
         onChangeImageHorizontalAlign={handleChangeImageHorizontalAlign}
       />,

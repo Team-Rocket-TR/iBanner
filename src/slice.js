@@ -8,9 +8,11 @@ export const initialState = {
   height: '500',
   imageLayer: {
     image: '',
+    scale: 1,
     sizeX: 0,
     sizeY: 0,
-    scale: 1,
+    alignX: 'center',
+    alignY: 'middle',
   },
   backgroundColor: {
     r: 128,
@@ -121,6 +123,15 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setImageVerticalAlign(state, { payload: alignY }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          alignY,
+        },
+      };
+    },
     setContent(state, { payload: content }) {
       return {
         ...state,
@@ -163,6 +174,7 @@ export const {
   setImageUri,
   setUploadImage,
   setImageScale,
+  setImageVerticalAlign,
   setContent,
   setFontColor,
   setFontSize,

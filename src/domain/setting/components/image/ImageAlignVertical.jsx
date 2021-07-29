@@ -29,7 +29,7 @@ const ImageAlignVertical = ({
       return;
     }
 
-    onChange({ value });
+    onChange(value);
   }
 
   return (
