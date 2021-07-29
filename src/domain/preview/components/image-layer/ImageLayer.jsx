@@ -5,10 +5,10 @@ import { Layer, Image } from 'react-konva';
 import useImage from 'use-image';
 
 export default function ImageLayer({
-  backgroundImage,
+  imageUrl,
   scale,
 }) {
-  const [image] = useImage(backgroundImage);
+  const [image] = useImage(imageUrl);
 
   return (
     <Layer>

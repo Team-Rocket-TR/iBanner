@@ -4,7 +4,7 @@ import reducer, {
   initialState,
   setTheme,
   setCanvasRef,
-  setBackgroundImage,
+  setImageUri,
   setContent,
   setFontSize,
   setFontColor,
@@ -50,13 +50,13 @@ describe('reducer', () => {
     });
   });
 
-  describe('setBackgroundImage', () => {
+  describe('setImageUri', () => {
     it('changes image data URL', () => {
       const expectValue = 'data:image/png;base64,iVBORw0KG...';
 
-      const state = reducer(initialState, setBackgroundImage(expectValue));
+      const state = reducer(initialState, setImageUri(expectValue));
 
-      expect(state.backgroundImage).toBe(expectValue);
+      expect(state.imageLayer.image).toBe(expectValue);
     });
   });
 

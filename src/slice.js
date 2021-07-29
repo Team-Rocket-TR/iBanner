@@ -12,7 +12,6 @@ export const initialState = {
     sizeY: 0,
     scale: 1,
   },
-  backgroundImage: '',
   backgroundColor: {
     r: 128,
     g: 128,
@@ -95,10 +94,22 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setBackgroundImage(state, { payload: backgroundImage }) {
+    setImageUri(state, { payload: image }) {
       return {
         ...state,
-        backgroundImage,
+        imageLayer: {
+          ...state.imageLayer,
+          image,
+        },
+      };
+    },
+    setUploadImage(state, { payload: imageInfo }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          ...imageInfo,
+        },
       };
     },
     setImageScale(state, { payload: scale }) {
@@ -149,7 +160,8 @@ export const {
   setCanvasRef,
   setBackgroundColor,
   setAlpha,
-  setBackgroundImage,
+  setImageUri,
+  setUploadImage,
   setImageScale,
   setContent,
   setFontColor,

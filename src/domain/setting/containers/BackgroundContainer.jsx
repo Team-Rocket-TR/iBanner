@@ -9,7 +9,8 @@ import { Deck, Card } from 'components/card';
 import {
   setBackgroundColor,
   setAlpha,
-  setBackgroundImage,
+  setUploadImage,
+  setImageUri,
   setImageScale,
 } from 'slice';
 
@@ -23,10 +24,12 @@ import {
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
 
-  const backgroundColor = useSelector((state) => state.backgroundColor);
+  const {
+    image,
+    scale,
+  } = useSelector((state) => state.imageLayer);
 
-  const backgroundImage = useSelector((state) => state.backgroundImage);
-  const { scale } = useSelector((state) => state.imageLayer);
+  const backgroundColor = useSelector((state) => state.backgroundColor);
 
   // Change Banner BackgroundColor
   const handleChangeBackgroundcolor = ({ rgb }) => {
@@ -44,20 +47,23 @@ const BackgroundContainer = () => {
       return;
     }
 
-    const localImageURL = await window.URL.createObjectURL(file);
-    // const image = document.createElement('img');
+    const imageEl = document.createElement('img');
+    imageEl.src = await window.URL.createObjectURL(file);
 
-    // image.src = localImageURL;
-
-    // image.onload = function () {
-    //   console.log(`width : ${image.width} px`);
-    //   console.log(`height : ${image.height} px`);
-    // };
-    dispatch(setBackgroundImage(localImageURL));
+    imageEl.onload = () => {
+      console.log(`width : ${imageEl.width} px`);
+      console.log(`height : ${imageEl.height} px`);
+      dispatch(setUploadImage({
+        image: imageEl.src,
+        width: imageEl.width,
+        height: imageEl.height,
+      }));
+    };
+    // dispatch(setImageUri(imageEl.src));
   };
 
   const handleClickDeleteImage = () => {
-    dispatch(setBackgroundImage(''));
+    dispatch(setImageUri(''));
   };
 
   const handleChangeImageScale = ({ value }) => {
@@ -82,7 +88,7 @@ const BackgroundContainer = () => {
     {
       title: '이미지 삽입',
       component: <ImageFile
-        image={backgroundImage}
+        image={image}
         onChange={handleUploadImage}
         onClick={handleClickDeleteImage}
       />,

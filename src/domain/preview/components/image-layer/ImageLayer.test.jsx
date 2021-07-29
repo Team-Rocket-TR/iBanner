@@ -8,13 +8,13 @@ describe('BackgroundLayer', () => {
   const imageUri = 'https://IMAGE_URL.com/';
 
   function renderPreview({
-    backgroundImage = imageUri,
+    imageUrl = imageUri,
     width = 500,
     height = 500,
   } = {}) {
     return render((
       <ImageLayer
-        backgroundImage={backgroundImage}
+        imageUrl={imageUrl}
         width={width}
         height={height}
       />
