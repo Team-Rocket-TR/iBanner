@@ -9,24 +9,32 @@ import { Deck, Card } from 'components/card';
 import {
   setBackgroundColor,
   setAlpha,
-  setBackgroundImage,
+  setUploadImage,
+  setImageUri,
   setImageScale,
+  setImageVerticalAlign,
+  setImageHorizontalAlign,
 } from 'slice';
 
 import {
   ColorpickerIcon,
   AlphaPickerIcon,
   ImageFile,
+  ImageAlign,
   ImageScale,
 } from '../components';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
 
-  const backgroundColor = useSelector((state) => state.backgroundColor);
+  const {
+    image,
+    scale,
+    alignX,
+    alignY,
+  } = useSelector((state) => state.imageLayer);
 
-  const backgroundImage = useSelector((state) => state.backgroundImage);
-  const { scale } = useSelector((state) => state.imageLayer);
+  const backgroundColor = useSelector((state) => state.backgroundColor);
 
   // Change Banner BackgroundColor
   const handleChangeBackgroundcolor = ({ rgb }) => {
@@ -44,24 +52,31 @@ const BackgroundContainer = () => {
       return;
     }
 
-    const localImageURL = await window.URL.createObjectURL(file);
-    // const image = document.createElement('img');
-
-    // image.src = localImageURL;
-
-    // image.onload = function () {
-    //   console.log(`width : ${image.width} px`);
-    //   console.log(`height : ${image.height} px`);
-    // };
-    dispatch(setBackgroundImage(localImageURL));
+    const imageEl = document.createElement('img');
+    imageEl.src = await window.URL.createObjectURL(file);
+    imageEl.onload = () => {
+      dispatch(setUploadImage({
+        image: imageEl.src,
+        sizeX: imageEl.width,
+        sizeY: imageEl.height,
+      }));
+    };
   };
 
   const handleClickDeleteImage = () => {
-    dispatch(setBackgroundImage(''));
+    dispatch(setImageUri(''));
   };
 
   const handleChangeImageScale = ({ value }) => {
     dispatch(setImageScale(value));
+  };
+
+  const handleChangeImageVerticalAlign = (align) => {
+    dispatch(setImageVerticalAlign(align));
+  };
+
+  const handleChangeImageHorizontalAlign = (align) => {
+    dispatch(setImageHorizontalAlign(align));
   };
 
   const backgroundSettings = [
@@ -85,17 +100,24 @@ const BackgroundContainer = () => {
     },
     {
       title: '이미지 삽입',
-      component: (
-        <ImageFile
-          image={backgroundImage}
-          onChange={handleUploadImage}
-          onClick={handleClickDeleteImage}
-        />
-      ),
+      component: <ImageFile
+        image={image}
+        onChange={handleUploadImage}
+        onClick={handleClickDeleteImage}
+      />,
     },
     {
       title: '이미지 배율',
       component: <ImageScale scale={scale} onChange={handleChangeImageScale} />,
+    },
+    {
+      title: '이미지 정렬',
+      component: <ImageAlign
+        verticalAlign={alignY}
+        horizontalAlign={alignX}
+        onChangeImageVerticalAlign={handleChangeImageVerticalAlign}
+        onChangeImageHorizontalAlign={handleChangeImageHorizontalAlign}
+      />,
     },
   ];
 
@@ -103,7 +125,7 @@ const BackgroundContainer = () => {
     <Deck>
       {backgroundSettings.map(({ title, component }) => (
         <Card key={title}>
-          <Typography variant='h6' gutterBottom>
+          <Typography variant="h6" gutterBottom>
             {title}
           </Typography>
           {component}

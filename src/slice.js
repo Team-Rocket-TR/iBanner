@@ -4,23 +4,24 @@ export const initialState = {
   theme: 'light',
   isLightTheme: true,
   canvasRef: null,
-  width: '500',
-  height: '500',
+  width: 500,
+  height: 500,
   imageLayer: {
     image: '',
+    scale: 1,
     sizeX: 0,
     sizeY: 0,
-    scale: 1,
+    alignX: 'center',
+    alignY: 'middle',
   },
-  backgroundImage: '',
   backgroundColor: {
     r: 128,
     g: 128,
     b: 128,
-    a: 0,
+    a: 1,
   },
   content: '',
-  fontSize: '24',
+  fontSize: 24,
   fontColor: {
     r: 255,
     g: 255,
@@ -95,10 +96,22 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setBackgroundImage(state, { payload: backgroundImage }) {
+    setImageUri(state, { payload: image }) {
       return {
         ...state,
-        backgroundImage,
+        imageLayer: {
+          ...state.imageLayer,
+          image,
+        },
+      };
+    },
+    setUploadImage(state, { payload: imageInfo }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          ...imageInfo,
+        },
       };
     },
     setImageScale(state, { payload: scale }) {
@@ -107,6 +120,24 @@ const { actions, reducer } = createSlice({
         imageLayer: {
           ...state.imageLayer,
           scale,
+        },
+      };
+    },
+    setImageVerticalAlign(state, { payload: alignY }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          alignY,
+        },
+      };
+    },
+    setImageHorizontalAlign(state, { payload: alignX }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          alignX,
         },
       };
     },
@@ -149,8 +180,11 @@ export const {
   setCanvasRef,
   setBackgroundColor,
   setAlpha,
-  setBackgroundImage,
+  setImageUri,
+  setUploadImage,
   setImageScale,
+  setImageVerticalAlign,
+  setImageHorizontalAlign,
   setContent,
   setFontColor,
   setFontSize,

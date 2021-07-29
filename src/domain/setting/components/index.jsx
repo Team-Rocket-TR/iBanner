@@ -12,6 +12,7 @@ import BannerCustom from './general/BannerCustom';
 // ===== 배경화면 ===== //
 import BackgroundColorpicker from './background/BackgroundColorpicker';
 import ImageFile from './image/ImageFile';
+import ImageAlign from './image/ImageAlign';
 import ImageScale from './image/ImageScale';
 
 // ===== 텍스트 ===== //
@@ -31,6 +32,7 @@ export {
   BannerCustomSize,
   BackgroundColorpicker,
   ImageFile,
+  ImageAlign,
   ImageScale,
   Content,
   FontSize,
