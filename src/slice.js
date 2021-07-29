@@ -4,8 +4,8 @@ export const initialState = {
   theme: 'light',
   isLightTheme: true,
   canvasRef: null,
-  width: '500',
-  height: '500',
+  width: 500,
+  height: 500,
   imageLayer: {
     image: '',
     scale: 1,
@@ -21,7 +21,7 @@ export const initialState = {
     a: 0,
   },
   content: '',
-  fontSize: '24',
+  fontSize: 24,
   fontColor: {
     r: 255,
     g: 255,
