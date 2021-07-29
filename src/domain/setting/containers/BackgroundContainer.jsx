@@ -18,6 +18,7 @@ import {
   ColorpickerIcon,
   AlphaPickerIcon,
   ImageFile,
+  ImageAlign,
   ImageScale,
 } from '../components';
 
@@ -49,17 +50,13 @@ const BackgroundContainer = () => {
 
     const imageEl = document.createElement('img');
     imageEl.src = await window.URL.createObjectURL(file);
-
     imageEl.onload = () => {
-      console.log(`width : ${imageEl.width} px`);
-      console.log(`height : ${imageEl.height} px`);
       dispatch(setUploadImage({
         image: imageEl.src,
         width: imageEl.width,
         height: imageEl.height,
       }));
     };
-    // dispatch(setImageUri(imageEl.src));
   };
 
   const handleClickDeleteImage = () => {
@@ -68,6 +65,14 @@ const BackgroundContainer = () => {
 
   const handleChangeImageScale = ({ value }) => {
     dispatch(setImageScale(value));
+  };
+
+  const handleChangeImageVerticalAlign = () => {
+
+  };
+
+  const handleChangeImageHorizontalAlign = () => {
+
   };
 
   const backgroundSettings = [
@@ -98,6 +103,13 @@ const BackgroundContainer = () => {
       component: <ImageScale
         scale={scale}
         onChange={handleChangeImageScale}
+      />,
+    },
+    {
+      title: '이미지 정렬',
+      component: <ImageAlign
+        onChangeImageVerticalAlign={handleChangeImageVerticalAlign}
+        onChangeImageHorizontalAlign={handleChangeImageHorizontalAlign}
       />,
     },
   ];
