@@ -132,6 +132,15 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setImageHorizontalAlign(state, { payload: alignX }) {
+      return {
+        ...state,
+        imageLayer: {
+          ...state.imageLayer,
+          alignX,
+        },
+      };
+    },
     setContent(state, { payload: content }) {
       return {
         ...state,
@@ -175,6 +184,7 @@ export const {
   setUploadImage,
   setImageScale,
   setImageVerticalAlign,
+  setImageHorizontalAlign,
   setContent,
   setFontColor,
   setFontSize,

@@ -13,6 +13,7 @@ import {
   setImageUri,
   setImageScale,
   setImageVerticalAlign,
+  setImageHorizontalAlign,
 } from 'slice';
 
 import {
@@ -74,8 +75,8 @@ const BackgroundContainer = () => {
     dispatch(setImageVerticalAlign(align));
   };
 
-  const handleChangeImageHorizontalAlign = () => {
-
+  const handleChangeImageHorizontalAlign = (align) => {
+    dispatch(setImageHorizontalAlign(align));
   };
 
   const backgroundSettings = [

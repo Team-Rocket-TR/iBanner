@@ -29,7 +29,7 @@ const ImageAlignHorizontal = ({
       return;
     }
 
-    onChange({ value });
+    onChange(value);
   }
 
   return (
