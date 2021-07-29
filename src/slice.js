@@ -18,7 +18,7 @@ export const initialState = {
     r: 128,
     g: 128,
     b: 128,
-    a: 0,
+    a: 1,
   },
   content: '',
   fontSize: 24,

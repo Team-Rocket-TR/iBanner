@@ -9,32 +9,18 @@ import Typography from '@material-ui/core/Typography';
 
 const ThemeSwitch = ({ onChange, checked }) => (
   <>
-    <Typography
-      id="label-fontsize-slider"
-      variant="h6"
-      gutterBottom
-    >
+    <Typography id='label-fontsize-slider' variant='h6' gutterBottom>
       분위기
     </Typography>
     <Switch
       width={50}
       height={24}
-      onColor="#f9f3f0"
-      onHandleColor="#ecb399"
+      onColor='#f9f3f0'
+      onHandleColor='#ecb399'
       onChange={onChange}
       checked={checked}
-      checkedIcon={(
-        <RiMoonClearFill
-          size={24}
-          color="#bfbfbf"
-        />
-      )}
-      uncheckedIcon={(
-        <IoSunnySharp
-          size={24}
-          color="#ffe6c0"
-        />
-      )}
+      checkedIcon={<RiMoonClearFill size={24} color='#bfbfbf' />}
+      uncheckedIcon={<IoSunnySharp size={24} color='#ffe6c0' />}
     />
   </>
 );
