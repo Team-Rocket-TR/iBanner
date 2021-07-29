@@ -18,7 +18,7 @@ const theme = createMuiTheme({
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <BannerMaker />
+    <BannerMaker theme={theme} />
     <GlobalStyles />
   </ThemeProvider>
 );

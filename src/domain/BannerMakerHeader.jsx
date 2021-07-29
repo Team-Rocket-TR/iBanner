@@ -1,10 +1,19 @@
 import React from 'react';
 
-const BannerMakerHeader = () => (
-  <>
-    <img id="iBanner_logo" src="/image/iBanner_logo.png" />
-    <h5>⚙️ Settings</h5>
-  </>
-);
+const BannerMakerHeader = ({ theme }) => {
+  return (
+    <>
+      <img
+        id='iBanner_logo'
+        src={
+          theme == 'light'
+            ? '/image/iBanner_logo_black.png'
+            : '/image/iBanner_logo_white.png'
+        }
+      />
+      <h5>⚙️ Settings</h5>
+    </>
+  );
+};
 
 export default BannerMakerHeader;
