@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import ColorpickerIcon from '../common/ColorpickerIcon';
 
 const FontColor = ({ color, onChange }) => (
-  <div>
+  <>
     <Typography
       id="label-fontsize-slider"
       variant="h6"
@@ -17,7 +17,7 @@ const FontColor = ({ color, onChange }) => (
       color={color}
       onChangeBackgroundcolor={onChange}
     />
-  </div>
+  </>
 );
 
 export default FontColor;
