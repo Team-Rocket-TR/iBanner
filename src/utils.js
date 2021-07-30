@@ -23,3 +23,9 @@ export function get(key) {
 export function equal(key, value) {
   return (obj) => obj[key] === value;
 }
+
+// 빈 문자열 체크, null, '', ' '
+export function isBlank(characters) {
+  return !characters
+    || ((typeof (characters) === 'string' && characters.trim()) === '');
+}
