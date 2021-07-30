@@ -17,14 +17,14 @@ const BannerMaker = () => {
   const canvasRef = useRef(null);
   return (
     <>
-      <header id='mainHeader'>
+      <header id="mainHeader">
         <BannerMakerHeader theme={theme} />
       </header>
-      <article id='mainArticle'>
+      <article id="mainArticle">
         <PreviewContainer canvasRef={canvasRef} />
         <TextInputContainer />
       </article>
-      <nav id='mainNav'>
+      <nav id="mainNav">
         <SettingContainer />
       </nav>
       <ExportContainer canvasRef={canvasRef} />
