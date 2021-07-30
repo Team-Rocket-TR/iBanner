@@ -2,6 +2,7 @@ import {
   downloadURI,
   get,
   equal,
+  isBlank,
 } from './utils';
 
 describe('Test for downloads', () => {
@@ -59,4 +60,30 @@ test('equal', () => {
 
   expect(f(state)).toBeTruthy();
   expect(g(state)).toBeFalsy();
+});
+
+describe('isBlank', () => {
+  context('if empty or whitespace characters', () => {
+    it('returns true', () => {
+      const nvl = null;
+      const empty = '';
+      const whitespace = ' ';
+
+      expect(isBlank(nvl)).toBeTruthy();
+      expect(isBlank(empty)).toBeTruthy();
+      expect(isBlank(whitespace)).toBeTruthy();
+    });
+  });
+
+  context('if not empty and whitespace characters', () => {
+    it('returns true', () => {
+      const characters = '테스트 문자열';
+      const numbers = 12345;
+      const arrays = [];
+
+      expect(isBlank(characters)).toBeFalsy();
+      expect(isBlank(numbers)).toBeFalsy();
+      expect(isBlank(arrays)).toBeFalsy();
+    });
+  });
 });

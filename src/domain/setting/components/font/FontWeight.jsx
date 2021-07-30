@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
-const isEmpty = (value) => !value;
+import { isBlank } from 'utils';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -18,8 +18,9 @@ const FontWeight = ({ defaultValue, onChange }) => {
 
   function handleChange(event) {
     const { value } = event.target;
-
-    if (isEmpty(value)) return;
+    if (isBlank(value)) {
+      return;
+    }
 
     onChange({ value });
   }
