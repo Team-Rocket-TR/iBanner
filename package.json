@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --modulePaths=src",
+    "testf": "jest --watchAll --modulePaths=src -- $FILE",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
@@ -13,6 +14,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.5.0",
+    "canvas": "^2.8.0",
     "clsx": "^1.1.1",
     "fabric": "^4.3.1",
     "file-saver": "^2.0.5",
