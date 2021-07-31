@@ -45,8 +45,6 @@ export default function ImageLayer({
     imageScale: scale.y,
   });
 
-  console.log(scale, pointX, pointY);
-
   return (
     <Layer>
       <Image

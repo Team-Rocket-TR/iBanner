@@ -7,17 +7,16 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Input from '@material-ui/core/Input';
 
 // eslint-disable-next-line no-bitwise
-const rgbToHex = ({ r, g, b }) =>
-  `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+const rgbToHex = ({ r, g, b }) => `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
 
 const hexToRgb = (hex) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result
     ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16),
+    }
     : null;
 };
 
@@ -105,22 +104,22 @@ const ColorpickerIcon = ({ color, onChangeBackgroundcolor }) => {
       <TwitterPicker
         color={color}
         colors={colors}
-        triangle='hide'
+        triangle="hide"
         onChange={onChangeBackgroundcolor}
-        width='90%'
+        width="90%"
         styles={styles}
       />
       <FormControl>
         <Input
-          name='hexBackgroundColor'
+          name="hexBackgroundColor"
           value={rgbToHex(color)}
           onChange={handleChangeHexBackgroundColor}
-          aria-describedby='standard-color-helper-text'
+          aria-describedby="standard-color-helper-text"
           inputProps={{
             'aria-label': 'color',
           }}
         />
-        <FormHelperText id='standard-color-helper-text'>Color</FormHelperText>
+        <FormHelperText id="standard-color-helper-text">Color</FormHelperText>
       </FormControl>
     </>
   );
