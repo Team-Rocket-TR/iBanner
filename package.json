@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --watchAll --modulePaths=src",
     "testf": "jest --watchAll --modulePaths=src -- $FILE",
+    "coverage": "jest --coverage",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
