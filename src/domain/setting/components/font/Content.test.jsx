@@ -13,6 +13,12 @@ describe('Content component', () => {
     ));
   }
 
+  it('input placeholder값은 Title이다', () => {
+    const { getAllByPlaceholderText } = renderContent();
+
+    expect(getAllByPlaceholderText('Title')).not.toBeNull();
+  });
+
   context('with title', () => {
     it('renders title text', () => {
       const { container } = renderContent();
@@ -43,6 +49,8 @@ describe('Content component', () => {
     expect(target).not.toBeNull();
 
     fireEvent.change(target, { target: { value: '아무거나 적자' } });
+
+    expect(target.value).toEqual('아무거나 적자');
 
     expect(handleChange).toBeCalledTimes(1);
   });
