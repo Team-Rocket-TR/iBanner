@@ -20,7 +20,7 @@ describe('BannerCustom', () => {
   function renderInput({
     width = 500,
     height = 500,
-  }) {
+  } = {}) {
     return render((
       <BannerCustom width={width} height={height} onChange={handleChange} />
     ));
@@ -29,9 +29,9 @@ describe('BannerCustom', () => {
   it('renders two inputs', () => {
     const { getByPlaceholderText } = renderInput();
 
-    inputs.map({placeholder} => {
+    inputs.map(({ placeholder }) => {
       expect(getByPlaceholderText(placeholder)).not.toBeNull();
+      return null;
     });
   });
-
 });
