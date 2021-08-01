@@ -22,7 +22,7 @@ describe('BannerCustomSize component', () => {
     ));
   }
 
-  it('width palceHolder value', () => {
+  it('width placeholder value', () => {
     const { getByPlaceholderText } = renderCustomSize();
 
     expect(getByPlaceholderText(/Banner Width/)).not.toBeNull();
