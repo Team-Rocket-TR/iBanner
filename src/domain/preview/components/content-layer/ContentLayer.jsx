@@ -4,7 +4,7 @@ import { Layer } from 'react-konva';
 
 import Content from './Content';
 
-export default function TextLayer({
+export default function ContentLayer({
   content,
   fontSize,
   fontFamily,
@@ -30,4 +30,4 @@ export default function TextLayer({
   );
 }
 
-export const MemoizedTextLayer = React.memo(TextLayer);
+export const MemoizedContentLayer = React.memo(ContentLayer);

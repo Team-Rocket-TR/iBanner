@@ -7,7 +7,7 @@ import { Stage } from 'react-konva';
 import {
   MemoizedImageLayer,
   MemoizedBackgroundLayer,
-  MemoizedTextLayer,
+  MemoizedContentLayer,
 } from 'domain/preview/components';
 
 const PreviewKonva = ({ canvasRef }) => {
@@ -48,7 +48,7 @@ const PreviewKonva = ({ canvasRef }) => {
         width={width}
         height={height}
       />
-      <MemoizedTextLayer
+      <MemoizedContentLayer
         content={content}
         fontSize={fontSize}
         fontFamily={fontFamily}

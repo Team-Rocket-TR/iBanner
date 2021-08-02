@@ -25,8 +25,6 @@ export default function Content({
 
   React.useEffect(() => {
     if (isSelected) {
-      console.log(transformerRef.current);
-      console.log(textRef.current);
       transformerRef.current.nodes([textRef.current]);
       transformerRef.current.getLayer().batchDraw();
     }
