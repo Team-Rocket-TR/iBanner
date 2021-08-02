@@ -1,31 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Layer, Text } from 'react-konva';
+import { Layer } from 'react-konva';
+
+import Content from './Content';
 
 export default function TextLayer({
   content,
   fontSize,
   fontFamily,
-  fontColor = {},
+  fontColor,
   width,
   height,
 }) {
-  const {
-    r, g, b, a,
-  } = fontColor;
+  const [selectedContentId, selectContent] = useState(null);
 
   return (
     <Layer>
-      <Text
-        text={content || '제목을 입력해주세요!'}
+      <Content
+        content={content}
         fontSize={fontSize}
         fontFamily={fontFamily}
-        fill={`rgba(${r},${g},${b},${a})`}
+        fontColor={fontColor}
         width={width}
         height={height}
-        align="center"
-        verticalAlign="middle"
-        wrap="none"
+        isSelected
+        onSelect={selectContent}
       />
     </Layer>
   );
