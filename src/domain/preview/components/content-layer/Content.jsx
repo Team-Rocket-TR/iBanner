@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { Text, Transformer } from 'react-konva';
 
@@ -16,14 +16,16 @@ export default function Content({
     r, g, b, a,
   } = fontColor;
 
-  const textRef = React.useRef();
-  const transformerRef = React.useRef();
+  const textRef = useRef();
+  const transformerRef = useRef();
 
   function handleClick(id) {
     onSelect(id);
   }
 
   React.useEffect(() => {
+    // temp1.width(temp1.textWidth * 1.2);
+    // temp1.height(temp1.textHeight * 2);
     if (isSelected) {
       transformerRef.current.nodes([textRef.current]);
       transformerRef.current.getLayer().batchDraw();
