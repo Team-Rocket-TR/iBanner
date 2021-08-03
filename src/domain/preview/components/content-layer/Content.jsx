@@ -22,11 +22,14 @@ export default function Content({
   }
 
   useEffect(() => {
-    // temp1.width(temp1.textWidth * 1.2);
-    // temp1.height(temp1.textHeight * 2);
+    const textCanvas = textRef.current;
+    textCanvas.width(textCanvas.textWidth);
+    textCanvas.height(textCanvas.textHeight * 2);
+
     if (isSelected) {
-      transformerRef.current.nodes([textRef.current]);
-      transformerRef.current.getLayer().batchDraw();
+      const transformerCanvas = transformerRef.current;
+      transformerCanvas.nodes([textCanvas]);
+      transformerCanvas.getLayer().batchDraw();
     }
   });
 
