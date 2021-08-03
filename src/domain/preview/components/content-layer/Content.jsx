@@ -22,15 +22,14 @@ export default function Content({
   }
 
   useEffect(() => {
-    const textCanvas = textRef.current;
-    textCanvas.width(textCanvas.textWidth);
-    textCanvas.height(textCanvas.textHeight * 2);
-
-    if (isSelected) {
-      const transformerCanvas = transformerRef.current;
-      transformerCanvas.nodes([textCanvas]);
-      transformerCanvas.getLayer().batchDraw();
+    if (!isSelected) {
+      return;
     }
+
+    const textCanvas = textRef.current;
+    const transformerCanvas = transformerRef.current;
+    transformerCanvas.nodes([textCanvas]);
+    transformerCanvas.getLayer().batchDraw();
   });
 
   return (
@@ -41,8 +40,6 @@ export default function Content({
         fontSize={fontSize}
         fontFamily={fontFamily}
         fill={`rgba(${r},${g},${b},${a})`}
-        // width={width}
-        // height={height}
         align="center"
         verticalAlign="middle"
         wrap="none"
@@ -78,6 +75,8 @@ export default function Content({
       {isSelected && (
         <Transformer
           ref={transformerRef}
+          padding={5}
+          enabledAnchors={['middle-left', 'middle-right']}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.width < 5 || newBox.height < 5) {
               return oldBox;
