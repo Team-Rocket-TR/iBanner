@@ -26,9 +26,9 @@ export default function Content({
       return;
     }
 
-    const textCanvas = textRef.current;
+    const contentCanvas = textRef.current;
     const transformerCanvas = transformerRef.current;
-    transformerCanvas.nodes([textCanvas]);
+    transformerCanvas.nodes([contentCanvas]);
     transformerCanvas.getLayer().batchDraw();
   });
 
