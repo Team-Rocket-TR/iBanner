@@ -168,10 +168,17 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setContent(state, { payload: content }) {
+    setContent(state, { payload: { id, content } }) {
+      const index = state.contentLayer.contents.findIndex((ctt) => ctt.id === id);
       return {
         ...state,
-        content,
+        // content,
+        contentLayer: {
+          ...state.contentLayer,
+          contents: {
+            ...state.contentLayer.contents.splice(index, 1, content),
+          },
+        },
       };
     },
     setFontColor(state, { payload: fontColor }) {
