@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Layer } from 'react-konva';
 
@@ -6,8 +6,14 @@ import Content from './Content';
 
 export default function ContentLayer({
   contents,
+  selectedContentId,
+  onSelect,
 }) {
-  const [selectedContentId, selectContent] = useState(1);
+  // const [selectedContentId, selectContent] = useState(1);
+
+  function handleSelectContent(id) {
+    onSelect(id);
+  }
 
   return (
     <Layer>
@@ -19,12 +25,13 @@ export default function ContentLayer({
         fontColor,
       }) => (
         <Content
+          key={id}
           content={content}
           fontFamily={fontFamily}
           fontSize={fontSize}
           fontColor={fontColor}
           isSelected={id === selectedContentId}
-          onSelect={selectContent}
+          onSelect={() => handleSelectContent(id)}
         />
       ))}
     </Layer>

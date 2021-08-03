@@ -21,6 +21,7 @@ export const initialState = {
     a: 1,
   },
   contentLayer: {
+    selectedContentId: 0,
     contents: [
       {
         id: 1,
@@ -158,6 +159,15 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setSelectedContentId(state, { payload: selectedContentId }) {
+      return {
+        ...state,
+        contentLayer: {
+          ...state.contentLayer,
+          selectedContentId,
+        },
+      };
+    },
     setContent(state, { payload: content }) {
       return {
         ...state,
@@ -202,6 +212,7 @@ export const {
   setImageScale,
   setImageVerticalAlign,
   setImageHorizontalAlign,
+  setSelectedContentId,
   setContent,
   setFontColor,
   setFontSize,

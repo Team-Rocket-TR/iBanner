@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setSelectedContentId } from 'slice';
 
 import { Stage } from 'react-konva';
 
@@ -11,6 +13,8 @@ import {
 } from 'domain/preview/components';
 
 const PreviewKonva = ({ canvasRef }) => {
+  const dispatch = useDispatch();
+
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
@@ -25,11 +29,18 @@ const PreviewKonva = ({ canvasRef }) => {
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
+  const {
+    contents,
+    selectedContentId,
+  } = useSelector((state) => state.contentLayer);
   // const content = useSelector((state) => state.content);
   // const fontColor = useSelector((state) => state.fontColor);
   // const fontSize = useSelector((state) => state.fontSize);
   // const fontFamily = useSelector((state) => state.fontFamily);
-  const { contents } = useSelector((state) => state.contentLayer);
+
+  function handleSelectContent(id) {
+    dispatch(setSelectedContentId(id));
+  }
 
   return (
     <Stage
@@ -51,6 +62,8 @@ const PreviewKonva = ({ canvasRef }) => {
       />
       <MemoizedContentLayer
         contents={contents}
+        selectedContentId={selectedContentId}
+        onSelect={handleSelectContent}
       />
     </Stage>
   );
