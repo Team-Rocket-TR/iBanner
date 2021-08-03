@@ -5,27 +5,28 @@ import { Layer } from 'react-konva';
 import Content from './Content';
 
 export default function ContentLayer({
-  content,
-  fontSize,
-  fontFamily,
-  fontColor,
-  width,
-  height,
+  contents,
 }) {
-  const [selectedContentId, selectContent] = useState(null);
+  const [selectedContentId, selectContent] = useState(1);
 
   return (
     <Layer>
-      <Content
-        content={content}
-        fontSize={fontSize}
-        fontFamily={fontFamily}
-        fontColor={fontColor}
-        width={width}
-        height={height}
-        isSelected
-        onSelect={selectContent}
-      />
+      {contents.map(({
+        id,
+        content,
+        fontFamily,
+        fontSize,
+        fontColor,
+      }) => (
+        <Content
+          content={content}
+          fontFamily={fontFamily}
+          fontSize={fontSize}
+          fontColor={fontColor}
+          isSelected={id === selectedContentId}
+          onSelect={selectContent}
+        />
+      ))}
     </Layer>
   );
 }

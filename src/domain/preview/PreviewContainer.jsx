@@ -25,10 +25,11 @@ const PreviewKonva = ({ canvasRef }) => {
 
   const backgroundColor = useSelector((state) => state.backgroundColor);
 
-  const content = useSelector((state) => state.content);
-  const fontColor = useSelector((state) => state.fontColor);
-  const fontSize = useSelector((state) => state.fontSize);
-  const fontFamily = useSelector((state) => state.fontFamily);
+  // const content = useSelector((state) => state.content);
+  // const fontColor = useSelector((state) => state.fontColor);
+  // const fontSize = useSelector((state) => state.fontSize);
+  // const fontFamily = useSelector((state) => state.fontFamily);
+  const { contents } = useSelector((state) => state.contentLayer);
 
   return (
     <Stage
@@ -49,12 +50,7 @@ const PreviewKonva = ({ canvasRef }) => {
         height={height}
       />
       <MemoizedContentLayer
-        content={content}
-        fontSize={fontSize}
-        fontFamily={fontFamily}
-        fontColor={fontColor}
-        width={width}
-        height={height}
+        contents={contents}
       />
     </Stage>
   );

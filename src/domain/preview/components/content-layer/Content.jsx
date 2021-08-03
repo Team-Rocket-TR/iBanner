@@ -7,8 +7,6 @@ export default function Content({
   fontSize,
   fontFamily,
   fontColor = {},
-  width,
-  height,
   isSelected,
   onSelect,
 }) {
@@ -40,8 +38,8 @@ export default function Content({
         fontSize={fontSize}
         fontFamily={fontFamily}
         fill={`rgba(${r},${g},${b},${a})`}
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
         align="center"
         verticalAlign="middle"
         wrap="none"
