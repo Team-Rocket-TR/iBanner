@@ -20,6 +20,23 @@ export const initialState = {
     b: 128,
     a: 1,
   },
+  contentLayer: {
+    contents: [
+      {
+        id: 1,
+        content: '',
+        fontFamily: 'Arial, sans-serif',
+        fontWeight: 'normal',
+        fontSize: 24,
+        fontColor: {
+          r: 255,
+          g: 255,
+          b: 255,
+          a: 1,
+        },
+      },
+    ],
+  },
   content: '',
   fontSize: 24,
   fontColor: {
