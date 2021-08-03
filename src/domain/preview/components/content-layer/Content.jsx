@@ -23,7 +23,7 @@ export default function Content({
     onSelect(id);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     // temp1.width(temp1.textWidth * 1.2);
     // temp1.height(temp1.textHeight * 2);
     if (isSelected) {
