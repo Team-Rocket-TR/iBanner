@@ -21,7 +21,7 @@ export const initialState = {
     a: 1,
   },
   contentLayer: {
-    selectedContentId: 0,
+    selectedContentId: 1,
     contents: [
       {
         id: 1,
@@ -168,16 +168,17 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setContent(state, { payload: { id, content } }) {
-      const index = state.contentLayer.contents.findIndex((ctt) => ctt.id === id);
+    setContent(state, { payload: { index, content } }) {
       return {
         ...state,
         // content,
         contentLayer: {
           ...state.contentLayer,
-          contents: {
-            ...state.contentLayer.contents.splice(index, 1, content),
-          },
+          contents: [
+            ...state.contentLayer.contents.slice(0, index),
+            content,
+            ...state.contentLayer.contents.slice(index + 1),
+          ],
         },
       };
     },

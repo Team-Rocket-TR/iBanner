@@ -11,26 +11,33 @@ import TextField from '@material-ui/core/TextField';
 const TextInputContainer = () => {
   const dispatch = useDispatch();
 
-  const bannerWidth = useSelector((state) => state.width);
-  // const content = useSelector((state) => state.content);
   const {
     contents,
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
 
   const contentProperties = contents.find(({ id }) => id === selectedContentId);
-  console.log(contentProperties);
 
   const handleChange = (event) => {
     const { value } = event.target;
-    dispatch(setContent(value));
+
+    const index = contents.findIndex(({ id }) => id === selectedContentId);
+    const content = {
+      ...contentProperties,
+      content: value,
+    };
+
+    dispatch(setContent({
+      index,
+      content,
+    }));
   };
 
   const classes = makeStyles((theme) => ({
     root: {
       position: 'absolute',
       bottom: '1.5em',
-      width: `${bannerWidth}px`,
+      width: '500px',
       '& .MuiTextField-root': {
         margin: `${theme.spacing(1)}px 0`,
         width: '100%',
@@ -65,7 +72,7 @@ const TextInputContainer = () => {
     >
       <TextField
         label="제목"
-        // value={contentProperties.content}
+        value={contentProperties.content}
         onChange={handleChange}
         rowsMax={3.4}
         variant="outlined"
