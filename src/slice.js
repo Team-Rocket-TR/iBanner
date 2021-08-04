@@ -208,10 +208,13 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setFontWeight(state, { payload: fontWeight }) {
+    setFontWeight(state, { payload: contents }) {
       return {
         ...state,
-        fontWeight,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
       };
     },
   },

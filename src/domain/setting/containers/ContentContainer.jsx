@@ -79,7 +79,17 @@ const ContentContainer = () => {
   };
 
   const handleChangeFontWeight = ({ value }) => {
-    dispatch(setFontWeight(value));
+    const newContent = {
+      ...contentProperties,
+      fontWeight: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontWeight({ contents: newContents }));
   };
 
   return (
