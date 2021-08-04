@@ -14,6 +14,7 @@ import { Deck, Card } from 'components/card';
 import FontColor from '../components/font/FontColor';
 import FontSize from '../components/font/FontSize';
 import FontStyle from '../components/font/FontStyle';
+import ContentPosition from '../components/font/ContentPosition';
 
 const ContentContainer = () => {
   const dispatch = useDispatch();
@@ -113,6 +114,9 @@ const ContentContainer = () => {
           onChangeFontFamily={handleChangeFontFamily}
           onChangeFontWeight={handleChangeFontWeight}
         />
+      </Card>
+      <Card>
+        <ContentPosition />
       </Card>
     </Deck>
   );
