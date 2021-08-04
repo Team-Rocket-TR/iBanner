@@ -46,6 +46,8 @@ export default function Content({
         draggable
         onClick={() => handleClick(1)}
         onTap={() => handleClick(1)}
+        onDragStart={() => handleClick(1)}
+        onTouchStart={() => handleClick(1)}
         onDragEnd={(e) => {
           // onChange({
           //   ...shapeProps,
@@ -56,19 +58,8 @@ export default function Content({
         }}
         onTransformEnd={(e) => {
           const node = textRef.current;
-          // const scaleX = node.scaleX();
-          // const scaleY = node.scaleY();
-
           node.scaleX(1);
           node.scaleY(1);
-          // onChange({
-          //   ...shapeProps,
-          //   x: node.x(),
-          //   y: node.y(),
-
-          //   width: Math.max(5, node.width() * scaleX),
-          //   height: Math.max(node.height() * scaleY),
-          // });
           console.log('On Transform End', e);
         }}
       />
@@ -76,7 +67,7 @@ export default function Content({
         <Transformer
           ref={transformerRef}
           padding={5}
-          enabledAnchors={['middle-left', 'middle-right']}
+          enabledAnchors={[]}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.width < 5 || newBox.height < 5) {
               return oldBox;
