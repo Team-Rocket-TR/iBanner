@@ -23,6 +23,7 @@ const ContentContainer = () => {
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
 
+  const contentIndex = contents.findIndex(({ id }) => id === selectedContentId);
   const contentProperties = contents.find(({ id }) => id === selectedContentId);
   const {
     fontColor,
@@ -36,22 +37,31 @@ const ContentContainer = () => {
   // const fontWeight = useSelector((state) => state.fontWeight);
 
   const handleChangeColor = ({ rgb }) => {
-    const index = contents.findIndex(({ id }) => id === selectedContentId);
     const newContent = {
       ...contentProperties,
       fontColor: rgb,
     };
     const newContents = [
-      ...contents.slice(0, index),
+      ...contents.slice(0, contentIndex),
       newContent,
-      ...contents.slice(index + 1),
+      ...contents.slice(contentIndex + 1),
     ];
 
     dispatch(setFontColor({ contents: newContents }));
   };
 
   const handleChangeFontSize = ({ value }) => {
-    dispatch(setFontSize(value));
+    const newContent = {
+      ...contentProperties,
+      fontSize: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontSize({ contents: newContents }));
   };
 
   const handleChangeFontFamily = ({ value }) => {
