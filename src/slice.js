@@ -20,6 +20,24 @@ export const initialState = {
     b: 128,
     a: 1,
   },
+  contentLayer: {
+    selectedContentId: 1,
+    contents: [
+      {
+        id: 1,
+        content: '',
+        fontFamily: 'Arial, sans-serif',
+        fontWeight: 'normal',
+        fontSize: 24,
+        fontColor: {
+          r: 255,
+          g: 255,
+          b: 255,
+          a: 1,
+        },
+      },
+    ],
+  },
   content: '',
   fontSize: 24,
   fontColor: {
@@ -141,34 +159,62 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setContent(state, { payload: content }) {
+    setSelectedContentId(state, { payload: selectedContentId }) {
       return {
         ...state,
-        content,
+        contentLayer: {
+          ...state.contentLayer,
+          selectedContentId,
+        },
       };
     },
-    setFontColor(state, { payload: fontColor }) {
+    setContent(state, { payload: { index, content } }) {
       return {
         ...state,
-        fontColor,
+        contentLayer: {
+          ...state.contentLayer,
+          contents: [
+            ...state.contentLayer.contents.slice(0, index),
+            content,
+            ...state.contentLayer.contents.slice(index + 1),
+          ],
+        },
       };
     },
-    setFontSize(state, { payload: fontSize }) {
+    setFontColor(state, { payload: contents }) {
       return {
         ...state,
-        fontSize,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
       };
     },
-    setFontFamily(state, { payload: fontFamily }) {
+    setFontSize(state, { payload: contents }) {
       return {
         ...state,
-        fontFamily,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
       };
     },
-    setFontWeight(state, { payload: fontWeight }) {
+    setFontFamily(state, { payload: contents }) {
       return {
         ...state,
-        fontWeight,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
+      };
+    },
+    setFontWeight(state, { payload: contents }) {
+      return {
+        ...state,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
       };
     },
   },
@@ -185,6 +231,7 @@ export const {
   setImageScale,
   setImageVerticalAlign,
   setImageHorizontalAlign,
+  setSelectedContentId,
   setContent,
   setFontColor,
   setFontSize,

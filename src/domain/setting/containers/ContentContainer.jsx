@@ -18,25 +18,78 @@ import FontStyle from '../components/font/FontStyle';
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
-  const fontColor = useSelector((state) => state.fontColor);
-  const fontSize = useSelector((state) => state.fontSize);
-  const fontFamily = useSelector((state) => state.fontFamily);
-  const fontWeight = useSelector((state) => state.fontWeight);
+  const {
+    contents,
+    selectedContentId,
+  } = useSelector((state) => state.contentLayer);
+
+  const contentIndex = contents.findIndex(({ id }) => id === selectedContentId);
+  const contentProperties = contents.find(({ id }) => id === selectedContentId);
+  const {
+    fontColor,
+    fontSize,
+    fontFamily,
+    fontWeight,
+  } = contentProperties;
+
+  // const fontSize = useSelector((state) => state.fontSize);
+  // const fontFamily = useSelector((state) => state.fontFamily);
+  // const fontWeight = useSelector((state) => state.fontWeight);
 
   const handleChangeColor = ({ rgb }) => {
-    dispatch(setFontColor(rgb));
+    const newContent = {
+      ...contentProperties,
+      fontColor: rgb,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontColor({ contents: newContents }));
   };
 
   const handleChangeFontSize = ({ value }) => {
-    dispatch(setFontSize(value));
+    const newContent = {
+      ...contentProperties,
+      fontSize: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontSize({ contents: newContents }));
   };
 
   const handleChangeFontFamily = ({ value }) => {
-    dispatch(setFontFamily(value));
+    const newContent = {
+      ...contentProperties,
+      fontFamily: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontFamily({ contents: newContents }));
   };
 
   const handleChangeFontWeight = ({ value }) => {
-    dispatch(setFontWeight(value));
+    const newContent = {
+      ...contentProperties,
+      fontWeight: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontWeight({ contents: newContents }));
   };
 
   return (

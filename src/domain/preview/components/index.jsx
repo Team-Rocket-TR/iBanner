@@ -1,12 +1,12 @@
 import BackgroundLayer, { MemoizedBackgroundLayer } from 'domain/preview/components/background-layer/BackgroundLayer';
 import ImageLayer, { MemoizedImageLayer } from 'domain/preview/components/image-layer/ImageLayer';
-import TextLayer, { MemoizedTextLayer } from 'domain/preview/components/text-layer/TextLayer';
+import ContentLayer, { MemoizedContentLayer } from 'domain/preview/components/content-layer/ContentLayer';
 
 export {
   BackgroundLayer,
   MemoizedBackgroundLayer,
   ImageLayer,
   MemoizedImageLayer,
-  TextLayer,
-  MemoizedTextLayer,
+  ContentLayer,
+  MemoizedContentLayer,
 };
