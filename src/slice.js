@@ -171,7 +171,6 @@ const { actions, reducer } = createSlice({
     setContent(state, { payload: { index, content } }) {
       return {
         ...state,
-        // content,
         contentLayer: {
           ...state.contentLayer,
           contents: [
@@ -182,10 +181,13 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setFontColor(state, { payload: fontColor }) {
+    setFontColor(state, { payload: contents }) {
       return {
         ...state,
-        fontColor,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
       };
     },
     setFontSize(state, { payload: fontSize }) {

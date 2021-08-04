@@ -18,13 +18,36 @@ import FontStyle from '../components/font/FontStyle';
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
-  const fontColor = useSelector((state) => state.fontColor);
-  const fontSize = useSelector((state) => state.fontSize);
-  const fontFamily = useSelector((state) => state.fontFamily);
-  const fontWeight = useSelector((state) => state.fontWeight);
+  const {
+    contents,
+    selectedContentId,
+  } = useSelector((state) => state.contentLayer);
+
+  const contentProperties = contents.find(({ id }) => id === selectedContentId);
+  const {
+    fontColor,
+    fontSize,
+    fontFamily,
+    fontWeight,
+  } = contentProperties;
+
+  // const fontSize = useSelector((state) => state.fontSize);
+  // const fontFamily = useSelector((state) => state.fontFamily);
+  // const fontWeight = useSelector((state) => state.fontWeight);
 
   const handleChangeColor = ({ rgb }) => {
-    dispatch(setFontColor(rgb));
+    const index = contents.findIndex(({ id }) => id === selectedContentId);
+    const newContent = {
+      ...contentProperties,
+      fontColor: rgb,
+    };
+    const newContents = [
+      ...contents.slice(0, index),
+      newContent,
+      ...contents.slice(index + 1),
+    ];
+
+    dispatch(setFontColor({ contents: newContents }));
   };
 
   const handleChangeFontSize = ({ value }) => {
