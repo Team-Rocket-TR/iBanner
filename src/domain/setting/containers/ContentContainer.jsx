@@ -65,7 +65,17 @@ const ContentContainer = () => {
   };
 
   const handleChangeFontFamily = ({ value }) => {
-    dispatch(setFontFamily(value));
+    const newContent = {
+      ...contentProperties,
+      fontFamily: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setFontFamily({ contents: newContents }));
   };
 
   const handleChangeFontWeight = ({ value }) => {

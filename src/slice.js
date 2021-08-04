@@ -193,17 +193,19 @@ const { actions, reducer } = createSlice({
     setFontSize(state, { payload: contents }) {
       return {
         ...state,
-        // fontSize,
         contentLayer: {
           ...state.contentLayer,
           ...contents,
         },
       };
     },
-    setFontFamily(state, { payload: fontFamily }) {
+    setFontFamily(state, { payload: contents }) {
       return {
         ...state,
-        fontFamily,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
       };
     },
     setFontWeight(state, { payload: fontWeight }) {
