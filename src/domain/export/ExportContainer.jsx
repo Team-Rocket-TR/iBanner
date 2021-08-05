@@ -8,8 +8,9 @@ import { Download } from './components';
 
 const FloatButtonArea = styled.div`
   position: absolute;
-  bottom: 1.5em;
   right: calc(80px + .6em);
+  bottom: 1.5em;
+  z-index: 999;
 `;
 
 export default function ExportContainer({ canvasRef }) {

@@ -28,7 +28,11 @@ const BannerMaker = () => {
       </nav>
       <ExportContainer canvasRef={canvasRef} />
       {(selectedContentId)
-        ? <TextInputContainer />
+        ? (
+          <article id="mainArticle">
+            <TextInputContainer />
+          </article>
+        )
         : null}
     </>
   );
