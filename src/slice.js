@@ -39,16 +39,16 @@ export const initialState = {
       },
     ],
   },
-  content: '',
-  fontSize: 24,
-  fontColor: {
-    r: 255,
-    g: 255,
-    b: 255,
-    a: 1,
-  },
-  fontFamily: 'Arial, sans-serif',
-  fontWeight: 'normal',
+  // content: '',
+  // fontSize: 24,
+  // fontColor: {
+  //   r: 255,
+  //   g: 255,
+  //   b: 255,
+  //   a: 1,
+  // },
+  // fontFamily: 'Arial, sans-serif',
+  // fontWeight: 'normal',
 };
 
 const { actions, reducer } = createSlice({
