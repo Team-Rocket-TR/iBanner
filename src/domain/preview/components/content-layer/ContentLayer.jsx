@@ -9,8 +9,6 @@ export default function ContentLayer({
   selectedContentId,
   onSelect,
 }) {
-  // const [selectedContentId, selectContent] = useState(1);
-
   function handleSelectContent(id) {
     onSelect(id);
   }
@@ -23,13 +21,16 @@ export default function ContentLayer({
         fontFamily,
         fontSize,
         fontColor,
+        position,
       }) => (
         <Content
           key={id}
+          id={id}
           content={content}
           fontFamily={fontFamily}
           fontSize={fontSize}
           fontColor={fontColor}
+          isCentered={position === 'center'}
           isSelected={id === selectedContentId}
           onSelect={() => handleSelectContent(id)}
         />

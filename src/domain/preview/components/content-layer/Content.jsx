@@ -3,10 +3,12 @@ import React, { useRef, useEffect } from 'react';
 import { Text, Transformer } from 'react-konva';
 
 export default function Content({
+  id,
   content,
   fontSize,
   fontFamily,
   fontColor = {},
+  isCentered,
   isSelected,
   onSelect,
 }) {
@@ -17,20 +19,57 @@ export default function Content({
   const textRef = useRef();
   const transformerRef = useRef();
 
-  function handleClick(id) {
-    onSelect(id);
-  }
-
   useEffect(() => {
     if (!isSelected) {
       return;
     }
 
     const contentCanvas = textRef.current;
+    const parentLayer = contentCanvas.getLayer();
+
+    if (isCentered) {
+      const boundaryX = parentLayer.width();
+      const boundaryY = parentLayer.height();
+
+      contentCanvas.x(boundaryX / 2);
+      contentCanvas.y(boundaryY / 2);
+
+      contentCanvas.offsetX(contentCanvas.width() / 2);
+      contentCanvas.offsetY(contentCanvas.height() / 2);
+
+      parentLayer.batchDraw();
+    }
+
     const transformerCanvas = transformerRef.current;
     transformerCanvas.nodes([contentCanvas]);
     transformerCanvas.getLayer().batchDraw();
   });
+
+  function handleClick() {
+    onSelect(id);
+  }
+
+  function handleMouseEnter() {
+    if (isCentered) {
+      document.body.style.cursor = 'pointer';
+      return;
+    }
+    document.body.style.cursor = 'grab';
+  }
+
+  function handleMouseLeave() {
+    document.body.style.cursor = 'default';
+  }
+
+  function handleDragStart() {
+    document.body.style.cursor = 'grabbing';
+    handleClick();
+  }
+
+  function handleDragEnd() {
+    document.body.style.cursor = 'grabbing';
+    handleClick(id);
+  }
 
   return (
     <>
@@ -40,34 +79,24 @@ export default function Content({
         fontSize={fontSize}
         fontFamily={fontFamily}
         fill={`rgba(${r},${g},${b},${a})`}
-        align="center"
         verticalAlign="middle"
+        align="center"
         wrap="none"
-        draggable
-        onClick={() => handleClick(1)}
-        onTap={() => handleClick(1)}
-        onDragStart={() => handleClick(1)}
-        onTouchStart={() => handleClick(1)}
-        onDragEnd={(e) => {
-          // onChange({
-          //   ...shapeProps,
-          //   x: e.target.x(),
-          //   y: e.target.y(),
-          // });
-          console.log('On Drag End', e);
-        }}
-        onTransformEnd={(e) => {
-          const node = textRef.current;
-          node.scaleX(1);
-          node.scaleY(1);
-          console.log('On Transform End', e);
-        }}
+        draggable={!isCentered}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        onTap={handleClick}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        onTouchStart={handleDragStart}
+        onTouchEnd={handleDragEnd}
       />
       {isSelected && (
         <Transformer
           ref={transformerRef}
           padding={5}
-          enabledAnchors={[]}
+          resizeEnabled={false}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.width < 5 || newBox.height < 5) {
               return oldBox;

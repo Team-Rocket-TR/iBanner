@@ -35,19 +35,20 @@ export const initialState = {
           b: 255,
           a: 1,
         },
+        position: 'center',
       },
     ],
   },
-  content: '',
-  fontSize: 24,
-  fontColor: {
-    r: 255,
-    g: 255,
-    b: 255,
-    a: 1,
-  },
-  fontFamily: 'Arial, sans-serif',
-  fontWeight: 'normal',
+  // content: '',
+  // fontSize: 24,
+  // fontColor: {
+  //   r: 255,
+  //   g: 255,
+  //   b: 255,
+  //   a: 1,
+  // },
+  // fontFamily: 'Arial, sans-serif',
+  // fontWeight: 'normal',
 };
 
 const { actions, reducer } = createSlice({
@@ -217,6 +218,15 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setContentPosition(state, { payload: contents }) {
+      return {
+        ...state,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
+      };
+    },
   },
 });
 
@@ -237,6 +247,7 @@ export const {
   setFontSize,
   setFontFamily,
   setFontWeight,
+  setContentPosition,
   setBannerSize,
   setWidth,
   setHeight,
