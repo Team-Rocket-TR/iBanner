@@ -25,6 +25,12 @@ const ContentContainer = () => {
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
 
+  if (!selectedContentId) {
+    return (
+      <>설정하고 싶은 글자를 선택해주세요!</>
+    );
+  }
+
   const contentIndex = contents.findIndex(({ id }) => id === selectedContentId);
   const contentProperties = contents.find(({ id }) => id === selectedContentId);
   const {

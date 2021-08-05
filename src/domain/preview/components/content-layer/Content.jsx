@@ -45,8 +45,9 @@ export default function Content({
     transformerCanvas.getLayer().batchDraw();
   });
 
-  function handleClick() {
+  function handleClick(event) {
     onSelect(id);
+    event.preventDefault();
   }
 
   function handleMouseEnter() {
@@ -63,12 +64,11 @@ export default function Content({
 
   function handleDragStart() {
     document.body.style.cursor = 'grabbing';
-    handleClick();
+    onSelect(id);
   }
 
   function handleDragEnd() {
     document.body.style.cursor = 'grabbing';
-    handleClick(id);
   }
 
   return (

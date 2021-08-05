@@ -232,7 +232,6 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTheme,
-  setCanvas,
   setCanvasRef,
   setBackgroundColor,
   setAlpha,
