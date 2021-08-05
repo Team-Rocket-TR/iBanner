@@ -33,10 +33,6 @@ const PreviewKonva = ({ canvasRef }) => {
     contents,
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
-  // const content = useSelector((state) => state.content);
-  // const fontColor = useSelector((state) => state.fontColor);
-  // const fontSize = useSelector((state) => state.fontSize);
-  // const fontFamily = useSelector((state) => state.fontFamily);
 
   function handleSelectContent(id) {
     dispatch(setSelectedContentId(id));

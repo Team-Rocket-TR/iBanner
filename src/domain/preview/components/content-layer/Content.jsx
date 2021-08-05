@@ -28,8 +28,17 @@ export default function Content({
     }
 
     const contentCanvas = textRef.current;
+
     if (isCentered) {
-      console.log(contentCanvas.x(), contentCanvas.y());
+      const parentLayer = contentCanvas.getLayer();
+
+      const boundaryX = parentLayer.width();
+      const boundaryY = parentLayer.height();
+
+      contentCanvas.x(boundaryX / 2 - contentCanvas.width() / 2);
+      contentCanvas.y(boundaryY / 2 - contentCanvas.height() / 2);
+
+      parentLayer.batchDraw();
     }
 
     const transformerCanvas = transformerRef.current;
@@ -45,10 +54,10 @@ export default function Content({
         fontSize={fontSize}
         fontFamily={fontFamily}
         fill={`rgba(${r},${g},${b},${a})`}
-        align="center"
         verticalAlign="middle"
+        align="center"
         wrap="none"
-        draggable
+        draggable={!isCentered}
         onClick={() => handleClick(1)}
         onTap={() => handleClick(1)}
         onDragStart={() => handleClick(1)}
