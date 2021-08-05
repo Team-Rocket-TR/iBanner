@@ -35,10 +35,6 @@ const ContentContainer = () => {
     position,
   } = contentProperties;
 
-  // const fontSize = useSelector((state) => state.fontSize);
-  // const fontFamily = useSelector((state) => state.fontFamily);
-  // const fontWeight = useSelector((state) => state.fontWeight);
-
   const handleChangeColor = ({ rgb }) => {
     const newContent = {
       ...contentProperties,

@@ -9,8 +9,6 @@ export default function ContentLayer({
   selectedContentId,
   onSelect,
 }) {
-  // const [selectedContentId, selectContent] = useState(1);
-
   function handleSelectContent(id) {
     onSelect(id);
   }
