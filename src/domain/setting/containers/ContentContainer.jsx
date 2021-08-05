@@ -17,8 +17,6 @@ import FontSize from '../components/font/FontSize';
 import FontStyle from '../components/font/FontStyle';
 import ContentPosition from '../components/font/ContentPosition';
 
-import TextInputContainer from './TextInputContainer';
-
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
@@ -114,38 +112,34 @@ const ContentContainer = () => {
   };
 
   return (
-    <>
-      <Deck>
-        <Card>
-          <FontColor
-            color={fontColor}
-            onChange={handleChangeColor}
-          />
-        </Card>
-        <Card>
-          <FontSize
-            defaultValue={fontSize}
-            onChange={handleChangeFontSize}
-          />
-        </Card>
-        <Card>
-          <FontStyle
-            defaultFontFamilyValue={fontFamily}
-            defaultFontWeightValue={fontWeight}
-            onChangeFontFamily={handleChangeFontFamily}
-            onChangeFontWeight={handleChangeFontWeight}
-          />
-        </Card>
-        <Card>
-          <ContentPosition
-            position={position}
-            onChange={handleChangeContentPosition}
-          />
-        </Card>
-
-      </Deck>
-      <TextInputContainer />
-    </>
+    <Deck>
+      <Card>
+        <FontColor
+          color={fontColor}
+          onChange={handleChangeColor}
+        />
+      </Card>
+      <Card>
+        <FontSize
+          defaultValue={fontSize}
+          onChange={handleChangeFontSize}
+        />
+      </Card>
+      <Card>
+        <FontStyle
+          defaultFontFamilyValue={fontFamily}
+          defaultFontWeightValue={fontWeight}
+          onChangeFontFamily={handleChangeFontFamily}
+          onChangeFontWeight={handleChangeFontWeight}
+        />
+      </Card>
+      <Card>
+        <ContentPosition
+          position={position}
+          onChange={handleChangeContentPosition}
+        />
+      </Card>
+    </Deck>
   );
 };
 

@@ -7,10 +7,13 @@ import PreviewContainer from './preview/PreviewContainer';
 import SettingContainer from './setting/SettingContainer';
 import ExportContainer from './export/ExportContainer';
 
+import TextInputContainer from './setting/containers/TextInputContainer';
+
 const BannerMaker = () => {
   const canvasRef = useRef(null);
 
   const theme = useSelector((state) => state.theme);
+  const { selectedContentId } = useSelector((state) => state.contentLayer);
 
   return (
     <>
@@ -24,6 +27,9 @@ const BannerMaker = () => {
         <SettingContainer />
       </nav>
       <ExportContainer canvasRef={canvasRef} />
+      {(selectedContentId)
+        ? <TextInputContainer />
+        : null}
     </>
   );
 };

@@ -39,12 +39,15 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const TextInputContainer = () => {
+export default function TextInputContainer() {
   const dispatch = useDispatch();
+
   const {
     contents,
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
+
+  const classes = useStyle();
 
   const contentProperties = contents.find(({ id }) => id === selectedContentId);
 
@@ -63,8 +66,6 @@ const TextInputContainer = () => {
     }));
   };
 
-  const classes = useStyle();
-
   return (
     <div
       className={classes.root}
@@ -81,6 +82,4 @@ const TextInputContainer = () => {
       />
     </div>
   );
-};
-
-export default TextInputContainer;
+}
