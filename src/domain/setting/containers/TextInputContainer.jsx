@@ -8,9 +8,39 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import TextField from '@material-ui/core/TextField';
 
+const useStyle = makeStyles((theme) => ({
+  root: {
+    position: 'absolute',
+    bottom: '1.5em',
+    width: '500px',
+    '& .MuiTextField-root': {
+      margin: `${theme.spacing(1)}px 0`,
+      width: '100%',
+      backgroundColor: '#eeeeee',
+      borderRadius: '8px',
+      '& .MuiInputLabel-formControl': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+      },
+      '& .MuiInputLabel-outlined': {
+        textAlign: 'center',
+        transform: 'translate(0, 20px) scale(1)',
+      },
+      '& .MuiInputLabel-outlined.MuiInputLabel-shrink': {
+        fontSize: '1em',
+        transform: 'translate(0, -6px)',
+      },
+      '& textarea, legend': {
+        textAlign: 'center',
+      },
+    },
+  },
+}));
+
 const TextInputContainer = () => {
   const dispatch = useDispatch();
-
   const {
     contents,
     selectedContentId,
@@ -33,36 +63,7 @@ const TextInputContainer = () => {
     }));
   };
 
-  const classes = makeStyles((theme) => ({
-    root: {
-      position: 'absolute',
-      bottom: '1.5em',
-      width: '500px',
-      '& .MuiTextField-root': {
-        margin: `${theme.spacing(1)}px 0`,
-        width: '100%',
-        backgroundColor: '#eeeeee',
-        borderRadius: '8px',
-        '& .MuiInputLabel-formControl': {
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-        },
-        '& .MuiInputLabel-outlined': {
-          textAlign: 'center',
-          transform: 'translate(0, 20px) scale(1)',
-        },
-        '& .MuiInputLabel-outlined.MuiInputLabel-shrink': {
-          fontSize: '1em',
-          transform: 'translate(0, -6px)',
-        },
-        '& textarea, legend': {
-          textAlign: 'center',
-        },
-      },
-    },
-  }))();
+  const classes = useStyle();
 
   return (
     <div

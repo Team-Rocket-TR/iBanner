@@ -42,6 +42,10 @@ const PreviewKonva = ({ canvasRef }) => {
     dispatch(setContentPosition({ contents: newContents }));
   }, []);
 
+  function handClickStage() {
+    dispatch(setSelectedContentId(null));
+  }
+
   function handleSelectContent(id) {
     dispatch(setSelectedContentId(id));
   }
@@ -51,6 +55,8 @@ const PreviewKonva = ({ canvasRef }) => {
       ref={canvasRef}
       width={width}
       height={height}
+      onClick={handClickStage}
+      onTap={handClickStage}
     >
       <MemoizedImageLayer
         url={image}

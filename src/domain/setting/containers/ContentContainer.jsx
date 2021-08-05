@@ -17,6 +17,8 @@ import FontSize from '../components/font/FontSize';
 import FontStyle from '../components/font/FontStyle';
 import ContentPosition from '../components/font/ContentPosition';
 
+import TextInputContainer from './TextInputContainer';
+
 const ContentContainer = () => {
   const dispatch = useDispatch();
 
@@ -24,6 +26,12 @@ const ContentContainer = () => {
     contents,
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
+
+  if (!selectedContentId) {
+    return (
+      <>설정하고 싶은 글자를 선택해주세요!</>
+    );
+  }
 
   const contentIndex = contents.findIndex(({ id }) => id === selectedContentId);
   const contentProperties = contents.find(({ id }) => id === selectedContentId);
@@ -106,34 +114,38 @@ const ContentContainer = () => {
   };
 
   return (
-    <Deck>
-      <Card>
-        <FontColor
-          color={fontColor}
-          onChange={handleChangeColor}
-        />
-      </Card>
-      <Card>
-        <FontSize
-          defaultValue={fontSize}
-          onChange={handleChangeFontSize}
-        />
-      </Card>
-      <Card>
-        <FontStyle
-          defaultFontFamilyValue={fontFamily}
-          defaultFontWeightValue={fontWeight}
-          onChangeFontFamily={handleChangeFontFamily}
-          onChangeFontWeight={handleChangeFontWeight}
-        />
-      </Card>
-      <Card>
-        <ContentPosition
-          position={position}
-          onChange={handleChangeContentPosition}
-        />
-      </Card>
-    </Deck>
+    <>
+      <Deck>
+        <Card>
+          <FontColor
+            color={fontColor}
+            onChange={handleChangeColor}
+          />
+        </Card>
+        <Card>
+          <FontSize
+            defaultValue={fontSize}
+            onChange={handleChangeFontSize}
+          />
+        </Card>
+        <Card>
+          <FontStyle
+            defaultFontFamilyValue={fontFamily}
+            defaultFontWeightValue={fontWeight}
+            onChangeFontFamily={handleChangeFontFamily}
+            onChangeFontWeight={handleChangeFontWeight}
+          />
+        </Card>
+        <Card>
+          <ContentPosition
+            position={position}
+            onChange={handleChangeContentPosition}
+          />
+        </Card>
+
+      </Deck>
+      <TextInputContainer />
+    </>
   );
 };
 
