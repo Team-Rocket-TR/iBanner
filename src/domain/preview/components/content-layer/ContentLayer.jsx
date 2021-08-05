@@ -30,6 +30,7 @@ export default function ContentLayer({
           fontFamily={fontFamily}
           fontSize={fontSize}
           fontColor={fontColor}
+          isCentered
           isSelected={id === selectedContentId}
           onSelect={() => handleSelectContent(id)}
         />

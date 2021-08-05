@@ -7,6 +7,7 @@ import {
   setFontSize,
   setFontFamily,
   setFontWeight,
+  setContentPosition,
 } from 'slice';
 
 import { Deck, Card } from 'components/card';
@@ -31,6 +32,7 @@ const ContentContainer = () => {
     fontSize,
     fontFamily,
     fontWeight,
+    position,
   } = contentProperties;
 
   // const fontSize = useSelector((state) => state.fontSize);
@@ -93,6 +95,20 @@ const ContentContainer = () => {
     dispatch(setFontWeight({ contents: newContents }));
   };
 
+  const handleChangeContentPosition = ({ value }) => {
+    const newContent = {
+      ...contentProperties,
+      position: value,
+    };
+    const newContents = [
+      ...contents.slice(0, contentIndex),
+      newContent,
+      ...contents.slice(contentIndex + 1),
+    ];
+
+    dispatch(setContentPosition({ contents: newContents }));
+  };
+
   return (
     <Deck>
       <Card>
@@ -116,7 +132,10 @@ const ContentContainer = () => {
         />
       </Card>
       <Card>
-        <ContentPosition />
+        <ContentPosition
+          position={position}
+          onChange={handleChangeContentPosition}
+        />
       </Card>
     </Deck>
   );

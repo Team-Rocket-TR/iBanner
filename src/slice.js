@@ -35,6 +35,7 @@ export const initialState = {
           b: 255,
           a: 1,
         },
+        position: 'center',
       },
     ],
   },
@@ -217,6 +218,15 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setContentPosition(state, { payload: contents }) {
+      return {
+        ...state,
+        contentLayer: {
+          ...state.contentLayer,
+          ...contents,
+        },
+      };
+    },
   },
 });
 
@@ -237,6 +247,7 @@ export const {
   setFontSize,
   setFontFamily,
   setFontWeight,
+  setContentPosition,
   setBannerSize,
   setWidth,
   setHeight,

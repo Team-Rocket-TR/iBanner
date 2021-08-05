@@ -7,6 +7,7 @@ export default function Content({
   fontSize,
   fontFamily,
   fontColor = {},
+  isCentered,
   isSelected,
   onSelect,
 }) {
@@ -27,6 +28,10 @@ export default function Content({
     }
 
     const contentCanvas = textRef.current;
+    if (isCentered) {
+      console.log(contentCanvas.x(), contentCanvas.y());
+    }
+
     const transformerCanvas = transformerRef.current;
     transformerCanvas.nodes([contentCanvas]);
     transformerCanvas.getLayer().batchDraw();

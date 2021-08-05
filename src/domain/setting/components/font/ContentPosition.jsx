@@ -16,11 +16,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ContentPosition = () => {
+const ContentPosition = ({
+  position,
+  onChange,
+}) => {
   const classes = useStyles();
 
-  function handleChange() {
-    return null;
+  function handleChange(event) {
+    const { value } = event.target;
+    onChange({ value });
   }
 
   return (
@@ -33,7 +37,7 @@ const ContentPosition = () => {
       </Typography>
       <NativeSelect
         className={classes.root}
-        value="center"
+        value={position}
         onChange={handleChange}
         name="image-align-horizontal"
         inputProps={{ 'aria-label': 'image-align-horizontal' }}
