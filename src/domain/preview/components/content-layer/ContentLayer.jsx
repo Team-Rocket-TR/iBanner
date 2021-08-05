@@ -25,6 +25,7 @@ export default function ContentLayer({
       }) => (
         <Content
           key={id}
+          id={id}
           content={content}
           fontFamily={fontFamily}
           fontSize={fontSize}

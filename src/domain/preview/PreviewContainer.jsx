@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSelectedContentId } from 'slice';
+import { setContentPosition, setSelectedContentId } from 'slice';
 
 import { Stage } from 'react-konva';
 
@@ -33,6 +33,14 @@ const PreviewKonva = ({ canvasRef }) => {
     contents,
     selectedContentId,
   } = useSelector((state) => state.contentLayer);
+
+  useEffect(() => {
+    const defaultContent = { ...contents[0] };
+    defaultContent.position = 'custom';
+
+    const newContents = [defaultContent];
+    dispatch(setContentPosition({ contents: newContents }));
+  }, []);
 
   function handleSelectContent(id) {
     dispatch(setSelectedContentId(id));

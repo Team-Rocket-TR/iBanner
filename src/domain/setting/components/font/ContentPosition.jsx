@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 const options = [
-  { value: 'center', label: '정중앙' },
   { value: 'custom', label: '사용자 지정' },
+  { value: 'center', label: '정중앙' },
 ];
 
 const useStyles = makeStyles(() => ({
