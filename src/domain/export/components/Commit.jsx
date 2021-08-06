@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Fab from '@material-ui/core/Fab';
-import GetAppIcon from '@material-ui/icons/GetApp';
+import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -14,21 +14,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Download = ({ onClick }) => {
+const Commit = ({ onClick }) => {
   const classes = useStyles();
 
   return (
     <Fab
-      aria-label="save"
+      aria-label="commit"
       variant="extended"
-      color="secondary"
+      color="primary"
       className={classes.margin}
       onClick={onClick}
     >
-      <GetAppIcon className={classes.extendedIcon} />
-      다운로드
+      <DoneOutlineIcon className={classes.extendedIcon} />
+      완료
     </Fab>
   );
 };
 
-export default Download;
+export default Commit;

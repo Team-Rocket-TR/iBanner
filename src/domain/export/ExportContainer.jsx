@@ -2,11 +2,13 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { setSelectedContentId } from 'slice';
+
 import styled from 'styled-components';
 
 import { downloadURI } from 'utils';
 
-import { Download } from './components';
+import { Download, Commit } from './components';
 
 const FloatButtonArea = styled.div`
   position: absolute;
@@ -18,11 +20,13 @@ const FloatButtonArea = styled.div`
 const ExportContainer = ({ canvasRef }) => {
   const dispatch = useDispatch();
 
-  const {
-    selectedContentId,
-  } = useSelector((state) => state.contentLayer);
+  const { selectedContentId } = useSelector((state) => state.contentLayer);
 
-  function handleClick() {
+  function handleClickCommit() {
+    dispatch(setSelectedContentId(null));
+  }
+
+  function handleClickDownload() {
     const uri = canvasRef.current.toDataURL();
     downloadURI({
       uri,
@@ -32,7 +36,10 @@ const ExportContainer = ({ canvasRef }) => {
 
   return (
     <FloatButtonArea>
-      <Download onClick={handleClick} />
+      {(selectedContentId)
+        ? <Commit onClick={handleClickCommit} />
+        : <Download onClick={handleClickDownload} />}
+
     </FloatButtonArea>
   );
 };
