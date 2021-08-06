@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Layer, Line } from 'react-konva';
 
-export default function HelperContentLayer({
+export default function GridHelperLayer({
   width,
   height,
 }) {
@@ -24,4 +24,4 @@ export default function HelperContentLayer({
   );
 }
 
-export const MemoizedHelperContentLayer = React.memo(HelperContentLayer);
+export const MemoizedGridHelperLayer = React.memo(GridHelperLayer);
