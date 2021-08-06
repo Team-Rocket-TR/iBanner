@@ -14,35 +14,13 @@ export default function GridHelperLayer({
   const rowCount = Math.ceil(width / padding);
   const colCount = Math.ceil(height / padding);
 
+  const halfRowCount = Math.ceil(rowCount / 2);
+  const halfColCount = Math.ceil(colCount / 2);
+
   return (
     <Layer>
-      {/* 세로 줄 */}
-      {Array.from(Array(Math.ceil(colCount / 2)), (e, i) => (
-        <GridLine
-          key={i}
-          points={[
-            Math.round(-i * padding) + 250,
-            0,
-            Math.round(-i * padding) + 250,
-            height,
-          ]}
-          strokeWidth={0.5}
-        />
-      ))}
-      {Array.from(Array(Math.ceil(colCount / 2)), (e, i) => (
-        <GridLine
-          key={i}
-          points={[
-            Math.round((i + 1) * padding) + 250,
-            0,
-            Math.round((i + 1) * padding) + 250,
-            height,
-          ]}
-          strokeWidth={0.5}
-        />
-      ))}
       {/* 가로 줄 */}
-      {Array.from(Array(Math.ceil(rowCount / 2)), (e, i) => (
+      {Array.from(Array(halfRowCount), (e, i) => (
         <GridLine
           key={i}
           points={[
@@ -54,7 +32,7 @@ export default function GridHelperLayer({
           strokeWidth={0.5}
         />
       ))}
-      {Array.from(Array(Math.ceil(rowCount / 2) + 1), (e, i) => (
+      {Array.from(Array(halfRowCount), (e, i) => (
         <GridLine
           key={i}
           points={[
@@ -62,6 +40,31 @@ export default function GridHelperLayer({
             Math.round((i + 1) * padding) + 250,
             width,
             Math.round((i + 1) * padding) + 250,
+          ]}
+          strokeWidth={0.5}
+        />
+      ))}
+      {/* 세로 줄 */}
+      {Array.from(Array(halfColCount), (e, i) => (
+        <GridLine
+          key={i}
+          points={[
+            Math.round(-i * padding) + 250,
+            0,
+            Math.round(-i * padding) + 250,
+            height,
+          ]}
+          strokeWidth={0.5}
+        />
+      ))}
+      {Array.from(Array(halfColCount), (e, i) => (
+        <GridLine
+          key={i}
+          points={[
+            Math.round((i + 1) * padding) + 250,
+            0,
+            Math.round((i + 1) * padding) + 250,
+            height,
           ]}
           strokeWidth={0.5}
         />
