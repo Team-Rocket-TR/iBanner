@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import styled from 'styled-components';
 
 import { downloadURI } from 'utils';
@@ -13,18 +15,26 @@ const FloatButtonArea = styled.div`
   z-index: 999;
 `;
 
-export default function ExportContainer({ canvasRef }) {
-  const handleClick = () => {
+const ExportContainer = ({ canvasRef }) => {
+  const dispatch = useDispatch();
+
+  const {
+    selectedContentId,
+  } = useSelector((state) => state.contentLayer);
+
+  function handleClick() {
     const uri = canvasRef.current.toDataURL();
     downloadURI({
       uri,
       name: 'banner.png',
     });
-  };
+  }
 
   return (
     <FloatButtonArea>
       <Download onClick={handleClick} />
     </FloatButtonArea>
   );
-}
+};
+
+export default ExportContainer;
