@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Line } from 'react-konva';
 
-export default function Liner({
+export default function GridLine({
   points,
   stroke = '#ddd',
   strokeWidth = 1,
@@ -16,4 +16,4 @@ export default function Liner({
   );
 }
 
-export const MemoizedLine = React.memo(Line);
+export const MemoizedGridLine = React.memo(GridLine);

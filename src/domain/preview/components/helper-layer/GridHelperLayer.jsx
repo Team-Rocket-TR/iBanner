@@ -1,25 +1,23 @@
 import React from 'react';
 
-import { Layer, Line } from 'react-konva';
+import { Layer } from 'react-konva';
+
+import GridLine from './GridLine';
 
 export default function GridHelperLayer({
   width,
   height,
+  blockSnapSize = 30,
 }) {
-  const xLength = width;
-  const yLength = height;
-  const points = [];
+  const padding = blockSnapSize;
+
+  const rowCount = Math.ceil(width / padding);
+  const colCount = Math.ceil(height / padding);
 
   return (
     <Layer>
-      {[].map(({
-        id,
-      }) => (
-        <Line
-          key={id}
-          points={points}
-        />
-      ))}
+      {/* 가로 줄 */}
+      {/* 세로 줄 */}
     </Layer>
   );
 }
