@@ -9,6 +9,7 @@ import { Stage } from 'react-konva';
 import {
   MemoizedImageLayer,
   MemoizedBackgroundLayer,
+  MemoizedGridHelperLayer,
   MemoizedContentLayer,
 } from 'domain/preview/components';
 
@@ -73,6 +74,14 @@ const PreviewKonva = ({ canvasRef }) => {
         width={width}
         height={height}
       />
+      {(selectedContentId)
+        ? (
+          <MemoizedGridHelperLayer
+            width={width}
+            height={height}
+          />
+        )
+        : null}
       <MemoizedContentLayer
         contents={contents}
         selectedContentId={selectedContentId}
