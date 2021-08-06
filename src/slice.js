@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   theme: 'light',
   isLightTheme: true,
-  canvasRef: null,
   width: 500,
   height: 500,
   imageLayer: {
@@ -52,12 +51,6 @@ const { actions, reducer } = createSlice({
         ...state,
         theme,
         isLightTheme,
-      };
-    },
-    setCanvasRef(state, { payload: canvasRef }) {
-      return {
-        ...state,
-        canvasRef,
       };
     },
     setBannerSize(state, { payload: { name, value } }) {
@@ -222,7 +215,6 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTheme,
-  setCanvasRef,
   setBackgroundColor,
   setAlpha,
   setImageUri,
