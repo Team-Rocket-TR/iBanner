@@ -38,7 +38,10 @@ const PreviewKonva = ({ canvasRef }) => {
     const defaultContent = { ...contents[0] };
     defaultContent.position = 'custom';
 
-    const newContents = [defaultContent];
+    const newContents = [
+      defaultContent,
+      ...contents.slice(1),
+    ];
     dispatch(setContentPosition({ contents: newContents }));
   }, []);
 
