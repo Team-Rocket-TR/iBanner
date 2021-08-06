@@ -17,7 +17,21 @@ export default function GridHelperLayer({
   return (
     <Layer>
       {/* 가로 줄 */}
+      {Array.from(Array(rowCount), (e, i) => (
+        <GridLine
+          key={i}
+          points={[Math.round(i * padding) + 0.5, 0, Math.round(i * padding) + 0.5, height]}
+          strokeWidth={0.5}
+        />
+      ))}
       {/* 세로 줄 */}
+      {Array.from(Array(colCount), (e, j) => (
+        <GridLine
+          key={j}
+          points={[0, Math.round(j * padding), width, Math.round(j * padding)]}
+          strokeWidth={0.5}
+        />
+      ))}
     </Layer>
   );
 }
