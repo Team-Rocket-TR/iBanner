@@ -16,19 +16,53 @@ export default function GridHelperLayer({
 
   return (
     <Layer>
-      {/* 가로 줄 */}
-      {Array.from(Array(rowCount), (e, i) => (
+      {/* 세로 줄 */}
+      {Array.from(Array(Math.ceil(colCount / 2)), (e, i) => (
         <GridLine
           key={i}
-          points={[Math.round(i * padding) + 0.5, 0, Math.round(i * padding) + 0.5, height]}
+          points={[
+            Math.round(-i * padding) + 250,
+            0,
+            Math.round(-i * padding) + 250,
+            height,
+          ]}
           strokeWidth={0.5}
         />
       ))}
-      {/* 세로 줄 */}
-      {Array.from(Array(colCount), (e, j) => (
+      {Array.from(Array(Math.ceil(colCount / 2)), (e, i) => (
         <GridLine
-          key={j}
-          points={[0, Math.round(j * padding), width, Math.round(j * padding)]}
+          key={i}
+          points={[
+            Math.round((i + 1) * padding) + 250,
+            0,
+            Math.round((i + 1) * padding) + 250,
+            height,
+          ]}
+          strokeWidth={0.5}
+        />
+      ))}
+      {/* 가로 줄 */}
+      {Array.from(Array(Math.ceil(rowCount / 2)), (e, i) => (
+        <GridLine
+          key={i}
+          points={[
+            0,
+            Math.round(-i * padding) + 250,
+            width,
+            Math.round(-i * padding) + 250,
+          ]}
+          strokeWidth={0.5}
+        />
+      ))}
+      {Array.from(Array(Math.ceil(rowCount / 2) + 1), (e, i) => (
+        <GridLine
+          key={i}
+          points={[
+            0,
+            Math.round((i + 1) * padding) + 250,
+            width,
+            Math.round((i + 1) * padding) + 250,
+          ]}
           strokeWidth={0.5}
         />
       ))}
