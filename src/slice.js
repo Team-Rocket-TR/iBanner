@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   theme: 'light',
   isLightTheme: true,
-  canvasRef: null,
   width: 500,
   height: 500,
   imageLayer: {
@@ -39,16 +38,6 @@ export const initialState = {
       },
     ],
   },
-  // content: '',
-  // fontSize: 24,
-  // fontColor: {
-  //   r: 255,
-  //   g: 255,
-  //   b: 255,
-  //   a: 1,
-  // },
-  // fontFamily: 'Arial, sans-serif',
-  // fontWeight: 'normal',
 };
 
 const { actions, reducer } = createSlice({
@@ -62,12 +51,6 @@ const { actions, reducer } = createSlice({
         ...state,
         theme,
         isLightTheme,
-      };
-    },
-    setCanvasRef(state, { payload: canvasRef }) {
-      return {
-        ...state,
-        canvasRef,
       };
     },
     setBannerSize(state, { payload: { name, value } }) {
@@ -232,7 +215,6 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTheme,
-  setCanvasRef,
   setBackgroundColor,
   setAlpha,
   setImageUri,

@@ -1,9 +1,6 @@
-import { createRef } from 'react';
-
 import reducer, {
   initialState,
   setTheme,
-  setCanvasRef,
   setImageUri,
   setContent,
   setFontSize,
@@ -37,16 +34,6 @@ describe('reducer', () => {
 
         expect(state.theme).toBe(theme);
       });
-    });
-  });
-
-  describe('setCanvasRef', () => {
-    it('changes content', () => {
-      const expectRef = createRef();
-
-      const state = reducer(initialState, setCanvasRef(expectRef));
-
-      expect(state.canvasRef).toBe(expectRef);
     });
   });
 
