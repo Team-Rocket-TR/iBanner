@@ -5,6 +5,9 @@ export const initialState = {
   isLightTheme: true,
   width: 500,
   height: 500,
+  previewLayer: {
+    color: '#2ea44f',
+  },
   imageLayer: {
     image: '',
     scale: 1,

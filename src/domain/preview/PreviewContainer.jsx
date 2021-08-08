@@ -11,6 +11,7 @@ import {
   MemoizedBackgroundLayer,
   MemoizedGridHelperLayer,
   MemoizedContentLayer,
+  MemoizedPreviewLayer,
 } from 'domain/preview/components';
 
 const PreviewKonva = ({ canvasRef }) => {
@@ -18,6 +19,10 @@ const PreviewKonva = ({ canvasRef }) => {
 
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
+
+  const layerColor = useSelector((state) => state.previewLayer);
+
+  console.log(layerColor.color);
 
   const {
     image,
@@ -62,6 +67,11 @@ const PreviewKonva = ({ canvasRef }) => {
       onClick={handClickStage}
       onTap={handClickStage}
     >
+      <MemoizedPreviewLayer
+        color={layerColor.color}
+        width={width}
+        height={height}
+      />
       <MemoizedImageLayer
         url={image}
         size={{ width: sizeX, height: sizeY }}
