@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Deck, Card } from 'components/card';
 
 import {
-  setTheme, setBannerSize, setBannerRatios,
+  setTheme, setBannerSize, setBannerRatios, setPreviewColor,
 } from 'slice';
 
 import {
-  ThemeSwitch, BannerSizeRatioButtons, BannerCustom,
+  ThemeSwitch, BannerSizeRatioButtons, BannerCustom, PreviewBanner,
 } from 'domain/setting/components';
 
 const BackgroundContainer = () => {
@@ -19,6 +19,8 @@ const BackgroundContainer = () => {
   const height = useSelector((state) => state.height);
 
   const isLightTheme = useSelector((state) => state.isLightTheme);
+
+  const layerColor = useSelector((state) => state.previewLayerColor);
 
   // Custom Change banner size
   const handleChangeBannerSize = ({ name, value }) => {
@@ -34,6 +36,12 @@ const BackgroundContainer = () => {
   const handleChangeTheme = (lightTheme) => {
     const theme = (lightTheme) ? { theme: 'light', isLightTheme: true } : { theme: 'dark', isLightTheme: false };
     dispatch(setTheme(theme));
+  };
+
+  // Change Preview Banner BackgroundColor
+  const handleChangePreviewBackgroundcolor = (color) => {
+    console.log(color.rgb);
+    dispatch(setPreviewColor(color.rgb));
   };
 
   return (
@@ -55,6 +63,12 @@ const BackgroundContainer = () => {
           width={width}
           height={height}
           onChange={handleChangeBannerSize}
+        />
+      </Card>
+      <Card>
+        <PreviewBanner
+          color={layerColor}
+          onChange={handleChangePreviewBackgroundcolor}
         />
       </Card>
     </Deck>

@@ -8,6 +8,7 @@ import BannerSizeRatioButtons from './general/BannerSizeRatioButtons';
 import BannerSizeRatioButton from './general/BannerSizeRatioButton';
 import BannerCustomSize from './general/BannerCustomSize';
 import BannerCustom from './general/BannerCustom';
+import PreviewBanner from './general/PreviewBanner';
 
 // ===== 배경화면 ===== //
 import BackgroundColorpicker from './background/BackgroundColorpicker';
@@ -37,4 +38,5 @@ export {
   Content,
   FontSize,
   Sponsor,
+  PreviewBanner,
 };
