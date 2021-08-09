@@ -7,9 +7,17 @@ export default function PreviewLayer({
   width,
   height,
 }) {
+  const {
+    r, g, b, a,
+  } = color;
+
   return (
     <Layer>
-      <Rect fill={color} width={width} height={height} />
+      <Rect
+        fill={`rgba(${r},${g},${b},${a})`}
+        width={width}
+        height={height}
+      />
     </Layer>
   );
 }

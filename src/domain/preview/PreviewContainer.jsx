@@ -20,9 +20,7 @@ const PreviewKonva = ({ canvasRef }) => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  const layerColor = useSelector((state) => state.previewLayer);
-
-  console.log(layerColor.color);
+  const layerColor = useSelector((state) => state.previewLayerColor);
 
   const {
     image,
@@ -68,7 +66,7 @@ const PreviewKonva = ({ canvasRef }) => {
       onTap={handClickStage}
     >
       <MemoizedPreviewLayer
-        color={layerColor.color}
+        color={layerColor}
         width={width}
         height={height}
       />

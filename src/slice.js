@@ -5,8 +5,11 @@ export const initialState = {
   isLightTheme: true,
   width: 500,
   height: 500,
-  previewLayer: {
-    color: '#2ea44f',
+  previewLayerColor: {
+    r: 46,
+    g: 164,
+    b: 79,
+    a: 1,
   },
   imageLayer: {
     image: '',
@@ -213,6 +216,17 @@ const { actions, reducer } = createSlice({
         },
       };
     },
+    setPreviewColor(state, { payload: { r, g, b } }) {
+      return {
+        ...state,
+        previewLayerColor: {
+          ...state.previewLayerColor,
+          r,
+          g,
+          b,
+        },
+      };
+    },
   },
 });
 
@@ -238,6 +252,7 @@ export const {
   setBannerRatios,
   setMainBackgroundColor,
   setMainNavBackgroundColor,
+  setPreviewColor,
 } = actions;
 
 export default reducer;
