@@ -1,18 +1,18 @@
-import ImageLayer, { MemoizedImageLayer } from './image-layer/ImageLayer';
-import ContentLayer, { MemoizedContentLayer } from './content-layer/ContentLayer';
-import BackgroundLayer, { MemoizedBackgroundLayer } from './background-layer/BackgroundLayer';
-import GridHelperLayer, { MemoizedGridHelperLayer } from './helper-layer/GridHelperLayer';
-import PreviewLayer, { MemoizedPreviewLayer } from './preview-layer/PreviewLayer';
+import ImageLayer, { MemoizedImageLayer } from './layers/image/ImageLayer';
+import TextLayer, { MemoizedTextLayer } from './layers/text/TextLayer';
+import FilterLayer, { MemoizedFilterLayer } from './layers/filter/FilterLayer';
+import GridHelperLayer, { MemoizedGridHelperLayer } from './layers/helper/GridHelperLayer';
+import RootLayer, { MemoizedRootLayer } from './layers/root/RootLayer';
 
 export {
-  BackgroundLayer,
-  MemoizedBackgroundLayer,
+  FilterLayer,
+  MemoizedFilterLayer,
   ImageLayer,
   MemoizedImageLayer,
-  ContentLayer,
-  MemoizedContentLayer,
+  TextLayer,
+  MemoizedTextLayer,
   GridHelperLayer,
   MemoizedGridHelperLayer,
-  PreviewLayer,
-  MemoizedPreviewLayer,
+  RootLayer,
+  MemoizedRootLayer,
 };

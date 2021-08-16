@@ -1,9 +1,9 @@
 import Clipboard from './Clipboard';
 import Download from './Download';
-import Commit from './Commit';
+import Complete from './Complete';
 
 export {
   Clipboard,
   Download,
-  Commit,
+  Complete,
 };

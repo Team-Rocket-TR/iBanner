@@ -2,18 +2,18 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import Commit from './Commit';
+import Complete from './Complete';
 
 const handleClick = jest.fn();
 
-describe('Commit component', () => {
+describe('Complete component', () => {
   const renderDownload = () => render((
-    <Commit
+    <Complete
       onClick={handleClick}
     />
   ));
 
-  it('renders "Commit" component', () => {
+  it('renders "Complete" component', () => {
     const { container } = renderDownload();
 
     expect(container).not.toBeNull();

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import ContentLayer from './ContentLayer';
+import TextLayer from './TextLayer';
 
-describe('ContentLayer', () => {
+describe('TextLayer', () => {
   const contentFontColor = {
     r: 255,
     g: 255,
@@ -12,7 +12,7 @@ describe('ContentLayer', () => {
     a: 1,
   };
 
-  function renderContentLayer({
+  function renderTextLayer({
     content,
     fontSize,
     fontFamily,
@@ -21,7 +21,7 @@ describe('ContentLayer', () => {
     height,
   } = {}) {
     return render((
-      <ContentLayer
+      <TextLayer
         content={content}
         fontSize={fontSize}
         fontFamily={fontFamily}
@@ -32,8 +32,8 @@ describe('ContentLayer', () => {
     ));
   }
 
-  it('renders "ContentLayer" component', () => {
-    const { container } = renderContentLayer();
+  it('renders "TextLayer" component', () => {
+    const { container } = renderTextLayer();
 
     expect(container).not.toBeNull();
   });

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Layer } from 'react-konva';
 
-import Content from './Content';
+import CustomText from './CustomText';
 
-export default function ContentLayer({
+export default function TextLayer({
   contents,
   selectedContentId,
   onSelect,
@@ -23,7 +23,7 @@ export default function ContentLayer({
         fontColor,
         position,
       }) => (
-        <Content
+        <CustomText
           key={id}
           id={id}
           content={content}
@@ -39,4 +39,4 @@ export default function ContentLayer({
   );
 }
 
-export const MemoizedContentLayer = React.memo(ContentLayer);
+export const MemoizedTextLayer = React.memo(TextLayer);
