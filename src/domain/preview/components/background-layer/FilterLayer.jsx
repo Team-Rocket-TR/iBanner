@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Layer, Rect } from 'react-konva';
 
-export default function BackgroundLayer({
+// 배경색은 아니지만 이미지와 텍스트 사이의 무엇가의 효과를 집어넣을 수 있는 영역
+export default function FilterLayer({
   fill,
   width,
   height,
@@ -24,4 +25,4 @@ export default function BackgroundLayer({
   );
 }
 
-export const MemoizedBackgroundLayer = React.memo(BackgroundLayer);
+export const MemoizedFilterLayer = React.memo(FilterLayer);

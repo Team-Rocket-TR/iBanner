@@ -8,7 +8,7 @@ import { Stage } from 'react-konva';
 
 import {
   MemoizedImageLayer,
-  MemoizedBackgroundLayer,
+  MemoizedFilterLayer,
   MemoizedGridHelperLayer,
   MemoizedContentLayer,
   MemoizedPreviewLayer,
@@ -77,7 +77,7 @@ const PreviewKonva = ({ canvasRef }) => {
         align={{ x: alignX, y: alignY }}
         canvas={{ width, height }}
       />
-      <MemoizedBackgroundLayer
+      <MemoizedFilterLayer
         fill={backgroundColor}
         width={width}
         height={height}

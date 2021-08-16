@@ -2,9 +2,9 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import BackgroundLayer from './BackgroundLayer';
+import FilterLayer from './FilterLayer';
 
-describe('BackgroundLayer', () => {
+describe('FilterLayer', () => {
   const backgroundColor = {
     r: 255,
     g: 255,
@@ -12,13 +12,13 @@ describe('BackgroundLayer', () => {
     a: 1,
   };
 
-  function renderPreview({
+  function renderFilterLayer({
     fill = backgroundColor,
     width = 500,
     height = 500,
   } = {}) {
     return render((
-      <BackgroundLayer
+      <FilterLayer
         fill={fill}
         width={width}
         height={height}
@@ -26,8 +26,8 @@ describe('BackgroundLayer', () => {
     ));
   }
 
-  it('renders "BackgroundLayer" component', () => {
-    const { container } = renderPreview();
+  it('renders "FilterLayer" component', () => {
+    const { container } = renderFilterLayer();
 
     expect(container).not.toBeNull();
   });

@@ -1,12 +1,12 @@
 import ImageLayer, { MemoizedImageLayer } from './image-layer/ImageLayer';
 import ContentLayer, { MemoizedContentLayer } from './content-layer/ContentLayer';
-import BackgroundLayer, { MemoizedBackgroundLayer } from './background-layer/BackgroundLayer';
+import FilterLayer, { MemoizedFilterLayer } from './background-layer/FilterLayer';
 import GridHelperLayer, { MemoizedGridHelperLayer } from './helper-layer/GridHelperLayer';
 import PreviewLayer, { MemoizedPreviewLayer } from './preview-layer/PreviewLayer';
 
 export {
-  BackgroundLayer,
-  MemoizedBackgroundLayer,
+  FilterLayer,
+  MemoizedFilterLayer,
   ImageLayer,
   MemoizedImageLayer,
   ContentLayer,
