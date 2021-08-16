@@ -23,7 +23,7 @@ export const initialState = {
     r: 128,
     g: 128,
     b: 128,
-    a: 1,
+    a: 0,
   },
   contentLayer: {
     selectedContentId: 1,
