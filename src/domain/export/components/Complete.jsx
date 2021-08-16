@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Commit = ({ onClick }) => {
+const Complete = ({ onClick }) => {
   const classes = useStyles();
 
   return (
     <Fab
-      aria-label="commit"
+      aria-label="Complete"
       variant="extended"
       color="primary"
       className={classes.margin}
@@ -31,4 +31,4 @@ const Commit = ({ onClick }) => {
   );
 };
 
-export default Commit;
+export default Complete;

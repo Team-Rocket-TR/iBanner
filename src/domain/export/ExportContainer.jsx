@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 import { downloadURI } from 'utils';
 
-import { Download, Commit } from './components';
+import { Download, Complete } from './components';
 
 const FloatButtonArea = styled.div`
   position: absolute;
@@ -22,7 +22,7 @@ const ExportContainer = ({ canvasRef }) => {
 
   const { selectedContentId } = useSelector((state) => state.contentLayer);
 
-  function handleClickCommit() {
+  function handleClickComplete() {
     dispatch(setSelectedContentId(null));
   }
 
@@ -37,7 +37,7 @@ const ExportContainer = ({ canvasRef }) => {
   return (
     <FloatButtonArea>
       {(selectedContentId)
-        ? <Commit onClick={handleClickCommit} />
+        ? <Complete onClick={handleClickComplete} />
         : <Download onClick={handleClickDownload} />}
 
     </FloatButtonArea>
