@@ -7,13 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import { Deck, Card } from 'components/card';
 
 import {
-  setBackgroundColor,
-  setAlpha,
   setUploadImage,
   setImageUri,
   setImageScale,
   setImageVerticalAlign,
   setImageHorizontalAlign,
+  setFilterBackgroundColor,
+  setFilterBackgroundColorAlpha,
 } from 'slice';
 
 import {
@@ -34,17 +34,19 @@ const BackgroundContainer = () => {
     alignY,
   } = useSelector((state) => state.imageLayer);
 
-  const backgroundColor = useSelector((state) => state.backgroundColor);
+  const {
+    backgroundColor,
+  } = useSelector((state) => state.filterLayer);
 
   // Change Banner BackgroundColor
-  const handleChangeBackgroundcolor = ({ rgb }) => {
-    dispatch(setBackgroundColor(rgb));
+  const handleChangeFilterBackgroundColor = ({ rgb }) => {
+    dispatch(setFilterBackgroundColor(rgb));
   };
 
   // Change RGB => a
-  const handleChangeAlpha = ({ rgb }) => {
+  const handleChangeFilterBackgroundColorAlpha = ({ rgb }) => {
     const { a } = rgb;
-    dispatch(setAlpha(a));
+    dispatch(setFilterBackgroundColorAlpha(a));
   };
 
   const handleUploadImage = async ({ file }) => {
@@ -85,7 +87,7 @@ const BackgroundContainer = () => {
       component: (
         <ColorpickerIcon
           color={backgroundColor}
-          onChangeBackgroundcolor={handleChangeBackgroundcolor}
+          onChangeBackgroundcolor={handleChangeFilterBackgroundColor}
         />
       ),
     },
@@ -94,7 +96,7 @@ const BackgroundContainer = () => {
       component: (
         <AlphaPickerIcon
           color={backgroundColor}
-          onChangeAlpha={handleChangeAlpha}
+          onChangeAlpha={handleChangeFilterBackgroundColorAlpha}
         />
       ),
     },

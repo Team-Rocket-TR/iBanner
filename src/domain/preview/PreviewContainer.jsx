@@ -31,7 +31,7 @@ const PreviewKonva = ({ canvasRef }) => {
     alignY,
   } = useSelector((state) => state.imageLayer);
 
-  const backgroundColor = useSelector((state) => state.backgroundColor);
+  const { backgroundColor } = useSelector((state) => state.filterLayer);
 
   const {
     texts,

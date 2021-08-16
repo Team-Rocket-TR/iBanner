@@ -19,11 +19,13 @@ export const initialState = {
     alignX: 'center',
     alignY: 'middle',
   },
-  backgroundColor: {
-    r: 128,
-    g: 128,
-    b: 128,
-    a: 0,
+  filterLayer: {
+    backgroundColor: {
+      r: 128,
+      g: 128,
+      b: 128,
+      a: 0,
+    },
   },
   textLayer: {
     selectedTextId: 1,
@@ -84,26 +86,6 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
-    setBackgroundColor(state, { payload: { r, g, b } }) {
-      return {
-        ...state,
-        backgroundColor: {
-          ...state.backgroundColor,
-          r,
-          g,
-          b,
-        },
-      };
-    },
-    setAlpha(state, { payload: alpha }) {
-      return {
-        ...state,
-        backgroundColor: {
-          ...state.backgroundColor,
-          a: alpha,
-        },
-      };
-    },
     setImageUri(state, { payload: image }) {
       return {
         ...state,
@@ -146,6 +128,30 @@ const { actions, reducer } = createSlice({
         imageLayer: {
           ...state.imageLayer,
           alignX,
+        },
+      };
+    },
+    setFilterBackgroundColor(state, { payload: { r, g, b } }) {
+      return {
+        ...state,
+        filterLayer: {
+          backgroundColor: {
+            ...state.filterLayer.backgroundColor,
+            r,
+            g,
+            b,
+          },
+        },
+      };
+    },
+    setFilterBackgroundColorAlpha(state, { payload: alpha }) {
+      return {
+        ...state,
+        filterLayer: {
+          backgroundColor: {
+            ...state.filterLayer.backgroundColor,
+            a: alpha,
+          },
         },
       };
     },
@@ -232,13 +238,13 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTheme,
-  setBackgroundColor,
-  setAlpha,
   setImageUri,
   setUploadImage,
   setImageScale,
   setImageVerticalAlign,
   setImageHorizontalAlign,
+  setFilterBackgroundColor,
+  setFilterBackgroundColorAlpha,
   setSelectedTextId,
   setTextContent,
   setFontColor,
