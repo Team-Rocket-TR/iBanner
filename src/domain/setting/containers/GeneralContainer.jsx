@@ -20,7 +20,7 @@ const BackgroundContainer = () => {
 
   const isLightTheme = useSelector((state) => state.isLightTheme);
 
-  const layerColor = useSelector((state) => state.previewLayerColor);
+  const layerColor = useSelector((state) => state.rootLayer);
 
   // Custom Change banner size
   const handleChangeBannerSize = ({ name, value }) => {

@@ -2,7 +2,7 @@ import reducer, {
   initialState,
   setTheme,
   setImageUri,
-  setContent,
+  setTextContent,
   setFontSize,
   setFontColor,
 } from './slice';
@@ -47,11 +47,11 @@ describe('reducer', () => {
     });
   });
 
-  describe('setContent', () => {
+  describe('setTextContent', () => {
     it('changes content', () => {
       const expectValue = '아무거나 적기';
 
-      const state = reducer(initialState, setContent(expectValue));
+      const state = reducer(initialState, setTextContent(expectValue));
 
       expect(state.content).toBe(expectValue);
     });

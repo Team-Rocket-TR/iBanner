@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setContentPosition, setSelectedContentId } from 'slice';
+import { setTextPosition, setSelectedTextId } from 'slice';
 
 import { Stage } from 'react-konva';
 
@@ -20,7 +20,7 @@ const PreviewKonva = ({ canvasRef }) => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  const layerColor = useSelector((state) => state.previewLayerColor);
+  const layerColor = useSelector((state) => state.rootLayer);
 
   const {
     image,
@@ -31,30 +31,30 @@ const PreviewKonva = ({ canvasRef }) => {
     alignY,
   } = useSelector((state) => state.imageLayer);
 
-  const backgroundColor = useSelector((state) => state.backgroundColor);
+  const { backgroundColor } = useSelector((state) => state.filterLayer);
 
   const {
-    contents,
-    selectedContentId,
-  } = useSelector((state) => state.contentLayer);
+    texts,
+    selectedTextId,
+  } = useSelector((state) => state.textLayer);
 
   useEffect(() => {
-    const defaultContent = { ...contents[0] };
-    defaultContent.position = 'custom';
+    const defaultText = { ...texts[0] };
+    defaultText.position = 'custom';
 
-    const newContents = [
-      defaultContent,
-      ...contents.slice(1),
+    const newTexts = [
+      defaultText,
+      ...texts.slice(1),
     ];
-    dispatch(setContentPosition({ contents: newContents }));
+    dispatch(setTextPosition({ texts: newTexts }));
   }, []);
 
   function handClickStage() {
-    dispatch(setSelectedContentId(null));
+    dispatch(setSelectedTextId(null));
   }
 
   function handleSelectContent(id) {
-    dispatch(setSelectedContentId(id));
+    dispatch(setSelectedTextId(id));
   }
 
   return (
@@ -82,7 +82,7 @@ const PreviewKonva = ({ canvasRef }) => {
         width={width}
         height={height}
       />
-      {(selectedContentId)
+      {(selectedTextId)
         ? (
           <MemoizedGridHelperLayer
             width={width}
@@ -91,8 +91,8 @@ const PreviewKonva = ({ canvasRef }) => {
         )
         : null}
       <MemoizedTextLayer
-        contents={contents}
-        selectedContentId={selectedContentId}
+        texts={texts}
+        selectedTextId={selectedTextId}
         onSelect={handleSelectContent}
       />
     </Stage>

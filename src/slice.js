@@ -5,7 +5,7 @@ export const initialState = {
   isLightTheme: true,
   width: 500,
   height: 500,
-  previewLayerColor: {
+  rootLayer: {
     r: 46,
     g: 164,
     b: 79,
@@ -19,15 +19,17 @@ export const initialState = {
     alignX: 'center',
     alignY: 'middle',
   },
-  backgroundColor: {
-    r: 128,
-    g: 128,
-    b: 128,
-    a: 0,
+  filterLayer: {
+    backgroundColor: {
+      r: 128,
+      g: 128,
+      b: 128,
+      a: 0,
+    },
   },
-  contentLayer: {
-    selectedContentId: 1,
-    contents: [
+  textLayer: {
+    selectedTextId: 1,
+    texts: [
       {
         id: 1,
         content: '',
@@ -84,26 +86,6 @@ const { actions, reducer } = createSlice({
         height,
       };
     },
-    setBackgroundColor(state, { payload: { r, g, b } }) {
-      return {
-        ...state,
-        backgroundColor: {
-          ...state.backgroundColor,
-          r,
-          g,
-          b,
-        },
-      };
-    },
-    setAlpha(state, { payload: alpha }) {
-      return {
-        ...state,
-        backgroundColor: {
-          ...state.backgroundColor,
-          a: alpha,
-        },
-      };
-    },
     setImageUri(state, { payload: image }) {
       return {
         ...state,
@@ -149,78 +131,102 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setSelectedContentId(state, { payload: selectedContentId }) {
+    setFilterBackgroundColor(state, { payload: { r, g, b } }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          selectedContentId,
+        filterLayer: {
+          backgroundColor: {
+            ...state.filterLayer.backgroundColor,
+            r,
+            g,
+            b,
+          },
         },
       };
     },
-    setContent(state, { payload: { index, content } }) {
+    setFilterBackgroundColorAlpha(state, { payload: alpha }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          contents: [
-            ...state.contentLayer.contents.slice(0, index),
+        filterLayer: {
+          backgroundColor: {
+            ...state.filterLayer.backgroundColor,
+            a: alpha,
+          },
+        },
+      };
+    },
+    setSelectedTextId(state, { payload: selectedTextId }) {
+      return {
+        ...state,
+        textLayer: {
+          ...state.textLayer,
+          selectedTextId,
+        },
+      };
+    },
+    setTextContent(state, { payload: { index, content } }) {
+      return {
+        ...state,
+        textLayer: {
+          ...state.textLayer,
+          texts: [
+            ...state.textLayer.texts.slice(0, index),
             content,
-            ...state.contentLayer.contents.slice(index + 1),
+            ...state.textLayer.texts.slice(index + 1),
           ],
         },
       };
     },
-    setFontColor(state, { payload: contents }) {
+    setFontColor(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setFontSize(state, { payload: contents }) {
+    setFontSize(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setFontFamily(state, { payload: contents }) {
+    setFontFamily(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setFontWeight(state, { payload: contents }) {
+    setFontWeight(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setContentPosition(state, { payload: contents }) {
+    setTextPosition(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
     setPreviewColor(state, { payload: { r, g, b } }) {
       return {
         ...state,
-        previewLayerColor: {
-          ...state.previewLayerColor,
+        rootLayer: {
+          ...state.rootLayer,
           r,
           g,
           b,
@@ -232,20 +238,20 @@ const { actions, reducer } = createSlice({
 
 export const {
   setTheme,
-  setBackgroundColor,
-  setAlpha,
   setImageUri,
   setUploadImage,
   setImageScale,
   setImageVerticalAlign,
   setImageHorizontalAlign,
-  setSelectedContentId,
-  setContent,
+  setFilterBackgroundColor,
+  setFilterBackgroundColorAlpha,
+  setSelectedTextId,
+  setTextContent,
   setFontColor,
   setFontSize,
   setFontFamily,
   setFontWeight,
-  setContentPosition,
+  setTextPosition,
   setBannerSize,
   setWidth,
   setHeight,

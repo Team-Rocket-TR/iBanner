@@ -113,7 +113,7 @@ const ImageScale = ({
             key={`slider-${scale}`}
             defaultValue={Number(scale)}
             marks={marks}
-            onChangeCompleteted={handleChange}
+            onChangeCommitted={handleChange}
           />
         </Grid>
         <Grid item>
