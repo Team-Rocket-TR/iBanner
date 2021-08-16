@@ -10,8 +10,8 @@ import {
   MemoizedImageLayer,
   MemoizedFilterLayer,
   MemoizedGridHelperLayer,
-  MemoizedContentLayer,
-  MemoizedPreviewLayer,
+  MemoizedTextLayer,
+  MemoizedRootLayer,
 } from 'domain/preview/components';
 
 const PreviewKonva = ({ canvasRef }) => {
@@ -65,7 +65,7 @@ const PreviewKonva = ({ canvasRef }) => {
       onClick={handClickStage}
       onTap={handClickStage}
     >
-      <MemoizedPreviewLayer
+      <MemoizedRootLayer
         color={layerColor}
         width={width}
         height={height}
@@ -90,7 +90,7 @@ const PreviewKonva = ({ canvasRef }) => {
           />
         )
         : null}
-      <MemoizedContentLayer
+      <MemoizedTextLayer
         contents={contents}
         selectedContentId={selectedContentId}
         onSelect={handleSelectContent}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Layer, Rect } from 'react-konva';
 
-export default function PreviewLayer({
+export default function RootLayer({
   color,
   width,
   height,
@@ -22,4 +22,4 @@ export default function PreviewLayer({
   );
 }
 
-export const MemoizedPreviewLayer = React.memo(PreviewLayer);
+export const MemoizedRootLayer = React.memo(RootLayer);
