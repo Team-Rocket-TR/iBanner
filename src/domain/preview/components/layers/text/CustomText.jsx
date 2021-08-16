@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 
 import { Text, Transformer } from 'react-konva';
 
-export default function Content({
+export default function CustomText({
   id,
   content,
   fontSize,
@@ -109,4 +109,4 @@ export default function Content({
   );
 }
 
-export const MemoizedContent = React.memo(Content);
+export const MemoizedCustomText = React.memo(CustomText);
