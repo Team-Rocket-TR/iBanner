@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSelectedContentId } from 'slice';
+import { setSelectedTextId } from 'slice';
 
 import styled from 'styled-components';
 
@@ -20,10 +20,10 @@ const FloatButtonArea = styled.div`
 const ExportContainer = ({ canvasRef }) => {
   const dispatch = useDispatch();
 
-  const { selectedContentId } = useSelector((state) => state.contentLayer);
+  const { selectedTextId } = useSelector((state) => state.textLayer);
 
   function handleClickComplete() {
-    dispatch(setSelectedContentId(null));
+    dispatch(setSelectedTextId(null));
   }
 
   function handleClickDownload() {
@@ -36,7 +36,7 @@ const ExportContainer = ({ canvasRef }) => {
 
   return (
     <FloatButtonArea>
-      {(selectedContentId)
+      {(selectedTextId)
         ? <Complete onClick={handleClickComplete} />
         : <Download onClick={handleClickDownload} />}
 

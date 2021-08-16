@@ -7,7 +7,7 @@ import {
   setFontSize,
   setFontFamily,
   setFontWeight,
-  setContentPosition,
+  setTextPosition,
 } from 'slice';
 
 import { Deck, Card } from 'components/card';
@@ -21,18 +21,18 @@ const ContentContainer = () => {
   const dispatch = useDispatch();
 
   const {
-    contents,
-    selectedContentId,
-  } = useSelector((state) => state.contentLayer);
+    texts,
+    selectedTextId,
+  } = useSelector((state) => state.textLayer);
 
-  if (!selectedContentId) {
+  if (!selectedTextId) {
     return (
       <>설정하고 싶은 글자를 선택해주세요!</>
     );
   }
 
-  const contentIndex = contents.findIndex(({ id }) => id === selectedContentId);
-  const contentProperties = contents.find(({ id }) => id === selectedContentId);
+  const contentIndex = texts.findIndex(({ id }) => id === selectedTextId);
+  const contentProperties = texts.find(({ id }) => id === selectedTextId);
   const {
     fontColor,
     fontSize,
@@ -46,13 +46,13 @@ const ContentContainer = () => {
       ...contentProperties,
       fontColor: rgb,
     };
-    const newContents = [
-      ...contents.slice(0, contentIndex),
+    const newtexts = [
+      ...texts.slice(0, contentIndex),
       newContent,
-      ...contents.slice(contentIndex + 1),
+      ...texts.slice(contentIndex + 1),
     ];
 
-    dispatch(setFontColor({ contents: newContents }));
+    dispatch(setFontColor({ texts: newtexts }));
   };
 
   const handleChangeFontSize = ({ value }) => {
@@ -60,13 +60,13 @@ const ContentContainer = () => {
       ...contentProperties,
       fontSize: value,
     };
-    const newContents = [
-      ...contents.slice(0, contentIndex),
+    const newtexts = [
+      ...texts.slice(0, contentIndex),
       newContent,
-      ...contents.slice(contentIndex + 1),
+      ...texts.slice(contentIndex + 1),
     ];
 
-    dispatch(setFontSize({ contents: newContents }));
+    dispatch(setFontSize({ texts: newtexts }));
   };
 
   const handleChangeFontFamily = ({ value }) => {
@@ -74,13 +74,13 @@ const ContentContainer = () => {
       ...contentProperties,
       fontFamily: value,
     };
-    const newContents = [
-      ...contents.slice(0, contentIndex),
+    const newtexts = [
+      ...texts.slice(0, contentIndex),
       newContent,
-      ...contents.slice(contentIndex + 1),
+      ...texts.slice(contentIndex + 1),
     ];
 
-    dispatch(setFontFamily({ contents: newContents }));
+    dispatch(setFontFamily({ texts: newtexts }));
   };
 
   const handleChangeFontWeight = ({ value }) => {
@@ -88,13 +88,13 @@ const ContentContainer = () => {
       ...contentProperties,
       fontWeight: value,
     };
-    const newContents = [
-      ...contents.slice(0, contentIndex),
+    const newtexts = [
+      ...texts.slice(0, contentIndex),
       newContent,
-      ...contents.slice(contentIndex + 1),
+      ...texts.slice(contentIndex + 1),
     ];
 
-    dispatch(setFontWeight({ contents: newContents }));
+    dispatch(setFontWeight({ texts: newtexts }));
   };
 
   const handleChangeContentPosition = ({ value }) => {
@@ -102,13 +102,13 @@ const ContentContainer = () => {
       ...contentProperties,
       position: value,
     };
-    const newContents = [
-      ...contents.slice(0, contentIndex),
+    const newtexts = [
+      ...texts.slice(0, contentIndex),
       newContent,
-      ...contents.slice(contentIndex + 1),
+      ...texts.slice(contentIndex + 1),
     ];
 
-    dispatch(setContentPosition({ contents: newContents }));
+    dispatch(setTextPosition({ texts: newtexts }));
   };
 
   return (

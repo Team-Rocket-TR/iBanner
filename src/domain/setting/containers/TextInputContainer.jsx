@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setContent } from 'slice';
+import { setTextContent } from 'slice';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -43,24 +43,24 @@ export default function TextInputContainer() {
   const dispatch = useDispatch();
 
   const {
-    contents,
-    selectedContentId,
-  } = useSelector((state) => state.contentLayer);
+    texts,
+    selectedTextId,
+  } = useSelector((state) => state.textLayer);
 
   const classes = useStyle();
 
-  const contentProperties = contents.find(({ id }) => id === selectedContentId);
+  const contentProperties = texts.find(({ id }) => id === selectedTextId);
 
   const handleChange = (event) => {
     const { value } = event.target;
 
-    const index = contents.findIndex(({ id }) => id === selectedContentId);
+    const index = texts.findIndex(({ id }) => id === selectedTextId);
     const content = {
       ...contentProperties,
       content: value,
     };
 
-    dispatch(setContent({
+    dispatch(setTextContent({
       index,
       content,
     }));

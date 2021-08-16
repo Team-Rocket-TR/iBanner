@@ -25,9 +25,9 @@ export const initialState = {
     b: 128,
     a: 0,
   },
-  contentLayer: {
-    selectedContentId: 1,
-    contents: [
+  textLayer: {
+    selectedTextId: 1,
+    texts: [
       {
         id: 1,
         content: '',
@@ -149,70 +149,70 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setSelectedContentId(state, { payload: selectedContentId }) {
+    setSelectedTextId(state, { payload: selectedTextId }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          selectedContentId,
+        textLayer: {
+          ...state.textLayer,
+          selectedTextId,
         },
       };
     },
-    setContent(state, { payload: { index, content } }) {
+    setTextContent(state, { payload: { index, content } }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          contents: [
-            ...state.contentLayer.contents.slice(0, index),
+        textLayer: {
+          ...state.textLayer,
+          texts: [
+            ...state.textLayer.texts.slice(0, index),
             content,
-            ...state.contentLayer.contents.slice(index + 1),
+            ...state.textLayer.texts.slice(index + 1),
           ],
         },
       };
     },
-    setFontColor(state, { payload: contents }) {
+    setFontColor(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setFontSize(state, { payload: contents }) {
+    setFontSize(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setFontFamily(state, { payload: contents }) {
+    setFontFamily(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setFontWeight(state, { payload: contents }) {
+    setFontWeight(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
-    setContentPosition(state, { payload: contents }) {
+    setTextPosition(state, { payload: texts }) {
       return {
         ...state,
-        contentLayer: {
-          ...state.contentLayer,
-          ...contents,
+        textLayer: {
+          ...state.textLayer,
+          ...texts,
         },
       };
     },
@@ -239,13 +239,13 @@ export const {
   setImageScale,
   setImageVerticalAlign,
   setImageHorizontalAlign,
-  setSelectedContentId,
-  setContent,
+  setSelectedTextId,
+  setTextContent,
   setFontColor,
   setFontSize,
   setFontFamily,
   setFontWeight,
-  setContentPosition,
+  setTextPosition,
   setBannerSize,
   setWidth,
   setHeight,

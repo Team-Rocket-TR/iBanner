@@ -13,7 +13,7 @@ const BannerMaker = () => {
   const canvasRef = useRef(null);
 
   const theme = useSelector((state) => state.theme);
-  const { selectedContentId } = useSelector((state) => state.contentLayer);
+  const { selectedTextId } = useSelector((state) => state.textLayer);
 
   return (
     <>
@@ -27,7 +27,7 @@ const BannerMaker = () => {
         <SettingContainer />
       </nav>
       <ExportContainer canvasRef={canvasRef} />
-      {(selectedContentId)
+      {(selectedTextId)
         ? (
           <article id="mainArticle">
             <TextInputContainer />

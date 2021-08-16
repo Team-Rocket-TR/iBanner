@@ -5,8 +5,8 @@ import { Layer } from 'react-konva';
 import CustomText from './CustomText';
 
 export default function TextLayer({
-  contents,
-  selectedContentId,
+  texts,
+  selectedTextId,
   onSelect,
 }) {
   function handleSelectContent(id) {
@@ -15,7 +15,7 @@ export default function TextLayer({
 
   return (
     <Layer>
-      {contents.map(({
+      {texts.map(({
         id,
         content,
         fontFamily,
@@ -31,7 +31,7 @@ export default function TextLayer({
           fontSize={fontSize}
           fontColor={fontColor}
           isCentered={position === 'center'}
-          isSelected={id === selectedContentId}
+          isSelected={id === selectedTextId}
           onSelect={() => handleSelectContent(id)}
         />
       ))}
