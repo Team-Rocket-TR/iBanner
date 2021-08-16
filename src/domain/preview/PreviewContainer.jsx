@@ -20,7 +20,7 @@ const PreviewKonva = ({ canvasRef }) => {
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  const layerColor = useSelector((state) => state.previewLayerColor);
+  const layerColor = useSelector((state) => state.rootLayer);
 
   const {
     image,

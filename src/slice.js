@@ -5,7 +5,7 @@ export const initialState = {
   isLightTheme: true,
   width: 500,
   height: 500,
-  previewLayerColor: {
+  rootLayer: {
     r: 46,
     g: 164,
     b: 79,
@@ -225,8 +225,8 @@ const { actions, reducer } = createSlice({
     setPreviewColor(state, { payload: { r, g, b } }) {
       return {
         ...state,
-        previewLayerColor: {
-          ...state.previewLayerColor,
+        rootLayer: {
+          ...state.rootLayer,
           r,
           g,
           b,
