@@ -45,9 +45,9 @@ export default function CustomText({
     transformerCanvas.getLayer().batchDraw();
   });
 
-  function handleClick(event) {
+  function handleClick(e) {
+    e.cancelBubble = true;
     onSelect(id);
-    event.preventDefault();
   }
 
   function handleMouseEnter() {
@@ -85,8 +85,8 @@ export default function CustomText({
         draggable={!isCentered}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={(event) => handleClick(event)}
-        onTap={(event) => handleClick(event)}
+        onClick={handleClick}
+        onTap={handleClick}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
         onTouchStart={handleDragStart}
