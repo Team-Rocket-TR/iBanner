@@ -12,10 +12,10 @@ import {
 
 import { Deck, Card } from 'components/card';
 
-import FontColor from '../components/font/FontColor';
-import FontSize from '../components/font/FontSize';
-import FontStyle from '../components/font/FontStyle';
-import ContentPosition from '../components/font/ContentPosition';
+import FontColor from '../components/text/FontColor';
+import FontSize from '../components/text/FontSize';
+import FontStyle from '../components/text/FontStyle';
+import ContentPosition from '../components/text/ContentPosition';
 
 const TextContainer = () => {
   const dispatch = useDispatch();

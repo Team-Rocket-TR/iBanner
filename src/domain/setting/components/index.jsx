@@ -17,8 +17,8 @@ import ImageAlign from './image/ImageAlign';
 import ImageScale from './image/ImageScale';
 
 // ===== 텍스트 ===== //
-import Content from './font/Content';
-import FontSize from './font/FontSize';
+import Content from './text/Content';
+import FontSize from './text/FontSize';
 
 // ===== 후원하기 ===== //
 import Contributors from './sponsor/Contributors';
