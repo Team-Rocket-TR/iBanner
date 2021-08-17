@@ -105,7 +105,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     #sponsor {
-        width: 20em;
+        width: 15em;
     }
 
     #sponsorText {
@@ -114,6 +114,17 @@ const GlobalStyles = createGlobalStyle`
 
     #iBanner_logo {
         width: 64px;
+    }
+
+    #github-logo {
+        width: 1.5em;
+    }
+
+    #contributors_info {
+        padding: 0 1em 0 1em;
+    }
+    a:first-child {
+        padding: 0 3em 0 1em;
     }
 `;
 
