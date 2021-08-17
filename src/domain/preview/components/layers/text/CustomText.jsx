@@ -85,8 +85,8 @@ export default function CustomText({
         draggable={!isCentered}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={handleClick}
-        onTap={handleClick}
+        onClick={(event) => handleClick(event)}
+        onTap={(event) => handleClick(event)}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
         onTouchStart={handleDragStart}

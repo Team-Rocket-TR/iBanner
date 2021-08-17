@@ -128,7 +128,7 @@ const FontSize = ({ defaultValue, onChange }) => {
             key={`slider-${defaultValue}`}
             defaultValue={Number(defaultValue)}
             marks={marks}
-            onChangeCompleteted={handleChange}
+            onChangeCommitted={handleChange}
           />
         </Grid>
         <Grid item>
