@@ -20,7 +20,7 @@ import LightTheme from 'public/css/LightTheme';
 import {
   GeneralContainer,
   BackgroundContainer,
-  ContentContainer,
+  TextContainer,
   SponsorContainer,
 } from './containers';
 
@@ -35,7 +35,7 @@ const tabs = [
 const tabPanels = [
   { component: <GeneralContainer /> },
   { component: <BackgroundContainer /> },
-  { component: <ContentContainer /> },
+  { component: <TextContainer /> },
   { component: '신규 기능 준비중...' },
   { component: <SponsorContainer /> },
 ];

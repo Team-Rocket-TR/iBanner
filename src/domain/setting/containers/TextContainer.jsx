@@ -17,7 +17,7 @@ import FontSize from '../components/font/FontSize';
 import FontStyle from '../components/font/FontStyle';
 import ContentPosition from '../components/font/ContentPosition';
 
-const ContentContainer = () => {
+const TextContainer = () => {
   const dispatch = useDispatch();
 
   const {
@@ -143,4 +143,4 @@ const ContentContainer = () => {
   );
 };
 
-export default ContentContainer;
+export default TextContainer;
