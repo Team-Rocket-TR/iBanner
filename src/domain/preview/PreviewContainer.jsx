@@ -49,7 +49,8 @@ const PreviewKonva = ({ canvasRef }) => {
     dispatch(setTextPosition({ texts: newTexts }));
   }, []);
 
-  function handClickStage() {
+  function handClickStage(e) {
+    e.evt.stopPropagation();
     dispatch(setSelectedTextId(null));
   }
 
