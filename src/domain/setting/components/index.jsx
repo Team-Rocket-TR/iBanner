@@ -21,6 +21,8 @@ import Content from './font/Content';
 import FontSize from './font/FontSize';
 
 // ===== 후원하기 ===== //
+import Contributors from './sponsor/Contributors';
+import ContactUs from './sponsor/ContactUs';
 import Sponsor from './sponsor/Sponsor';
 
 export {
@@ -37,6 +39,8 @@ export {
   ImageScale,
   Content,
   FontSize,
+  Contributors,
+  ContactUs,
   Sponsor,
   PreviewBanner,
 };
