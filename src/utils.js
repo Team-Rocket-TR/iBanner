@@ -57,8 +57,8 @@ export function hex2rgb(hex) {
   };
 }
 
-export function choiceColorByBackgroundColor({ hexColor, lightHexColor, darkHexColor }) {
+export function choiceColorByBackgroundColor({ hexColor, hexColorWhenLight, hexColorWhenDark }) {
   const { r, g, b } = hex2rgb(hexColor);
-  const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
-  return luma < 127.5 ? lightHexColor : darkHexColor;
+  const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return luma > 127.5 ? hexColorWhenLight : hexColorWhenDark;
 }
