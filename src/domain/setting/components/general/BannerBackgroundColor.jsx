@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 import ColorpickerIcon from '../common/ColorpickerIcon';
 
-const PreviewBanner = ({ color, onChange }) => (
+const BannerBackgroundColor = ({ color, onChange }) => (
   <>
     <Typography variant="h6" gutterBottom>
       미리보기 배경 색상
@@ -16,4 +16,4 @@ const PreviewBanner = ({ color, onChange }) => (
   </>
 );
 
-export default PreviewBanner;
+export default BannerBackgroundColor;

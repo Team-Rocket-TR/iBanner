@@ -5,11 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Deck, Card } from 'components/card';
 
 import {
-  setTheme, setBannerSize, setBannerRatios, setPreviewColor,
+  setTheme,
+  setBannerSize,
+  setBannerRatios,
+  setPreviewColor,
 } from 'slice';
 
 import {
-  ThemeSwitch, BannerSizeRatioButtons, BannerCustom, PreviewBanner,
+  ThemeSwitch,
+  BannerSizeRatioButtons,
+  BannerCustom,
+  BannerBackgroundColor,
 } from 'domain/setting/components';
 
 const BackgroundContainer = () => {
@@ -66,7 +72,7 @@ const BackgroundContainer = () => {
         />
       </Card>
       <Card>
-        <PreviewBanner
+        <BannerBackgroundColor
           color={layerColor}
           onChange={handleChangePreviewBackgroundcolor}
         />
