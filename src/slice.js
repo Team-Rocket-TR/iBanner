@@ -6,9 +6,9 @@ export const initialState = {
   width: 500,
   height: 500,
   rootLayer: {
-    r: 46,
-    g: 164,
-    b: 79,
+    r: 255,
+    g: 255,
+    b: 255,
     a: 1,
   },
   imageLayer: {
@@ -35,11 +35,11 @@ export const initialState = {
         content: '',
         fontFamily: 'Arial, sans-serif',
         fontWeight: 'normal',
-        fontSize: 24,
+        fontSize: 32,
         fontColor: {
-          r: 255,
-          g: 255,
-          b: 255,
+          r: 0,
+          g: 0,
+          b: 0,
           a: 1,
         },
         position: 'center',
