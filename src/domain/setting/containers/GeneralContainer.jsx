@@ -46,7 +46,6 @@ const BackgroundContainer = () => {
 
   // Change Preview Banner BackgroundColor
   const handleChangePreviewBackgroundcolor = (color) => {
-    console.log(color.rgb);
     dispatch(setPreviewColor(color.rgb));
   };
 
