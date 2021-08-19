@@ -22,6 +22,7 @@ const Download = ({ onClick }) => {
     input: {
       position: 'fixed',
       right: '16em',
+      bottom: '1em',
     },
   };
   return (
@@ -29,9 +30,9 @@ const Download = ({ onClick }) => {
       <div style={style.input}>
         <Input
           id="saveAsFilename"
-          placeholder="Title"
+          placeholder="banner"
         />
-        <FormHelperText id="standard-title-helper-text">Title</FormHelperText>
+        <FormHelperText id="standard-title-helper-text">name</FormHelperText>
       </div>
       <Fab
         aria-label="save"
