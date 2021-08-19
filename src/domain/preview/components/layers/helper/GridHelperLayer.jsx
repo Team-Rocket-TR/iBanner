@@ -2,11 +2,13 @@ import React from 'react';
 
 import { Layer } from 'react-konva';
 
+import { rgb2hex, choiceColorByBackgroundColor } from 'utils';
 import GridLine from './GridLine';
 
 export default function GridHelperLayer({
   width,
   height,
+  backgroundColor,
   blockSnapSize = 30,
 }) {
   const padding = blockSnapSize;
@@ -16,6 +18,14 @@ export default function GridHelperLayer({
 
   const halfRowCount = Math.ceil(rowCount / 2);
   const halfColCount = Math.ceil(colCount / 2);
+
+  const hexBackgroundColor = rgb2hex({ ...backgroundColor });
+
+  const stroke = choiceColorByBackgroundColor({
+    hexColor: hexBackgroundColor,
+    hexColorWhenLight: '#888',
+    hexColorWhenDark: '#fff',
+  });
 
   return (
     <Layer>
@@ -29,7 +39,8 @@ export default function GridHelperLayer({
             width,
             Math.round(-i * padding) + height / 2,
           ]}
-          strokeWidth={0.5}
+          stroke={stroke}
+          strokeWidth={0.4}
         />
       ))}
       {Array.from(Array(halfRowCount), (e, i) => (
@@ -41,7 +52,8 @@ export default function GridHelperLayer({
             width,
             Math.round((i + 1) * padding) + height / 2,
           ]}
-          strokeWidth={0.5}
+          stroke={stroke}
+          strokeWidth={0.4}
         />
       ))}
       {/* 세로 줄 */}
@@ -54,7 +66,8 @@ export default function GridHelperLayer({
             Math.round(-i * padding) + width / 2,
             height,
           ]}
-          strokeWidth={0.5}
+          stroke={stroke}
+          strokeWidth={0.4}
         />
       ))}
       {Array.from(Array(halfColCount), (e, i) => (
@@ -66,7 +79,8 @@ export default function GridHelperLayer({
             Math.round((i + 1) * padding) + width / 2,
             height,
           ]}
-          strokeWidth={0.5}
+          stroke={stroke}
+          strokeWidth={0.4}
         />
       ))}
     </Layer>

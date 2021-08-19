@@ -88,6 +88,7 @@ const PreviewKonva = ({ canvasRef }) => {
           <MemoizedGridHelperLayer
             width={width}
             height={height}
+            backgroundColor={layerColor}
           />
         )
         : null}
