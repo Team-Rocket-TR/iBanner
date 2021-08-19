@@ -30,7 +30,7 @@ const ExportContainer = ({ canvasRef }) => {
     const uri = canvasRef.current.toDataURL();
     downloadURI({
       uri,
-      name: 'banner.png',
+      name: document.getElementById('saveAsFilename').value,
     });
   }
 
