@@ -62,3 +62,21 @@ export function choiceColorByBackgroundColor({ hexColor, hexColorWhenLight, hexC
   const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
   return luma > 127.5 ? hexColorWhenLight : hexColorWhenDark;
 }
+
+export function positionByAlign({
+  align,
+  canvasLength,
+  imageLength,
+  imageScale,
+}) {
+  if (align === 'top' || align === 'left') {
+    return 0;
+  }
+  if (align === 'bottom' || align === 'right') {
+    return canvasLength - (imageLength * imageScale);
+  }
+  if (align === 'middle' || align === 'center') {
+    return canvasLength / 2 - (imageLength * imageScale) / 2;
+  }
+  return 0;
+}
