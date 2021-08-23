@@ -16,6 +16,7 @@ import {
   BannerSizeRatioButtons,
   BannerCustom,
   BannerBackgroundColor,
+  BannerLayers,
 } from 'domain/setting/components';
 
 const BackgroundContainer = () => {
@@ -72,6 +73,12 @@ const BackgroundContainer = () => {
       </Card>
       <Card>
         <BannerBackgroundColor
+          color={layerColor}
+          onChange={handleChangePreviewBackgroundcolor}
+        />
+      </Card>
+      <Card>
+        <BannerLayers
           color={layerColor}
           onChange={handleChangePreviewBackgroundcolor}
         />
