@@ -12,6 +12,7 @@ export const initialState = {
     a: 1,
   },
   imageLayer: {
+    visible: true,
     image: '',
     scale: 1,
     sizeX: 0,
@@ -20,6 +21,7 @@ export const initialState = {
     alignY: 'middle',
   },
   filterLayer: {
+    visible: true,
     backgroundColor: {
       r: 128,
       g: 128,
@@ -28,6 +30,7 @@ export const initialState = {
     },
   },
   textLayer: {
+    visible: true,
     selectedTextId: 1,
     texts: [
       {
@@ -84,6 +87,23 @@ const { actions, reducer } = createSlice({
         ...state,
         width,
         height,
+      };
+    },
+    setPreviewColor(state, { payload: { r, g, b } }) {
+      return {
+        ...state,
+        rootLayer: {
+          ...state.rootLayer,
+          r,
+          g,
+          b,
+        },
+      };
+    },
+    setLayerVisibility(state, { payload: layer, visible }) {
+      return {
+        ...state,
+        [layer]: visible,
       };
     },
     setImageUri(state, { payload: image }) {
@@ -222,17 +242,6 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setPreviewColor(state, { payload: { r, g, b } }) {
-      return {
-        ...state,
-        rootLayer: {
-          ...state.rootLayer,
-          r,
-          g,
-          b,
-        },
-      };
-    },
   },
 });
 
@@ -256,9 +265,8 @@ export const {
   setWidth,
   setHeight,
   setBannerRatios,
-  setMainBackgroundColor,
-  setMainNavBackgroundColor,
   setPreviewColor,
+  setLayerVisibility,
 } = actions;
 
 export default reducer;
