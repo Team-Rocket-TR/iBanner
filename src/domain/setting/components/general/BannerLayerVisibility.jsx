@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const BannerLayers = () => {
+const BannerLayerVisibility = () => {
   const classes = useStyles();
 
   const layers = [
@@ -94,4 +94,4 @@ const BannerLayers = () => {
   );
 };
 
-export default BannerLayers;
+export default BannerLayerVisibility;
