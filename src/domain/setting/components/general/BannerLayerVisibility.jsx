@@ -17,7 +17,7 @@ import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 
 import VisibilityIcon from '@material-ui/icons/Visibility';
-// import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -30,29 +30,39 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const BannerLayerVisibility = () => {
+const BannerLayerVisibility = ({ layerVisibility, onClick }) => {
   const classes = useStyles();
 
   const layers = [
     {
-      id: 0,
+      id: 'imageLayer',
+      visible: layerVisibility.imageLayerVisible,
       title: '이미지 레이어',
       subtitle: 'Image layer',
       icon: <PhotoIcon />,
     },
     {
-      id: 1,
+      id: 'filterLayer',
+      visible: layerVisibility.filterLayerVisible,
       title: '필터 레이어',
       subtitle: 'Filter layer',
       icon: <PhotoFilterIcon />,
     },
     {
-      id: 2,
+      id: 'textLayer',
+      visible: layerVisibility.textLayerVisible,
       title: '텍스트 레이어',
       subtitle: 'Text layer',
       icon: <TextFieldsIcon />,
     },
   ];
+
+  const handleClick = ({ id, visible }) => {
+    onClick({
+      layer: id,
+      visible: !visible,
+    });
+  };
 
   return (
     <>
@@ -64,7 +74,7 @@ const BannerLayerVisibility = () => {
       </Typography>
       <List className={classes.root}>
         {layers.map(({
-          id, icon, title, subtitle,
+          id, visible, icon, title, subtitle,
         }) => (
           <ListItem
             key={id}
@@ -83,8 +93,11 @@ const BannerLayerVisibility = () => {
               <IconButton
                 edge="end"
                 aria-label="hide"
+                onClick={() => handleClick({ id, visible })}
               >
-                <VisibilityIcon />
+                {visible
+                  ? <VisibilityIcon />
+                  : <VisibilityOffIcon />}
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>

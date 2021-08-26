@@ -100,10 +100,13 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-    setLayerVisibility(state, { payload: layer, visible }) {
+    setLayerVisibility(state, { payload: { layer, visible } }) {
       return {
         ...state,
-        [layer]: visible,
+        [layer]: {
+          ...state[layer],
+          visible,
+        },
       };
     },
     setImageUri(state, { payload: image }) {
