@@ -4,23 +4,7 @@ import { Layer, Image } from 'react-konva';
 
 import useImage from 'use-image';
 
-const xyPosByAlign = ({
-  align,
-  canvasLength,
-  imageLength,
-  imageScale,
-}) => {
-  if (align === 'top' || align === 'left') {
-    return 0;
-  }
-  if (align === 'bottom' || align === 'right') {
-    return canvasLength - (imageLength * imageScale);
-  }
-  if (align === 'middle' || align === 'center') {
-    return canvasLength / 2 - (imageLength * imageScale) / 2;
-  }
-  return 0;
-};
+import { positionByAlign } from 'utils';
 
 export default function ImageLayer({
   url,
@@ -31,14 +15,14 @@ export default function ImageLayer({
 }) {
   const [image] = useImage(url);
 
-  const pointX = xyPosByAlign({
+  const pointX = positionByAlign({
     align: align.x,
     canvasLength: canvas.width,
     imageLength: size.width,
     imageScale: scale.x,
   });
 
-  const pointY = xyPosByAlign({
+  const pointY = positionByAlign({
     align: align.y,
     canvasLength: canvas.height,
     imageLength: size.height,

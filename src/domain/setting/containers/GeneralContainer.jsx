@@ -9,6 +9,7 @@ import {
   setBannerSize,
   setBannerRatios,
   setPreviewColor,
+  setLayerVisibility,
 } from 'slice';
 
 import {
@@ -16,17 +17,23 @@ import {
   BannerSizeRatioButtons,
   BannerCustom,
   BannerBackgroundColor,
+  BannerLayerVisibility,
 } from 'domain/setting/components';
 
 const BackgroundContainer = () => {
   const dispatch = useDispatch();
 
+  const isLightTheme = useSelector((state) => state.isLightTheme);
+
   const width = useSelector((state) => state.width);
   const height = useSelector((state) => state.height);
 
-  const isLightTheme = useSelector((state) => state.isLightTheme);
-
-  const layerColor = useSelector((state) => state.rootLayer);
+  const rootLayer = useSelector((state) => state.rootLayer);
+  const layerVisibility = useSelector((state) => ({
+    imageLayerVisible: state.imageLayer.visible,
+    filterLayerVisible: state.filterLayer.visible,
+    textLayerVisible: state.textLayer.visible,
+  }));
 
   // Custom Change banner size
   const handleChangeBannerSize = ({ name, value }) => {
@@ -40,13 +47,19 @@ const BackgroundContainer = () => {
 
   // Change Theme (Dark theme & Light theme)
   const handleChangeTheme = (lightTheme) => {
-    const theme = (lightTheme) ? { theme: 'light', isLightTheme: true } : { theme: 'dark', isLightTheme: false };
+    const theme = (lightTheme)
+      ? { theme: 'light', isLightTheme: true }
+      : { theme: 'dark', isLightTheme: false };
     dispatch(setTheme(theme));
   };
 
   // Change Preview Banner BackgroundColor
   const handleChangePreviewBackgroundcolor = (color) => {
     dispatch(setPreviewColor(color.rgb));
+  };
+
+  const handleClickLayerVisibility = ({ layer, visible }) => {
+    dispatch(setLayerVisibility({ layer, visible }));
   };
 
   return (
@@ -72,8 +85,14 @@ const BackgroundContainer = () => {
       </Card>
       <Card>
         <BannerBackgroundColor
-          color={layerColor}
+          color={rootLayer}
           onChange={handleChangePreviewBackgroundcolor}
+        />
+      </Card>
+      <Card>
+        <BannerLayerVisibility
+          layerVisibility={layerVisibility}
+          onClick={handleClickLayerVisibility}
         />
       </Card>
     </Deck>

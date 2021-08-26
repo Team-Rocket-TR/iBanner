@@ -20,10 +20,6 @@ export default function CustomText({
   const transformerRef = useRef();
 
   useEffect(() => {
-    if (!isSelected) {
-      return;
-    }
-
     const contentCanvas = textRef.current;
     const parentLayer = contentCanvas.getLayer();
 
@@ -38,6 +34,10 @@ export default function CustomText({
       contentCanvas.offsetY(contentCanvas.height() / 2);
 
       parentLayer.batchDraw();
+    }
+
+    if (!isSelected) {
+      return;
     }
 
     const transformerCanvas = transformerRef.current;

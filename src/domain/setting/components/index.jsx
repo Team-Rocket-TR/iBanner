@@ -9,6 +9,7 @@ import BannerSizeRatioButton from './general/BannerSizeRatioButton';
 import BannerCustomSize from './general/BannerCustomSize';
 import BannerCustom from './general/BannerCustom';
 import BannerBackgroundColor from './general/BannerBackgroundColor';
+import BannerLayerVisibility from './general/BannerLayerVisibility';
 
 // ===== 배경화면 ===== //
 import BackgroundColorpicker from './background/BackgroundColorpicker';
@@ -33,6 +34,8 @@ export {
   BannerSizeRatioButton,
   BannerCustom,
   BannerCustomSize,
+  BannerBackgroundColor,
+  BannerLayerVisibility,
   BackgroundColorpicker,
   ImageFile,
   ImageAlign,
@@ -42,5 +45,4 @@ export {
   Contributors,
   ContactUs,
   Sponsor,
-  BannerBackgroundColor,
 };

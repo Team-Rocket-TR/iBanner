@@ -23,6 +23,7 @@ const PreviewKonva = ({ canvasRef }) => {
   const layerColor = useSelector((state) => state.rootLayer);
 
   const {
+    visible: imageLayerVisibility,
     image,
     scale,
     sizeX,
@@ -31,11 +32,15 @@ const PreviewKonva = ({ canvasRef }) => {
     alignY,
   } = useSelector((state) => state.imageLayer);
 
-  const { backgroundColor } = useSelector((state) => state.filterLayer);
+  const {
+    visible: filterLayerVisibility,
+    backgroundColor,
+  } = useSelector((state) => state.filterLayer);
 
   const {
-    texts,
+    visible: textLayerVisibility,
     selectedTextId,
+    texts,
   } = useSelector((state) => state.textLayer);
 
   useEffect(() => {
@@ -71,32 +76,40 @@ const PreviewKonva = ({ canvasRef }) => {
         width={width}
         height={height}
       />
-      <MemoizedImageLayer
-        url={image}
-        size={{ width: sizeX, height: sizeY }}
-        scale={{ x: scale, y: scale }}
-        align={{ x: alignX, y: alignY }}
-        canvas={{ width, height }}
-      />
-      <MemoizedFilterLayer
-        fill={backgroundColor}
-        width={width}
-        height={height}
-      />
-      {(selectedTextId)
+      {imageLayerVisibility
+        ? (
+          <MemoizedImageLayer
+            url={image}
+            size={{ width: sizeX, height: sizeY }}
+            scale={{ x: scale, y: scale }}
+            align={{ x: alignX, y: alignY }}
+            canvas={{ width, height }}
+          />
+        ) : null}
+      {filterLayerVisibility
+        ? (
+          <MemoizedFilterLayer
+            fill={backgroundColor}
+            width={width}
+            height={height}
+          />
+        ) : null}
+      {selectedTextId
         ? (
           <MemoizedGridHelperLayer
             width={width}
             height={height}
             backgroundColor={layerColor}
           />
-        )
-        : null}
-      <MemoizedTextLayer
-        texts={texts}
-        selectedTextId={selectedTextId}
-        onSelect={handleSelectContent}
-      />
+        ) : null}
+      {textLayerVisibility
+        ? (
+          <MemoizedTextLayer
+            texts={texts}
+            selectedTextId={selectedTextId}
+            onSelect={handleSelectContent}
+          />
+        ) : null}
     </Stage>
   );
 };
