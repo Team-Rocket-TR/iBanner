@@ -68,7 +68,7 @@ export default function CustomText({
   }
 
   function handleDragEnd() {
-    document.body.style.cursor = 'grabbing';
+    document.body.style.cursor = 'grab';
   }
 
   return (

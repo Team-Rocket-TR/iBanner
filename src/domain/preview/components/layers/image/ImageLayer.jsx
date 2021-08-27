@@ -29,6 +29,26 @@ export default function ImageLayer({
     imageScale: scale.y,
   });
 
+  function handleClick(e) {
+    e.cancelBubble = true;
+  }
+
+  function handleMouseEnter() {
+    document.body.style.cursor = 'grab';
+  }
+
+  function handleMouseLeave() {
+    document.body.style.cursor = 'default';
+  }
+
+  function handleDragStart() {
+    document.body.style.cursor = 'grabbing';
+  }
+
+  function handleDragEnd() {
+    document.body.style.cursor = 'grab';
+  }
+
   return (
     <Layer>
       <Image
@@ -36,6 +56,15 @@ export default function ImageLayer({
         scale={scale}
         x={pointX}
         y={pointY}
+        draggable
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        onTap={handleClick}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        onTouchStart={handleDragStart}
+        onTouchEnd={handleDragEnd}
       />
     </Layer>
   );
