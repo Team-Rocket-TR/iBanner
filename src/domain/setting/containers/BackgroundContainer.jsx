@@ -87,7 +87,7 @@ const BackgroundContainer = () => {
       component: (
         <ColorpickerIcon
           color={backgroundColor}
-          onChangeBackgroundcolor={handleChangeFilterBackgroundColor}
+          onChange={handleChangeFilterBackgroundColor}
         />
       ),
     },

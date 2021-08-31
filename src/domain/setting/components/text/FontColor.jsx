@@ -15,7 +15,7 @@ const FontColor = ({ color, onChange }) => (
     </Typography>
     <ColorpickerIcon
       color={color}
-      onChangeBackgroundcolor={onChange}
+      onChange={onChange}
     />
   </>
 );
