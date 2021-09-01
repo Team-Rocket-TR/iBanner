@@ -90,6 +90,7 @@ const FontFamily = ({ defaultValue, onChange }) => {
                 <option
                   key={font}
                   value={font}
+                  style={{ fontFamily: `${font}` }}
                 >
                   {fontName}
                 </option>
