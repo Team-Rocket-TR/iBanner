@@ -76,6 +76,7 @@ export default function TextInputContainer() {
         label="제목"
         value={contentProperties.content}
         onChange={handleChange}
+        inputProps={{ style: { fontFamily: `${contentProperties.fontFamily}` } }}
         rowsMax={3.4}
         variant="outlined"
         multiline
