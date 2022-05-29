@@ -17,7 +17,7 @@ import {
 } from 'slice';
 
 import {
-  ColorpickerIcon,
+  CombinedColorPicker,
   AlphaPickerIcon,
   ImageFile,
   ImageAlign,
@@ -83,16 +83,16 @@ const BackgroundContainer = () => {
 
   const backgroundSettings = [
     {
-      title: '배경 색상',
+      title: '필터 색상',
       component: (
-        <ColorpickerIcon
+        <CombinedColorPicker
           color={backgroundColor}
-          onChangeBackgroundcolor={handleChangeFilterBackgroundColor}
+          onChange={handleChangeFilterBackgroundColor}
         />
       ),
     },
     {
-      title: '배경 투명도',
+      title: '필터 투명도',
       component: (
         <AlphaPickerIcon
           color={backgroundColor}

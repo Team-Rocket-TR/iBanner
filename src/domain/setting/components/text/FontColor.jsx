@@ -2,7 +2,7 @@ import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
 
-import ColorpickerIcon from '../common/ColorpickerIcon';
+import CombinedColorPicker from '../common/CombinedColorPicker';
 
 const FontColor = ({ color, onChange }) => (
   <>
@@ -13,9 +13,9 @@ const FontColor = ({ color, onChange }) => (
     >
       글자 색상
     </Typography>
-    <ColorpickerIcon
+    <CombinedColorPicker
       color={color}
-      onChangeBackgroundcolor={onChange}
+      onChange={onChange}
     />
   </>
 );
