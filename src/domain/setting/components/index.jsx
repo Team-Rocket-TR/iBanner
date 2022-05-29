@@ -1,5 +1,5 @@
 // ===== 공통 ===== //
-import ColorpickerIcon from './common/ColorpickerIcon';
+import CombinedColorPicker from './common/CombinedColorPicker';
 import AlphaPickerIcon from './common/AlphaPickerIcon';
 
 // ===== 기본설정 ===== //
@@ -27,7 +27,7 @@ import ContactUs from './sponsor/ContactUs';
 import Sponsor from './sponsor/Sponsor';
 
 export {
-  ColorpickerIcon,
+  CombinedColorPicker,
   AlphaPickerIcon,
   ThemeSwitch,
   BannerSizeRatioButtons,

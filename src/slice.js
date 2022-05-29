@@ -158,6 +158,7 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         filterLayer: {
+          ...state.filterLayer,
           backgroundColor: {
             ...state.filterLayer.backgroundColor,
             r,
@@ -171,6 +172,7 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         filterLayer: {
+          ...state.filterLayer,
           backgroundColor: {
             ...state.filterLayer.backgroundColor,
             a: alpha,

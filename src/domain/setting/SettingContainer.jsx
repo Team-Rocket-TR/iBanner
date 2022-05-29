@@ -26,7 +26,7 @@ import {
 
 const tabs = [
   { icon: <SettingsIcon />, label: '기본설정' },
-  { icon: <ImageIcon />, label: '배경화면' },
+  { icon: <ImageIcon />, label: '이미지' },
   { icon: <TextFieldsIcon />, label: '텍스트' },
   { icon: <FavoriteIcon />, label: '즐겨찾기' },
   { icon: <MoneyIcon />, label: '후원하기' },

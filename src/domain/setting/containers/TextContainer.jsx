@@ -27,7 +27,9 @@ const TextContainer = () => {
 
   if (!selectedTextId) {
     return (
-      <>설정하고 싶은 글자를 선택해주세요!</>
+      <>
+        설정하고 싶은 글자를 선택해주세요!
+      </>
     );
   }
 
@@ -46,6 +48,7 @@ const TextContainer = () => {
       ...contentProperties,
       fontColor: rgb,
     };
+
     const newtexts = [
       ...texts.slice(0, contentIndex),
       newContent,
